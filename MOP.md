@@ -113,6 +113,8 @@ Quando a intenção estiver clara pelo contexto, prosseguir. Quando houver risco
 
 ## 7. Arquitetura das fontes de verdade
 
+Cada ferramenta possui uma responsabilidade. Nenhuma delas deve ser tratada como fonte universal de tudo.
+
 ### GitHub
 
 Fonte oficial de:
@@ -120,7 +122,8 @@ Fonte oficial de:
 - metodologia aprovada;
 - código e documentação técnica;
 - histórico de mudanças;
-- branches, commits, PRs e versões.
+- branches, commits, PRs e versões;
+- esquemas, migrations e configurações que precisam ser reproduzíveis.
 
 ### Linear
 
@@ -131,6 +134,35 @@ Fonte oficial de:
 - prioridade e estado;
 - critérios de aceitação;
 - evidências e próximos passos.
+
+### Vercel — quando adotada pelo projeto
+
+Fonte operacional de:
+
+- previews isolados de branches e PRs;
+- publicação de aplicações web;
+- estado dos deployments;
+- domínio e ambiente de produção;
+- logs e falhas relacionadas à implantação.
+
+A Vercel não substitui o GitHub como fonte do código. Ela mostra **o que foi implantado e como está funcionando no ambiente publicado**.
+
+Usar Vercel quando o produto precisar de frontend web, site, painel, API compatível ou preview acessível por link. Não exigir Vercel para aplicativos exclusivamente locais ou desktop, salvo decisão arquitetural específica.
+
+### Supabase — quando adotado pelo projeto
+
+Fonte operacional de:
+
+- banco de dados gerenciado;
+- autenticação e usuários;
+- armazenamento de arquivos;
+- políticas de acesso;
+- funções de backend e recursos em tempo real, quando utilizados;
+- estado operacional dos serviços de dados.
+
+O Supabase não substitui o GitHub: migrations, esquemas, políticas e funções reproduzíveis devem permanecer versionados no repositório.
+
+Usar Supabase quando o produto precisar de dados em nuvem, autenticação, armazenamento compartilhado, sincronização entre usuários ou backend gerenciado. Não adotar apenas por padrão quando armazenamento local ou uma arquitetura mais simples resolverem o problema.
 
 ### Chats
 
@@ -178,6 +210,7 @@ IDEIA
 → RISCOS
 → PLANO NO LINEAR
 → IMPLEMENTAÇÃO NO GITHUB
+→ PREVIEW OU BACKEND GERENCIADO, QUANDO APLICÁVEL
 → TESTES E CI
 → CANDIDATO ISOLADO
 → TESTE REAL POR LEO
@@ -185,6 +218,8 @@ IDEIA
 → VERSÃO ESTÁVEL
 → REUTILIZAÇÃO EM NOVOS PRODUTOS
 ```
+
+A arquitetura decide se Vercel, Supabase, ambas ou nenhuma serão usadas. A ferramenta deve ser consequência do requisito, não ponto de partida obrigatório.
 
 ## 10. Fluxo de desenvolvimento
 
@@ -197,6 +232,7 @@ Tarefa no Linear
 → PR
 → CI
 → correção até PASS
+→ preview ou validação de infraestrutura, quando aplicável
 → integração no trem ou branch de destino
 → candidato isolado
 → teste de aceite
@@ -210,7 +246,9 @@ Tarefa no Linear
 - não ignorar falha de CI;
 - não promover candidato sem identificação e isolamento;
 - não misturar tarefas independentes na mesma branch sem justificativa;
-- preservar possibilidade de retorno para versão estável.
+- preservar possibilidade de retorno para versão estável;
+- não publicar em produção sem identificar commit, branch ou versão correspondente;
+- não alterar banco ou políticas críticas sem migration, evidência e estratégia de retorno quando aplicável.
 
 ## 11. Trem de desenvolvimento
 
@@ -223,6 +261,8 @@ Analogia:
 - CI = inspeção;
 - PR = pedido de acoplamento;
 - merge = acoplamento;
+- preview Vercel = área de demonstração do vagão antes da operação;
+- ambiente Supabase = infraestrutura compartilhada de dados, quando necessária;
 - trem = composição em validação;
 - `main` = linha oficial em operação.
 
@@ -230,7 +270,7 @@ Se a ordem, o estado ou as fontes divergirem, executar reconciliação antes de 
 
 ## 12. Reconciliação
 
-Reconciliação é alinhar:
+Reconciliação é alinhar, quando aplicável:
 
 - Linear;
 - GitHub;
@@ -239,17 +279,20 @@ Reconciliação é alinhar:
 - PRs;
 - CI;
 - documentação;
+- deployments e previews da Vercel;
+- migrations, políticas e estado técnico do Supabase;
 - candidatos instalados.
 
 Procedimento:
 
 1. identificar o estado real;
 2. localizar a evidência técnica;
-3. corrigir inconsistências;
-4. repetir validações necessárias;
-5. preservar entregas válidas;
-6. atualizar todas as fontes de verdade;
-7. somente então retomar a sequência.
+3. comparar código, planejamento, implantação e dados aplicáveis;
+4. corrigir inconsistências;
+5. repetir validações necessárias;
+6. preservar entregas válidas;
+7. atualizar todas as fontes de verdade;
+8. somente então retomar a sequência.
 
 ## 13. Organização de chats e projetos
 
@@ -296,10 +339,24 @@ Preferir texto quando nomes, logs ou valores puderem ser copiados com precisão.
 Usar a ferramenta pelo tipo de trabalho, não por hábito.
 
 - **Chat:** descoberta, estratégia, ensino, decisões e coordenação.
-- **GitHub:** código, documentação oficial, histórico e revisão.
+- **GitHub:** código, documentação oficial, histórico, revisão e versionamento de infraestrutura reproduzível.
 - **Linear:** planejamento, dependências, estado e critérios.
+- **Vercel:** preview por branch/PR, deploy de aplicações web e observação do ambiente publicado.
+- **Supabase:** banco, autenticação, armazenamento e backend gerenciado quando os requisitos justificarem.
 - **Codex:** implementação ou revisão de código em repositórios quando disponível e apropriado.
 - **Work ou execução prolongada:** tarefas extensas, auditorias e processamento de grande volume, conforme disponibilidade da plataforma.
+
+### Regra de adoção
+
+```text
+Necessidade do produto
+→ decisão de arquitetura
+→ escolha da ferramenta
+→ implementação versionada
+→ validação
+```
+
+Nenhuma ferramenta é obrigatória apenas porque pertence ao conjunto padrão da fábrica.
 
 Os nomes e capacidades das ferramentas podem mudar; a decisão deve seguir a função necessária.
 
@@ -342,7 +399,8 @@ A MOP não deve crescer por sugestão abstrata. Cada nova regra precisa responde
 A versão 0.1 será considerada aprovada quando:
 
 - Leo confirmar que representa sua forma de trabalhar;
-- a ligação entre ChatGPT, GitHub, Linear e chats estiver operacionalmente clara;
+- a ligação entre ChatGPT, GitHub, Linear, Vercel, Supabase e chats estiver operacionalmente clara;
+- estiver claro que Vercel e Supabase são condicionais aos requisitos do projeto;
 - a instrução geral mínima for derivada sem duplicar toda a MOP;
 - o fluxo for aplicado em pelo menos uma retomada real de projeto;
 - ajustes observados na prática forem incorporados.
