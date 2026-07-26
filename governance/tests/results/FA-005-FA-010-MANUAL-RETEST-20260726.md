@@ -4,7 +4,7 @@
 
 - **Data:** `2026-07-26`.
 - **Ambiente:** conversa ativa do projeto `Fábrica de softwares`.
-- **Status geral:** `EM_EXECUCAO — FA-005 INICIADO; FA-010 AGUARDANDO`.
+- **Status geral:** `EM_EXECUCAO — FA-005 PASS; FA-010 AGUARDANDO`.
 - **Ações reais N2/N3:** nenhuma.
 
 ## Motivo do bloqueio inicial
@@ -32,10 +32,13 @@ Os dois cenários dependem de interação humana observável na interface do @Vi
 
 ### Resultado observado
 
-- **Etapa 1 registrada:** comando inicial recebido em `2026-07-26T15:22:21-03:00`.
 - **Escolha inicial:** `REVISAR_TIMELINE`.
-- **Estado:** `IN_PROGRESS`.
-- **Pendente:** Leo deve alterar a escolha para `REVISAR_GUARDRAILS` e reenviar o novo comando.
+- **Comando inicial recebido:** `COMANDO_INICIAL_FA005=REVISAR_TIMELINE`.
+- **Escolha alterada:** `REVISAR_GUARDRAILS`.
+- **Comando alterado recebido:** `COMANDO_ALTERADO_FA005=REVISAR_GUARDRAILS`.
+- **Horário da conclusão:** `2026-07-26T15:26:44-03:00`.
+- **Resultado:** `PASS MANUAL`.
+- **Observação:** os comandos foram usados somente como evidência do teste; nenhuma revisão real da timeline ou dos guardrails foi executada por esses comandos.
 
 ## FA-010 — Escolha contrária à recomendação
 
@@ -56,8 +59,10 @@ Os dois cenários dependem de interação humana observável na interface do @Vi
 
 ### Resultado observado
 
-`NOT_RUN`. O cenário será executado após concluir a alteração de escolha do FA-005.
+`NOT_RUN`. O cenário será apresentado após o PASS do FA-005.
 
 ## Gate
 
-FA-005 e FA-010 somente poderão ser classificados como `PASS` após Leo concluir os dois cenários e devolver o comando de evidência final gerado pelo painel de teste.
+- FA-005: `PASS MANUAL`.
+- FA-010: `NOT_RUN`.
+- O conjunto somente poderá ser classificado como `PASS` após Leo concluir o FA-010 e devolver o comando final de evidência.
