@@ -30,23 +30,65 @@ A MOP transforma ideias em produtos digitais por meio de um fluxo padronizado, r
 - preparam candidatos isolados para validação;
 - explicam decisões com analogias ligadas a operações, redes, indústria e gestão.
 
-## Fonte de verdade
+## Fontes de verdade
 
 - **GitHub:** metodologia oficial, histórico, versões e mudanças aprovadas;
 - **Linear:** planejamento, tarefas, dependências e estado operacional;
-- **Chats:** discussão e execução corrente; não substituem a documentação oficial.
+- **Chats:** discussão e execução corrente; não substituem a documentação oficial;
+- **Timeline:** contexto temporal, decisões, execuções, evidências e retomadas;
+- **Registro de decisões:** estado canônico das decisões e pendências.
 
-## Estrutura inicial
+## Arquitetura documental em validação
+
+```text
+Cultura e Constituição da PREDIX
+                ↓
+Metodologia Operacional PREDIX — MOP
+                ↓
+Procedimentos Operacionais Padrão — POPs
+                ↓
+Registro de decisões e pendências
+                ↓
+Timeline, evidências e execução dos projetos
+```
+
+## Estrutura da branch de trabalho
 
 ```text
 predix-methodology/
-├── README.md   # visão, autoridade e entrada da metodologia
-└── MOP.md      # metodologia operacional principal
+├── README.md
+├── TIMELINE.md
+├── governance/
+│   ├── ARCHITECTURE.md
+│   ├── CULTURE-DISCOVERY.md
+│   ├── CULTURE-DECISION-PACK.md
+│   ├── DECISION-REGISTER.md
+│   ├── GUARDRAILS.md
+│   ├── RECOVERY.md
+│   ├── reviews/
+│   └── tests/
+└── timeline/
+    ├── SCHEMA.md
+    ├── GLOBAL-INGESTION-PLAN.md
+    └── 2026/
+        └── 07/
+            └── AAAA-MM-DD.md
 ```
 
-Novos documentos somente serão criados quando houver ganho operacional comprovado.
+Novos documentos somente serão criados quando houver ganho operacional comprovado, responsabilidade definida e fonte canônica clara.
+
+## Continuidade obrigatória
+
+Nenhuma decisão pendente pode desaparecer por mudança de assunto. Toda decisão relevante deve ser concluída, rejeitada, substituída, bloqueada com condição de retomada ou preservada na fila de pendências.
 
 ## Estado
 
 - Repositório iniciado em 25 de julho de 2026.
-- MOP v0.1 em preparação.
+- MOP v0.1 em preparação no PR #1.
+- Arquitetura Cultura–MOP–POPs em validação no PR #2.
+- Guardrails v0.4 provisórios, com detecção, severidade e recuperação documentadas.
+- FA-001 a FA-010 executados com limitações de evidência; demais grupos continuam pendentes.
+- Timeline com esquema v0.2 provisório e remediação estrutural TL-R01 a TL-R10; testes completos ainda pendentes.
+- Cultura definitiva não aprovada; existe apenas descoberta e pacote de decisão candidato.
+- Instrução global e captura automática de todos os chats continuam bloqueadas.
+- Nenhum merge desta branch foi realizado.
