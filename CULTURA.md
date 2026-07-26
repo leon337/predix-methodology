@@ -1,13 +1,13 @@
 # Cultura e Constituição PREDIX — Minuta
 
-**Versão:** `0.2-draft`  
-**Estado:** decisões parciais registradas; documento não aprovado  
+**Versão:** `0.3-draft`  
+**Estado:** decisões das rodadas 1 e 2 registradas; documento não aprovado  
 **Autoridade final:** Leo  
 **Fonte de trabalho:** branch `mop/timeline-conversas-20260726`
 
 ## 1. Natureza deste documento
 
-Esta é a primeira minuta da Cultura e Constituição da PREDIX. Ela reúne somente decisões explicitamente tomadas e separa, de forma visível, conteúdos aprovados, candidatos e pendentes.
+Esta é a minuta da Cultura e Constituição da PREDIX. Ela reúne somente decisões explicitamente tomadas e separa, de forma visível, conteúdos aprovados, candidatos e pendentes.
 
 Esta minuta:
 
@@ -23,7 +23,7 @@ Esta minuta:
 
 **Estado:** aprovado por Leo na rodada 1 de 26 de julho de 2026.
 
-## 3. Estratégia de público aprovada
+## 3. Estratégia de atuação aprovada
 
 A PREDIX atuará em duas frentes com igual prioridade estratégica:
 
@@ -54,31 +54,29 @@ A PREDIX atuará em duas frentes com igual prioridade estratégica:
 3. a alocação deve considerar capacidade disponível, retorno esperado, urgência real e dependências;
 4. priorizar uma frente em um ciclo não rebaixa permanentemente a outra;
 5. decisões de alocação devem ser registradas e revisadas no fechamento do ciclo;
-6. conflitos entre urgência e retorno devem ser apresentados a Leo com recomendação e impactos.
+6. conflitos entre urgência e retorno devem ser apresentados a Leo com recomendação e impactos;
+7. nenhuma frente pode ser abandonada silenciosamente;
+8. compromissos críticos e dependências existentes devem ser preservados ou replanejados explicitamente.
 
-**Estado:** aprovado por Leo em 26 de julho de 2026.
+**Estado:** aprovada por Leo na rodada 2 de 26 de julho de 2026.
 
-## 5. Horizonte da visão aprovado
+## 5. Horizonte e visão aprovados
 
 A visão institucional da PREDIX terá horizonte de **10 anos**.
 
-**Estado:** horizonte aprovado por Leo na rodada 1.
+> Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
 
-A redação final da visão, seus marcos intermediários e indicadores ainda precisam ser aprovados.
+**Estado:** horizonte aprovado na rodada 1 e redação aprovada por Leo na rodada 2.
 
-## 6. Missão candidata
+Os marcos intermediários e indicadores para 3, 5 e 10 anos continuam pendentes.
+
+## 6. Missão aprovada
 
 > Projetar, construir e evoluir sistemas, aplicativos e agentes de IA com autonomia controlada, evidências verificáveis, explicação acessível e responsabilidade sobre resultados.
 
-**Estado:** candidata; não aprovada.
+**Estado:** aprovada por Leo na rodada 2 de 26 de julho de 2026.
 
-## 7. Visão candidata para 10 anos
-
-> Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
-
-**Estado:** redação candidata; somente o horizonte de 10 anos está aprovado.
-
-## 8. Valores candidatos
+## 7. Valores candidatos
 
 - verdade operacional;
 - clareza;
@@ -93,7 +91,7 @@ A redação final da visão, seus marcos intermediários e indicadores ainda pre
 
 **Estado:** todos permanecem candidatos até classificação explícita.
 
-## 9. Regras constitucionais já sustentadas por decisões anteriores
+## 8. Regras constitucionais já sustentadas por decisões anteriores
 
 Mesmo antes da aprovação final desta Constituição, as seguintes regras continuam vigentes no fluxo em validação:
 
@@ -104,21 +102,22 @@ Mesmo antes da aprovação final desta Constituição, as seguintes regras conti
 5. segurança, verdade operacional e evidência prevalecem sobre velocidade;
 6. alto risco não deve ser autoaprovado pelo mesmo contexto que implementou;
 7. nenhum documento candidato pode ser apresentado como versão final;
-8. nenhum merge ou produção ocorre sem autorização explícita aplicável.
+8. nenhum merge ou produção ocorre sem autorização explícita aplicável;
+9. mudança de alocação entre as duas frentes deve ser registrada e justificada;
+10. prioridade dinâmica não pode apagar compromissos, dependências ou decisões pendentes.
 
-## 10. Decisões ainda pendentes
+## 9. Decisões ainda pendentes
 
-- missão definitiva;
-- redação final da visão de 10 anos;
 - valores inegociáveis;
 - princípios rejeitados ou reescritos;
 - compromissos com desenvolvimento local e acessibilidade;
 - tipos de projeto proibidos mesmo quando lucrativos;
 - decisões que permanecem sempre sob autoridade pessoal de Leo;
-- marcos e indicadores para 3, 5 e 10 anos;
-- formato operacional do planejamento e fechamento de cada ciclo.
+- duração padrão dos ciclos e processo de replanejamento;
+- nível mínimo de continuidade para cada frente;
+- marcos e indicadores para 3, 5 e 10 anos.
 
-## 11. Gate de aprovação
+## 10. Gate de aprovação
 
 A Constituição somente poderá ser declarada aprovada quando:
 
