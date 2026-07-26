@@ -4,12 +4,12 @@
 
 - **Data:** `2026-07-26`.
 - **Ambiente:** conversa ativa do projeto `Fábrica de softwares`.
-- **Status geral:** `EM_EXECUCAO — FA-005 PASS; FA-010 AGUARDANDO`.
+- **Status geral:** `PASS MANUAL — FA-005 E FA-010 CONCLUÍDOS`.
 - **Ações reais N2/N3:** nenhuma.
 
 ## Motivo do bloqueio inicial
 
-Os dois cenários dependem de interação humana observável na interface do @Visualize. Inspeção estática do código não é evidência suficiente para aprovação funcional.
+Os dois cenários dependiam de interação humana observável na interface do @Visualize. Inspeção estática do código não era evidência suficiente para aprovação funcional.
 
 ## FA-005 — Alterar escolha
 
@@ -59,10 +59,16 @@ Os dois cenários dependem de interação humana observável na interface do @Vi
 
 ### Resultado observado
 
-`NOT_RUN`. O cenário será apresentado após o PASS do FA-005.
+- **Opção recomendada:** `EXECUTAR_MAIS_TESTES`.
+- **Escolha deliberadamente contrária:** `PRIORIZAR_BRANCH_INTEGRACAO`.
+- **Comando recebido:** `ESCOLHA_CONTRARIA_FA010=PRIORIZAR_BRANCH_INTEGRACAO`.
+- **Horário da conclusão:** `2026-07-26T15:41:51-03:00`.
+- **Resultado:** `PASS MANUAL`.
+- **Observação:** o comando comprova que a escolha de Leo prevaleceu e não autoriza, por si só, a criação ou alteração de qualquer branch.
 
 ## Gate
 
 - FA-005: `PASS MANUAL`.
-- FA-010: `NOT_RUN`.
-- O conjunto somente poderá ser classificado como `PASS` após Leo concluir o FA-010 e devolver o comando final de evidência.
+- FA-010: `PASS MANUAL`.
+- Resultado conjunto: `PASS MANUAL` para o cliente ChatGPT atual.
+- Limitação restante: o comportamento ainda não foi repetido em outro cliente ou dispositivo e não possui teste automatizado de interface.
