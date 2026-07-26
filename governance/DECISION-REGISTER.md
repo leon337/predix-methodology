@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T19:08:35-03:00`.
+- **Última reconciliação:** `2026-07-26T19:09:51-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch canônica do candidato integrado:** `integration/mop-governance-v0.1`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -78,7 +78,7 @@
 | PR #5 — teste R3 | FECHADO | não realizado |
 | PR #6 — teste R4 | FECHADO | não realizado |
 | PR #7 — teste R5-A | FECHADO_APÓS_FALHA | não realizado |
-| PR #8 — teste R5B | ABERTO_DRAFT_APÓS_PASS | não realizado |
+| PR #8 — teste R5B | FECHADO_APÓS_PASS | não realizado |
 | Issue #3 — RC independente | ABERTA | não aplicável |
 | Branch `integration/mop-governance-v0.1` | ATIVA | não promovida |
 
