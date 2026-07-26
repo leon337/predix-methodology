@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T15:11:31-03:00`.
+- **Última reconciliação:** `2026-07-26T15:41:51-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch:** `mop/timeline-conversas-20260726`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -29,10 +29,10 @@
 | DEC-20260726-011 | Formalizar Cultura/Constituição em documento próprio | PENDENTE | descoberta e pacote de decisão candidato | Leo decidir propósito, missão, visão, valores e autoridade |
 | DEC-20260726-012 | Criar POPs específicos | PENDENTE | arquitetura definida | criar somente conforme repetição, risco e ganho operacional |
 | DEC-20260726-018 | Remediar revisão da timeline TL-R01 a TL-R10 | CONCLUIDA | `timeline/SCHEMA.md`, normalização e relatório de remediação | validar por testes e RC |
-| DEC-20260726-019 | Executar plano de testes | EM_TRATAMENTO | simulações críticas executadas; FA-005 e FA-010 aguardam interação manual | receber evidência manual e executar grupos restantes |
+| DEC-20260726-019 | Executar plano de testes | EM_TRATAMENTO | FA-005 e FA-010 concluídos manualmente; simulações críticas executadas | implementar validadores e executar grupos restantes |
 | DEC-20260726-020 | Definir recuperação técnica dos guardrails | CONCLUIDA | `governance/RECOVERY.md` e guardrails v0.4 | implementar e automatizar RC-001 a RC-006 |
 | DEC-20260726-021 | Realizar RC independente da branch de governança | PENDENTE | handoff independente preparado | executar em outra sessão/agente sobre HEAD estável |
-| DEC-20260726-022 | Repetir manualmente FA-005 e FA-010 | BLOQUEADA | `governance/tests/results/FA-005-FA-010-MANUAL-RETEST-20260726.md` | Leo executar o painel de teste e devolver comando de evidência |
+| DEC-20260726-022 | Repetir manualmente FA-005 e FA-010 | CONCLUIDA | `governance/tests/results/FA-005-FA-010-MANUAL-RETEST-20260726.md` | repetir em outro cliente ou dispositivo quando possível |
 | DEC-20260726-023 | Executar TL-005, TL-010, AU-001 a AU-008 e RC-001 a RC-006 | EM_TRATAMENTO | relatório de simulação crítica | implementar validador de idempotência e repetir em mecanismo executável |
 | DEC-20260726-024 | Investigar PR #2 não mesclável | CONCLUIDA_COM_BLOQUEIO | investigação documental | causa definitiva exige checkout Git ou nova branch reconciliada |
 | DEC-20260726-025 | Reconciliar fontes normativas PR #1 e PR #2 | CONCLUIDA_COM_PENDENCIA_TECNICA | plano canônico criado | criar branch de integração e consolidar fisicamente os documentos |
@@ -46,7 +46,7 @@
 | DEC-20260726-014 | Catálogo GR-001 a GR-049 com detecção, severidade e recuperação | APROVADA_PROVISORIAMENTE | implementação executável, falsos positivos, falsos negativos e RC |
 | DEC-20260726-015 | Sintaxe multilinha N2/N3 | APROVADA_PROVISORIAMENTE | validador formal e simulação independente |
 | DEC-20260726-016 | Timeline diária com horário, período, origem e projeto | APROVADA_PROVISORIAMENTE | TL-005 executável, TL-010 automatizado e fechamento diário |
-| DEC-20260726-017 | Painel com seleção única, múltipla e plano sequencial | APROVADA_PROVISORIAMENTE | concluir FA-005 e FA-010 manualmente e testar conflitos |
+| DEC-20260726-017 | Painel com seleção única, múltipla e plano sequencial | APROVADA_PROVISORIAMENTE | repetir em outro cliente/dispositivo, testar conflitos e automatizar interface |
 
 ## Pendências recuperadas do PR #1 e da RC independente
 
