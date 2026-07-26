@@ -29,6 +29,11 @@ O esquema canônico provisório está em [`timeline/SCHEMA.md`](timeline/SCHEMA.
 | 2026-07-25 | sábado | backfill parcial do contexto disponível | [`timeline/2026/07/2026-07-25.md`](timeline/2026/07/2026-07-25.md) |
 | 2026-07-26 | domingo | registro ativo do projeto Fábrica de softwares | [`timeline/2026/07/2026-07-26.md`](timeline/2026/07/2026-07-26.md) |
 
+## Eventos estruturados recentes
+
+- [`TL-20260726-155608-016`](timeline/2026/07/events/TL-20260726-155608-016.md) — TL-005, integração normativa, mergeability, RC e Cultura.
+- [`TL-20260726-161353-017`](timeline/2026/07/events/TL-20260726-161353-017.md) — decisões da rodada 1 da Cultura PREDIX.
+
 ## Consulta temporal
 
 Exemplos de perguntas que a estrutura deverá responder:
