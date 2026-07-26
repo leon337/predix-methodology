@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T18:54:18-03:00`.
+- **Última reconciliação:** `2026-07-26T19:08:35-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch canônica do candidato integrado:** `integration/mop-governance-v0.1`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -17,25 +17,25 @@
 | ID | Assunto | Estado | Evidência/Origem | Condição de retomada |
 |---|---|---|---|---|
 | DEC-20260726-001 | Ampliar catálogo de guardrails | CONCLUIDA | `governance/GUARDRAILS.md` GR-044 a GR-049 | validar em RC |
-| DEC-20260726-002 | Definir detecção e severidade | CONCLUIDA | guardrails e bateria R4 | validar em RC e operação real |
-| DEC-20260726-003 | Revisar estrutura da timeline | CONCLUIDA | TL-R01 a TL-R10 e bateria R4 | validar TL-010/TL-012 na R5 |
-| DEC-20260726-004 | Preparar plano de testes | CONCLUIDA | matriz de 64 cenários | manter regressão integral |
-| DEC-20260726-005 | Preparar revisão sem merge | CONCLUIDA | PR #2 Draft e issue #3 | executar RC após R5 estável |
-| DEC-20260726-006 | Definir arquitetura Cultura–MOP–POPs | CONCLUIDA | `governance/ARCHITECTURE.md` | revisar após R5 |
+| DEC-20260726-002 | Definir detecção e severidade | CONCLUIDA | guardrails e baterias R4/R5B | validar em RC e operação real |
+| DEC-20260726-003 | Revisar estrutura da timeline | CONCLUIDA | TL-R01 a TL-R10; TL-010/TL-012 PASS na R5B | validar em RC |
+| DEC-20260726-004 | Preparar plano de testes | CONCLUIDA | matriz de 64 cenários e regressão R5B | manter regressão integral |
+| DEC-20260726-005 | Preparar revisão sem merge | CONCLUIDA | PR #2 Draft e issue #3 | executar RC no HEAD integrado estável |
+| DEC-20260726-006 | Definir arquitetura Cultura–MOP–POPs | CONCLUIDA | `governance/ARCHITECTURE.md` | revisar na RC |
 | DEC-20260726-007 | Consolidar GR-001 a GR-049 | CONCLUIDA | `governance/GUARDRAILS.md` | validar na RC |
-| DEC-20260726-008 | Criar instrução geral para todos os chats | BLOQUEADA | decisão explícita de Leo | somente após R5 sem gates, RC e aprovação normativa |
+| DEC-20260726-008 | Criar instrução geral para todos os chats | BLOQUEADA | decisão explícita de Leo | somente após RC e aprovação normativa |
 | DEC-20260726-009 | Captura automática global de chats | BLOQUEADA | `timeline/GLOBAL-INGESTION-PLAN.md` | integração central real e privacidade validada |
 | DEC-20260726-010 | Atualizar timeline por evento relevante | ATIVA | contrato da timeline | enquanto contexto e GitHub estiverem acessíveis |
 | DEC-20260726-011 | Formalizar Cultura/Constituição | EM_TRATAMENTO | `CULTURA.md` v0.4-draft | pendências finais, RC e aprovação explícita |
 | DEC-20260726-012 | Criar POPs específicos | PENDENTE | arquitetura definida | criar por repetição, risco e ganho operacional |
-| DEC-20260726-018 | Remediar TL-R01 a TL-R10 | CONCLUIDA | esquema, normalização e R4 | regressão R5 |
-| DEC-20260726-019 | Executar plano de 64 testes | EM_TRATAMENTO | R4 processou 64; R5 preparada | executar R5 sobre HEAD congelado |
+| DEC-20260726-018 | Remediar TL-R01 a TL-R10 | CONCLUIDA | esquema, normalização e R5B | validar em RC |
+| DEC-20260726-019 | Executar plano de 64 testes | CONCLUIDA | R5B: 25 automatizados, 14 estáticos, 10 manuais, 15 simulados, 0 bloqueados, 0 não executados e 0 falhas | manter regressão; não confundir manual/simulado com integração executável |
 | DEC-20260726-020 | Definir recuperação técnica | CONCLUIDA | `governance/RECOVERY.md` | implementar recuperação executável completa |
-| DEC-20260726-021 | Realizar RC independente | EM_TRATAMENTO | issue #3 e handoff | executar após R5 e reconfirmação do SHA |
+| DEC-20260726-021 | Realizar RC independente | EM_TRATAMENTO | issue #3 e handoff | reconfirmar HEAD integrado e executar em outro contexto |
 | DEC-20260726-022 | Repetir FA-005 e FA-010 | CONCLUIDA | evidência manual versionada | repetir em outro cliente quando possível |
-| DEC-20260726-023 | Executar TL-005, TL-010, AU e RC | EM_TRATAMENTO | TL-005 executável; scanner e DAILY-CLOSE criados; AU/RC simulados | verificar R5 e implementar validadores formais |
+| DEC-20260726-023 | Executar TL-005, TL-010, AU e RC | EM_TRATAMENTO | TL-005/TL-010 executáveis; AU/RC simulados | implementar validadores formais N2/N3 e recuperação executável |
 | DEC-20260726-024 | Investigar mergeability do PR #2 | CONCLUIDA | API reportou mesclável | repetir somente se estado mudar |
-| DEC-20260726-025 | Reconciliar PR #1 e PR #2 | CONCLUIDA | candidato integrado com MOP 0.2, Cultura v0.4 e arquitetura 0.2 | submeter à RC após R5 |
+| DEC-20260726-025 | Reconciliar PR #1 e PR #2 | CONCLUIDA | candidato integrado com MOP 0.2, Cultura v0.4 e arquitetura 0.2 | submeter à RC |
 | DEC-20260726-026 | Preparar RC em contexto separado | CONCLUIDA | issue #3 | revisor independente reconfirma HEAD |
 | DEC-20260726-027 | Rodada 1 da Cultura | CONCLUIDA | comando explícito | preservar na minuta |
 | DEC-20260726-028 | Aprovar propósito | APROVADA | Cultura v0.4 | validar na RC |
@@ -52,20 +52,21 @@
 | DEC-20260726-039 | Ciclos de 28 dias e continuidade por ciclo | APROVADA | Cultura v0.4 | criar POP quando aplicado |
 | DEC-20260726-040 | Painel equilibrado de indicadores | APROVADA | Cultura v0.4 | criar linha de base e metas |
 | DEC-20260726-041 | Concluir rodada 3 | CONCLUIDA | `CULTURE-ROUND-3-RESULT.md` | avançar para gates finais |
-| DEC-20260726-042 | Processar os 64 cenários na R4 | CONCLUIDA | run `30221124112`, artifact `8637232519` | usar como linha de base de regressão |
-| DEC-20260726-043 | Implementar scanner TL-010 | EM_TRATAMENTO | `tools/scan_secrets.py` e `tests/test_scan_secrets.py` criados | testes e scan devem passar na R5 |
-| DEC-20260726-044 | Publicar fechamento TL-012 | EM_TRATAMENTO | `timeline/2026/07/2026-07-26-CLOSURE.md` | runner R5 deve validar os blocos mínimos |
-| DEC-20260726-045 | Executar remediação R5 integral | EM_TRATAMENTO | comando explícito de Leo | congelar HEAD, executar CI, registrar resultados e gates |
+| DEC-20260726-042 | Processar os 64 cenários na R4 | CONCLUIDA | run `30221124112`, artifact `8637232519` | preservada como linha de base |
+| DEC-20260726-043 | Implementar scanner TL-010 | CONCLUIDA | scanner, seis regressões e etapa CI em PASS na R5B | ampliar padrões somente com testes contra falsos positivos |
+| DEC-20260726-044 | Publicar fechamento TL-012 | CONCLUIDA | DAILY-CLOSE e TL-012 PASS_STATIC na R5B | complementar fatos posteriores por append-only |
+| DEC-20260726-045 | Executar remediação R5 integral | CONCLUIDA | run `30222472929`, job `89847127241`, artifact `8637600465` | preparar RC independente |
+| DEC-20260726-046 | Preservar falha R5-A | CONCLUIDA | PR #7 e run `30222354733` | usar como evidência de correção de fixtures |
 
 ## Aprovações provisórias
 
 | ID | Decisão | Estado | Próxima validação |
 |---|---|---|---|
 | DEC-20260726-013 | Aplicação proporcional de 5W1H e 5 Porquês | APROVADA_PROVISORIAMENTE | RC e casos reais |
-| DEC-20260726-014 | Guardrails, detecção, severidade e recuperação | APROVADA_PROVISORIAMENTE | R5, implementação executável e RC |
+| DEC-20260726-014 | Guardrails, detecção, severidade e recuperação | APROVADA_PROVISORIAMENTE | implementação executável adicional e RC |
 | DEC-20260726-015 | Sintaxe N2/N3 | APROVADA_PROVISORIAMENTE | parser formal e integração segura |
-| DEC-20260726-016 | Timeline diária estruturada | APROVADA_PROVISORIAMENTE | R5 TL-010/TL-012 e RC |
-| DEC-20260726-017 | Painel assistido com recomendação | APROVADA_PROVISORIAMENTE | regressão de UX por grupo e outro cliente |
+| DEC-20260726-016 | Timeline diária estruturada | APROVADA_PROVISORIAMENTE | RC independente |
+| DEC-20260726-017 | Painel assistido com recomendação | APROVADA_PROVISORIAMENTE | regressão de UX em outro cliente |
 
 ## Estado reconciliado de PRs e revisão
 
@@ -76,6 +77,8 @@
 | PR #4 — teste R2 | FECHADO | não realizado |
 | PR #5 — teste R3 | FECHADO | não realizado |
 | PR #6 — teste R4 | FECHADO | não realizado |
+| PR #7 — teste R5-A | FECHADO_APÓS_FALHA | não realizado |
+| PR #8 — teste R5B | ABERTO_DRAFT_APÓS_PASS | não realizado |
 | Issue #3 — RC independente | ABERTA | não aplicável |
 | Branch `integration/mop-governance-v0.1` | ATIVA | não promovida |
 
@@ -87,7 +90,7 @@
 | RC-02 | PENDENTE | separar gate de fundação e gate estável |
 | RC-03 | EM_TRATAMENTO | implementar validadores formais N2/N3 |
 | RC-04 | EM_TRATAMENTO | executar revisão realmente independente |
-| RC-05 | EM_TRATAMENTO | verificar scanner R5 e controles de ambiente |
+| RC-05 | EM_TRATAMENTO | scanner passou; validar demais controles de ambiente |
 | RC-06 | EM_TRATAMENTO | validar que a autoridade não cria gargalo |
 | RC-07 | EM_TRATAMENTO | submeter candidato reconciliado à RC |
 | RC-08 | PENDENTE | formalizar resposta mínima suficiente |
@@ -97,7 +100,7 @@
 
 | Item | Estado | Observação |
 |---|---|---|
-| LEA-206 | PENDENTE | depende da R5 e RC |
+| LEA-206 | PENDENTE | próximo gate é RC e decisão de fundação |
 | LEA-207 | BLOQUEADA | não iniciar antes do gate de fundação |
 | LEA-208 | BLOQUEADA | iniciar após gate de fundação |
 
