@@ -2,9 +2,9 @@
 
 ## Estado
 
-- **Versão:** `0.2-decisões-parciais`.
+- **Versão:** `0.3-rodadas-1-2`.
 - **Autoridade final:** Leo.
-- **Status:** rodada 1 concluída; propósito, estratégia de público e horizonte da visão foram decididos. Missão, redação final da visão, valores, limites éticos e autoridade detalhada continuam em revisão.
+- **Status:** rodadas 1 e 2 concluídas; propósito, duas frentes, horizonte, missão, visão e alocação dinâmica foram decididos.
 - **Documento de trabalho:** `CULTURA.md` em minuta; não aprovado como Constituição definitiva.
 
 ## Decisões da rodada 1
@@ -15,7 +15,7 @@
 
 **Decisão:** `APROVAR_PROPOSITO_CANDIDATO`.
 
-### Público inicial — duas frentes equivalentes
+### Estratégia — duas frentes equivalentes
 
 A PREDIX adotará duas frentes com igual prioridade estratégica:
 
@@ -24,35 +24,42 @@ A PREDIX adotará duas frentes com igual prioridade estratégica:
 
 **Decisão:** `ADOTAR_DUAS_FRENTES_EQUIVALENTES`.
 
-A equivalência é estratégica. A distribuição de capacidade, orçamento, pessoas e sequência entre as frentes ainda deve ser definida por ciclo operacional, sem transformar uma delas em prioridade permanente por interpretação automática.
-
 ### Horizonte da visão — aprovado
 
 A visão institucional terá horizonte de **10 anos**.
 
 **Decisão:** `10_ANOS`.
 
-O horizonte foi aprovado; a redação final da visão e seus marcos intermediários ainda precisam de decisão.
+## Decisões da rodada 2
 
-## Missão candidata
+### Missão — aprovada
 
 > Projetar, construir e evoluir sistemas, aplicativos e agentes de IA com autonomia controlada, evidências verificáveis, explicação acessível e responsabilidade sobre resultados.
 
-### Comportamentos observáveis
+**Decisão:** `APROVAR_MISSAO_CANDIDATA`.
+
+### Visão para 10 anos — aprovada
+
+> Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
+
+**Decisão:** `APROVAR_VISAO_CANDIDATA_10_ANOS`.
+
+### Alocação entre as duas frentes — aprovada
+
+> As duas frentes mantêm igualdade estratégica, mas os recursos variam por ciclo conforme capacidade, retorno, urgência e dependências.
+
+**Decisão:** `ALOCACAO_DINAMICA_POR_CICLO`.
+
+A equivalência é estratégica e não representa divisão fixa de 50%. Cada ciclo deve registrar a concentração de recursos, a justificativa, os compromissos preservados e a condição da próxima revisão.
+
+## Comportamentos observáveis da missão
 
 - recomendar a melhor opção sem retirar a decisão de Leo;
 - distinguir proposta, tentativa, execução e verificação;
 - proteger dados e autorizações;
 - manter decisões pendentes rastreadas;
-- entregar software utilizável, não apenas documentação convincente.
-
-**Estado:** candidata; não aprovada na rodada 1.
-
-## Visão candidata para 10 anos
-
-> Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
-
-**Estado:** horizonte aprovado; redação candidata e sujeita a ajustes.
+- entregar software utilizável, não apenas documentação convincente;
+- assumir responsabilidade sobre o estado real das entregas.
 
 ## Valores candidatos e comportamento verificável
 
@@ -91,9 +98,19 @@ Inclui:
 - automações, sistemas e agentes orientados a problemas concretos;
 - projetos maiores quando houver capacidade e governança compatíveis.
 
-### Regra ainda pendente
+### Política aprovada de alocação
 
-A equivalência estratégica não define automaticamente divisão de 50% do tempo, receita ou equipe. A política de alocação por ciclo ainda deverá ser criada e testada.
+No início de cada ciclo, a distribuição deve considerar:
+
+1. capacidade disponível;
+2. retorno esperado;
+3. urgência e impacto;
+4. dependências;
+5. riscos e bloqueios;
+6. compromissos existentes;
+7. continuidade mínima das duas frentes.
+
+A decisão do ciclo deve ser registrada e revista no fechamento.
 
 ## Regra candidata para velocidade versus qualidade
 
@@ -164,22 +181,21 @@ A PREDIX deve assumir como candidatos:
 
 ## Perguntas obrigatórias restantes para Leo
 
-1. A missão candidata deve ser aprovada, ajustada ou reescrita?
-2. A visão candidata de 10 anos deve ser aprovada, ajustada ou reescrita?
-3. Quais dos dez valores candidatos são inegociáveis?
-4. Existe algum princípio que você rejeita ou deseja reescrever?
-5. A PREDIX deve assumir compromisso explícito com desenvolvimento local e acessibilidade?
-6. Que tipo de projeto a empresa não deve aceitar, mesmo sendo lucrativo?
-7. Quais decisões você quer manter sempre sob sua autoridade pessoal?
-8. Como a capacidade deve ser distribuída entre as duas frentes em cada ciclo?
+1. Quais dos dez valores candidatos são inegociáveis?
+2. Existe algum princípio que você rejeita ou deseja reescrever?
+3. A PREDIX deve assumir compromisso explícito com desenvolvimento local e acessibilidade?
+4. Que tipo de projeto a empresa não deve aceitar, mesmo sendo lucrativo?
+5. Quais decisões devem permanecer sempre sob autoridade pessoal de Leo?
+6. Qual deve ser a duração padrão dos ciclos?
+7. Qual é o nível mínimo de continuidade de cada frente durante um ciclo?
+8. Quais marcos e indicadores devem existir para 3, 5 e 10 anos?
 
 ## Próximo gate
 
-1. classificar missão e visão;
-2. classificar os valores candidatos;
-3. definir limites éticos e autoridade;
-4. definir a política operacional das duas frentes;
+1. classificar os valores candidatos;
+2. definir limites éticos e autoridade;
+3. definir duração, planejamento e fechamento dos ciclos;
+4. definir marcos e indicadores;
 5. mapear conflitos com MOP e guardrails;
-6. atualizar a minuta `CULTURA.md`;
-7. submeter a minuta a RC independente;
-8. somente depois aprovar a Constituição e derivar a instrução global.
+6. submeter a minuta a RC independente;
+7. somente depois aprovar a Constituição e derivar a instrução global.
