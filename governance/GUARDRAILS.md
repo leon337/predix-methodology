@@ -2,12 +2,13 @@
 
 ## Estado
 
-- **Versão:** `0.3-provisória`.
+- **Versão:** `0.4-provisória`.
 - **GR-001 a GR-043:** aprovados provisoriamente na conversa.
 - **GR-044 a GR-049:** adicionados pelo plano assistido de continuidade de decisões.
 - **Detecção e severidade:** definidas provisoriamente em 26 de julho de 2026.
+- **Recuperação técnica:** definida provisoriamente em `governance/RECOVERY.md`.
 - **Implementação automática:** pendente.
-- **Validação:** pendente de recuperação, testes e RC independente.
+- **Validação:** FA-001 a FA-010 executados com limitações; demais grupos e RC independente com contexto separado permanecem pendentes.
 
 ## 1. Objetivo e estado
 
@@ -181,6 +182,20 @@ S4 → bloquear absolutamente → não executar → preservar evidência → exi
 
 Nenhuma correção automática pode ampliar escopo, criar autorização ou substituir decisão de Leo.
 
+## 14. Recuperação técnica
+
+O contrato de recuperação está em [`RECOVERY.md`](RECOVERY.md) e define:
+
+- pacote mínimo de estado recuperável;
+- checkpoint válido;
+- estratégias S1 a S4;
+- cenários RC-001 a RC-006;
+- recuperação de painel e autorizações N2/N3;
+- registro de incidentes;
+- bloqueios quando não existe estado confiável.
+
+A existência do contrato não significa recuperação automatizada implementada.
+
 ## Reação mínima a violações
 
 ```text
@@ -196,8 +211,9 @@ detectar
 
 ## Pendências de implementação
 
-1. definir mecanismo técnico de recuperação de estado;
-2. criar testes positivos e negativos;
+1. executar TL-001 a TL-015, CT-001 a CT-008, VE-001 a VE-007, DS-001 a DS-010, AU-001 a AU-008 e RC-001 a RC-006;
+2. repetir manualmente FA-005 e FA-010;
 3. validar falsos positivos e falsos negativos;
-4. realizar RC independente;
-5. somente depois propor universalização na instrução global.
+4. implementar recuperação em software antes de uso automático;
+5. realizar RC independente com separação real de contexto;
+6. somente depois propor universalização na instrução global.
