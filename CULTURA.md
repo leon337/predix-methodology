@@ -1,6 +1,6 @@
 # Cultura e Constituição PREDIX — Minuta
 
-**Versão:** `0.1-draft`  
+**Versão:** `0.2-draft`  
 **Estado:** decisões parciais registradas; documento não aprovado  
 **Autoridade final:** Leo  
 **Fonte de trabalho:** branch `mop/timeline-conversas-20260726`
@@ -43,11 +43,22 @@ A PREDIX atuará em duas frentes com igual prioridade estratégica:
 
 **Estado:** estratégia aprovada por Leo na rodada 1.
 
-### Limite de interpretação
+## 4. Política de alocação aprovada
 
-Duas frentes equivalentes significa igualdade de prioridade estratégica. Não significa automaticamente divisão fixa de 50% do tempo, orçamento, equipe ou receita. A política de alocação por ciclo continua pendente.
+> As duas frentes mantêm igualdade estratégica, mas os recursos variam por ciclo conforme capacidade, retorno, urgência e dependências.
 
-## 4. Horizonte da visão aprovado
+### Regras operacionais
+
+1. igualdade estratégica não significa divisão fixa de 50%;
+2. cada ciclo deve declarar qual frente recebe maior concentração de recursos e por quê;
+3. a alocação deve considerar capacidade disponível, retorno esperado, urgência real e dependências;
+4. priorizar uma frente em um ciclo não rebaixa permanentemente a outra;
+5. decisões de alocação devem ser registradas e revisadas no fechamento do ciclo;
+6. conflitos entre urgência e retorno devem ser apresentados a Leo com recomendação e impactos.
+
+**Estado:** aprovado por Leo em 26 de julho de 2026.
+
+## 5. Horizonte da visão aprovado
 
 A visão institucional da PREDIX terá horizonte de **10 anos**.
 
@@ -55,19 +66,19 @@ A visão institucional da PREDIX terá horizonte de **10 anos**.
 
 A redação final da visão, seus marcos intermediários e indicadores ainda precisam ser aprovados.
 
-## 5. Missão candidata
+## 6. Missão candidata
 
 > Projetar, construir e evoluir sistemas, aplicativos e agentes de IA com autonomia controlada, evidências verificáveis, explicação acessível e responsabilidade sobre resultados.
 
 **Estado:** candidata; não aprovada.
 
-## 6. Visão candidata para 10 anos
+## 7. Visão candidata para 10 anos
 
 > Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
 
 **Estado:** redação candidata; somente o horizonte de 10 anos está aprovado.
 
-## 7. Valores candidatos
+## 8. Valores candidatos
 
 - verdade operacional;
 - clareza;
@@ -82,7 +93,7 @@ A redação final da visão, seus marcos intermediários e indicadores ainda pre
 
 **Estado:** todos permanecem candidatos até classificação explícita.
 
-## 8. Regras constitucionais já sustentadas por decisões anteriores
+## 9. Regras constitucionais já sustentadas por decisões anteriores
 
 Mesmo antes da aprovação final desta Constituição, as seguintes regras continuam vigentes no fluxo em validação:
 
@@ -95,7 +106,7 @@ Mesmo antes da aprovação final desta Constituição, as seguintes regras conti
 7. nenhum documento candidato pode ser apresentado como versão final;
 8. nenhum merge ou produção ocorre sem autorização explícita aplicável.
 
-## 9. Decisões ainda pendentes
+## 10. Decisões ainda pendentes
 
 - missão definitiva;
 - redação final da visão de 10 anos;
@@ -104,10 +115,10 @@ Mesmo antes da aprovação final desta Constituição, as seguintes regras conti
 - compromissos com desenvolvimento local e acessibilidade;
 - tipos de projeto proibidos mesmo quando lucrativos;
 - decisões que permanecem sempre sob autoridade pessoal de Leo;
-- distribuição operacional entre as duas frentes;
-- marcos e indicadores para 3, 5 e 10 anos.
+- marcos e indicadores para 3, 5 e 10 anos;
+- formato operacional do planejamento e fechamento de cada ciclo.
 
-## 10. Gate de aprovação
+## 11. Gate de aprovação
 
 A Constituição somente poderá ser declarada aprovada quando:
 
