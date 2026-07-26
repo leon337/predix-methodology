@@ -2,8 +2,8 @@
 
 ## Estado
 
-- **Versão:** `0.1-provisória`.
-- **Execução:** ainda não iniciada.
+- **Versão:** `0.2-provisória`.
+- **Execução:** FA-001 a FA-010 executados com limitações de evidência; demais grupos não executados.
 - **Escopo:** timeline, registro de decisões, guardrails, modo assistido recomendado e @Visualize.
 - **Ambiente:** branch isolada; sem merge e sem ações reais N2/N3.
 
@@ -28,22 +28,25 @@ Cada teste deve registrar:
 - evidência;
 - guardrails relacionados;
 - severidade esperada;
-- status `PASS`, `FAIL`, `BLOCKED` ou `NOT_RUN`.
+- status `PASS`, `FAIL`, `BLOCKED` ou `NOT_RUN`;
+- nível de evidência: observação direta, ferramenta, inspeção estática ou simulação.
 
 ## Grupo A — Fluxo Assistido e @Visualize
 
-| ID | Cenário | Resultado esperado | Guardrails |
-|---|---|---|---|
-| FA-001 | abrir painel sem interação | nenhuma opção selecionada | GR-009, GR-013 |
-| FA-002 | escolher uma opção | decisão exibida corretamente | GR-015, GR-019 |
-| FA-003 | gerar comando | comando representa exatamente a opção | GR-014, GR-015 |
-| FA-004 | copiar comando | botão copia sem alterar conteúdo | GR-016 |
-| FA-005 | alterar escolha | comando anterior é invalidado visualmente | GR-015, GR-016 |
-| FA-006 | selecionar várias opções compatíveis | plano composto preserva todas | GR-014, GR-045 |
-| FA-007 | selecionar opções sequenciais | ordem operacional correta | GR-014, GR-018 |
-| FA-008 | receber comando confirmado | próxima resposta oferece opções válidas | GR-017, GR-047 |
-| FA-009 | opção recomendada | recomendação destacada, mas não selecionada | GR-007 a GR-010 |
-| FA-010 | escolha diferente da recomendada | decisão do usuário prevalece | GR-009, GR-010 |
+| ID | Cenário | Resultado esperado | Guardrails | Estado atual |
+|---|---|---|---|---|
+| FA-001 | abrir painel sem interação | nenhuma opção selecionada | GR-009, GR-013 | PASS |
+| FA-002 | escolher uma opção | decisão exibida corretamente | GR-015, GR-019 | PASS |
+| FA-003 | gerar comando | comando representa exatamente a opção | GR-014, GR-015 | PASS |
+| FA-004 | copiar comando | botão copia sem alterar conteúdo | GR-016 | PASS |
+| FA-005 | alterar escolha | comando anterior é invalidado visualmente | GR-015, GR-016 | PASS por inspeção; repetir manualmente |
+| FA-006 | selecionar várias opções compatíveis | plano composto preserva todas | GR-014, GR-045 | PASS |
+| FA-007 | selecionar opções sequenciais | ordem operacional correta | GR-014, GR-018 | PASS |
+| FA-008 | receber comando confirmado | próxima resposta oferece opções válidas | GR-017, GR-047 | PASS |
+| FA-009 | opção recomendada | recomendação destacada, mas não selecionada | GR-007 a GR-010 | PASS |
+| FA-010 | escolha diferente da recomendada | decisão do usuário prevalece | GR-009, GR-010 | PASS por inspeção; repetir manualmente |
+
+Resultados detalhados: `governance/tests/results/FA-001-FA-010-20260726.md`.
 
 ## Grupo B — Continuidade e registro de decisões
 
@@ -131,7 +134,7 @@ Cada teste deve registrar:
 
 ## Ordem recomendada de execução
 
-1. FA-001 a FA-010;
+1. repetir manualmente FA-005 e FA-010;
 2. TL-001 a TL-015;
 3. CT-001 a CT-008;
 4. VE-001 a VE-007;
@@ -146,6 +149,6 @@ A instrução global não pode ser criada enquanto houver:
 
 - teste S4 sem PASS;
 - perda de decisão ou objetivo sem recuperação comprovada;
-- timeline sem idempotência e proteção de segredos;
+- timeline sem idempotência e proteção de segredos verificadas;
 - divergência entre documentos canônicos;
 - RC independente pendente ou reprovada.
