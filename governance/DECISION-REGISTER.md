@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T16:38:13-03:00`.
+- **Última reconciliação:** `2026-07-26T16:42:10-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch:** `mop/timeline-conversas-20260726`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -26,7 +26,7 @@
 | DEC-20260726-008 | Criar instrução geral para todos os chats | BLOQUEADA | decisão explícita de Leo | somente após ajustes, testes, RC e aprovação da arquitetura |
 | DEC-20260726-009 | Captura automática global de todos os chats | BLOQUEADA | `timeline/GLOBAL-INGESTION-PLAN.md` | exige integração central ainda não implementada |
 | DEC-20260726-010 | Atualizar timeline após cada mensagem | ATIVA | contrato da timeline | enquanto contexto e GitHub estiverem disponíveis |
-| DEC-20260726-011 | Formalizar Cultura/Constituição em documento próprio | EM_TRATAMENTO | `CULTURA.md` v0.2-draft com propósito, duas frentes, horizonte e alocação aprovados | decidir missão, visão final, valores, limites e autoridade; depois RC |
+| DEC-20260726-011 | Formalizar Cultura/Constituição em documento próprio | EM_TRATAMENTO | `CULTURA.md` v0.3-draft com propósito, duas frentes, missão, visão, horizonte e alocação aprovados | decidir valores, limites, autoridade, ciclos e indicadores; depois RC |
 | DEC-20260726-012 | Criar POPs específicos | PENDENTE | arquitetura definida | criar somente conforme repetição, risco e ganho operacional |
 | DEC-20260726-018 | Remediar revisão da timeline TL-R01 a TL-R10 | CONCLUIDA | `timeline/SCHEMA.md`, normalização e relatório de remediação | validar por testes e RC |
 | DEC-20260726-019 | Executar plano de testes | EM_TRATAMENTO | FA-005/FA-010 PASS manual; TL-005 implementado e CI PASS | executar grupos restantes e repetir em outro cliente quando possível |
@@ -37,11 +37,14 @@
 | DEC-20260726-024 | Investigar PR #2 não mesclável | CONCLUIDA | API atual `mergeable: true`; relatório revalidado | checkout limpo adicional pode ser repetido na RC independente |
 | DEC-20260726-025 | Reconciliar fontes normativas PR #1 e PR #2 | EM_TRATAMENTO | branch `integration/mop-governance-v0.1` criada e `MOP.md` incorporado | reconciliar conteúdo, versões e referências; depois testar e revisar |
 | DEC-20260726-026 | Preparar RC independente em contexto separado | CONCLUIDA | handoff, issue #3 e comentário no PR #2 | revisor separado deve reconfirmar o HEAD e emitir resultado |
-| DEC-20260726-027 | Rodada 1 de decisões da Cultura | CONCLUIDA | comando explícito de Leo e `governance/CULTURE-DECISION-PACK.md` v0.2 | iniciar rodada 2 |
+| DEC-20260726-027 | Rodada 1 de decisões da Cultura | CONCLUIDA | comando explícito de Leo e `governance/CULTURE-DECISION-PACK.md` v0.2 | decisões preservadas na minuta |
 | DEC-20260726-028 | Aprovar propósito candidato da PREDIX | APROVADA | `PROPOSITO=APROVAR_PROPOSITO_CANDIDATO` | preservar na minuta e validar coerência na RC |
 | DEC-20260726-029 | Adotar duas frentes equivalentes | APROVADA | `PUBLICO_INICIAL=ADOTAR_DUAS_FRENTES_EQUIVALENTES` | aplicar por meio da política dinâmica de ciclos |
-| DEC-20260726-030 | Adotar horizonte de visão de 10 anos | APROVADA | `HORIZONTE_VISAO=10_ANOS` | aprovar redação final, marcos e indicadores |
-| DEC-20260726-031 | Adotar alocação dinâmica por ciclo | APROVADA | decisão explícita de Leo em 26 de julho de 2026 | definir formato de planejamento e fechamento de cada ciclo |
+| DEC-20260726-030 | Adotar horizonte de visão de 10 anos | APROVADA | `HORIZONTE_VISAO=10_ANOS` | definir marcos e indicadores de 3, 5 e 10 anos |
+| DEC-20260726-031 | Adotar alocação dinâmica por ciclo | APROVADA | `ALOCACAO_DUAS_FRENTES=ALOCACAO_DINAMICA_POR_CICLO` | definir duração, planejamento e fechamento dos ciclos |
+| DEC-20260726-032 | Aprovar missão da PREDIX | APROVADA | `MISSAO=APROVAR_MISSAO_CANDIDATA` | preservar na minuta e validar coerência na RC |
+| DEC-20260726-033 | Aprovar visão institucional de 10 anos | APROVADA | `VISAO_10_ANOS=APROVAR_VISAO_CANDIDATA_10_ANOS` | definir marcos e indicadores intermediários |
+| DEC-20260726-034 | Concluir rodada 2 da Cultura | CONCLUIDA | comando explícito de Leo e pacote v0.3 | iniciar classificação dos valores e limites constitucionais |
 
 ## Aprovações provisórias
 
@@ -94,7 +97,8 @@
 - reconciliação normativa PR #1–PR #2;
 - handoff e issue para RC independente;
 - rodadas de decisões da Cultura;
-- política dinâmica de alocação entre as duas frentes.
+- política dinâmica de alocação entre as duas frentes;
+- missão e visão institucional aprovadas.
 
 ### Não comprovados como artefatos implementados
 
