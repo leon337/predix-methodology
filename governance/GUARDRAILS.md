@@ -7,8 +7,8 @@
 - **GR-044 a GR-049:** adicionados pelo plano assistido de continuidade de decisões.
 - **Detecção e severidade:** definidas provisoriamente em 26 de julho de 2026.
 - **Recuperação técnica:** definida provisoriamente em `governance/RECOVERY.md`.
-- **Implementação automática:** pendente.
-- **Validação:** FA-001 a FA-010 executados com limitações; demais grupos e RC independente com contexto separado permanecem pendentes.
+- **Implementação automática:** parcial; TL-005, TL-010 e partes da bateria possuem execução em software, enquanto autorização e recuperação crítica permanecem simuladas ou documentais.
+- **Validação:** bateria R5B histórica concluída; runner R6 preparado para considerar regressões posteriores; nova execução integral sobre HEAD congelado ainda pendente; RC independente em contexto separado pendente.
 
 ## 1. Objetivo e estado
 
@@ -34,9 +34,10 @@
 - **GR-014:** não gerar comando genérico que perca a decisão.
 - **GR-015:** não gerar comando diferente da opção confirmada.
 - **GR-016:** oferecer `Copiar comando` e `Alterar escolha`.
-- **GR-017:** após receber comando, apresentar as próximas opções válidas, salvo conclusão ou bloqueio.
+- **GR-017:** após receber comando, apresentar as próximas opções válidas, salvo conclusão ou bloqueio sem alternativa segura; quando houver bloqueio com condição de retomada, apresentar opções de recuperação.
 - **GR-018:** não apresentar opções incompatíveis com o objetivo ativo.
 - **GR-019:** não ocultar qual decisão está sendo confirmada.
+- **Regra de regressão FA-009:** em painéis com grupos independentes, cada grupo deve indicar sua própria recomendação sem preseleção; uma recomendação global não substitui recomendações por grupo.
 
 ## 4. Autorizações críticas
 
@@ -57,6 +58,7 @@
 - **GR-031:** não apresentar hipótese como fato.
 - **GR-032:** não ocultar falha, limitação, dúvida ou resultado parcial.
 - **GR-033:** não usar dado antigo como estado atual sem verificação.
+- **Regra cronológica:** a existência de um arquivo de PASS não pode mascarar regressão posterior; a evidência mais recente prevalece até reteste válido.
 
 ## 6. 5W1H e 5 Porquês
 
@@ -160,11 +162,13 @@ A severidade do guardrail é independente do nível N0 a N4 da ação. O nível 
 |---|---|---|
 | resposta muda de objetivo sem fechamento | GR-001, GR-044, GR-045 | comparar objetivo anterior, comando recebido e próximo menu |
 | opção recomendada aparece marcada | GR-009, GR-013 | inspecionar estado inicial dos controles |
+| recomendação global substitui recomendação por grupo | GR-007, GR-009, GR-019 | inspecionar cada grupo independente |
 | comando não representa a seleção | GR-014, GR-015 | comparar opção, título e comando gerado |
 | resposta termina sem próxima decisão | GR-017, GR-047 | verificar conclusão, bloqueio ou presença de menu seguinte |
 | ação crítica recebe comando genérico | GR-020 a GR-022 | validar sintaxe e campos obrigatórios N2/N3 |
 | referência ou ambiente mudou | GR-023, GR-024 | recalcular estado antes da execução |
 | conclusão sem commit, teste, consulta ou evidência equivalente | GR-005, GR-030 | exigir evidência apropriada ao tipo de ação |
+| PASS antigo existe após regressão posterior | GR-030, GR-033 | comparar cronologia e invalidar até reteste |
 | ferramenta declarada indisponível sem consulta | GR-029 | verificar ferramentas e contexto realmente acessíveis |
 | segredo ou dado sensível aparece no conteúdo | GR-040, GR-041, GR-043 | inspeção preventiva antes de resposta, log ou commit |
 | decisão sem estado, responsável ou retomada | GR-046, GR-048 | validar campos do registro de decisões |
@@ -194,7 +198,7 @@ O contrato de recuperação está em [`RECOVERY.md`](RECOVERY.md) e define:
 - registro de incidentes;
 - bloqueios quando não existe estado confiável.
 
-A existência do contrato não significa recuperação automatizada implementada.
+A existência do contrato não significa recuperação automatizada completa.
 
 ## Reação mínima a violações
 
@@ -209,11 +213,12 @@ detectar
 → apresentar opções assistidas de correção
 ```
 
-## Pendências de implementação
+## Pendências de implementação e validação
 
-1. executar TL-001 a TL-015, CT-001 a CT-008, VE-001 a VE-007, DS-001 a DS-010, AU-001 a AU-008 e RC-001 a RC-006;
-2. repetir manualmente FA-005 e FA-010;
-3. validar falsos positivos e falsos negativos;
-4. implementar recuperação em software antes de uso automático;
-5. realizar RC independente com separação real de contexto;
-6. somente depois propor universalização na instrução global.
+1. reexecutar scanner, TL-005 e os 64 cenários no mesmo HEAD congelado com o runner R6;
+2. publicar evidências do ciclo R6 e confirmar que não existem `FAIL`, `BLOCKED` ou `NOT_RUN`;
+3. validar falsos positivos adicionais do scanner;
+4. implementar autorização N2/N3 e recuperação crítica em software antes de uso automático;
+5. repetir testes manuais de interface em outro cliente quando possível;
+6. realizar RC independente com separação real de contexto;
+7. somente depois propor universalização na instrução global.
