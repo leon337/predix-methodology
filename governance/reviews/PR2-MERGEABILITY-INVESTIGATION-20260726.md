@@ -1,59 +1,82 @@
-# Investigação do estado não mesclável do PR #2 — 2026-07-26
+# Investigação do estado de mergeability do PR #2 — 2026-07-26
 
-## Estado observado
+## Estado inicial observado
 
 - **PR:** #2.
 - **Base:** `main`.
 - **Head:** `mop/timeline-conversas-20260726`.
 - **PR em rascunho:** sim.
-- **Campo `mergeable`:** `false`.
+- **Campo `mergeable` inicial:** `false`.
 - **Merge realizado:** não.
 
-## Evidências
+## Evidências iniciais
 
 ### Comparação com `main`
 
-A comparação do branch atual com `main` retornou:
+A comparação inicial do branch com `main` retornou:
 
 - `status: ahead`;
 - `ahead_by: 52`;
 - `behind_by: 0`;
-- merge base igual ao HEAD atual de `main`: `ef296e2b2404c6acf47676c01d224ae478e6e569`.
+- merge base igual ao HEAD de `main`: `ef296e2b2404c6acf47676c01d224ae478e6e569`.
 
-### CI
+### CI inicial
 
-Não foram encontrados workflow runs associados ao HEAD consultado anteriormente. Portanto, não existe evidência de que o estado `mergeable: false` seja causado por CI reprovada.
+No primeiro HEAD consultado não havia workflow run capaz de explicar o valor `mergeable: false`.
 
-## Análise
+## Hipóteses iniciais
 
-Os dados disponíveis são contraditórios:
+Os dados iniciais permitiam estas hipóteses, sem comprovação:
 
-1. a branch possui ancestralidade direta a partir da `main` e não está atrás;
-2. o PR continua reportado como não mesclável;
-3. não há workflow executado que explique bloqueio por status;
-4. o PR permanece em rascunho, mas o rascunho por si só não prova conflito de conteúdo.
-
-Com os dados expostos pelo conector, não é possível afirmar com segurança se o valor `false` representa:
-
-- conflito real de merge não exposto no resumo;
-- cálculo de mergeability ainda não atualizado;
+- conflito real não exposto pelo resumo;
+- cálculo ainda não atualizado;
 - normalização do conector;
 - estado transitório do GitHub.
 
-## Conclusão
+## Revalidação após implementação do TL-005
 
-**Causa técnica definitiva: não comprovada.**
+### Estado atualizado
 
-O estado deve continuar tratado como bloqueador até uma destas verificações ocorrer:
+- **HEAD revalidado:** `e0da5c73ddbed2ded88f679396eba9d4729d3b51`.
+- **Campo `mergeable` atualizado:** `true`.
+- **PR:** continua aberto e Draft.
+- **Merge:** não realizado.
 
-1. inspeção em checkout Git limpo com tentativa de merge local sem commit;
-2. consulta independente ao PR após estabilização do HEAD;
-3. criação de uma branch de integração limpa a partir da fonte normativa escolhida;
-4. novo PR rascunho a partir da branch reconciliada.
+### Comparação atualizada
 
-## Restrições
+A comparação `main...mop/timeline-conversas-20260726` retornou:
 
-- não fechar ou recriar o PR apenas para tentar alterar o indicador;
-- não forçar atualização de referência;
+- `status: ahead`;
+- `ahead_by: 67`;
+- `behind_by: 0`;
+- merge base: `ef296e2b2404c6acf47676c01d224ae478e6e569`.
+
+### CI atualizado
+
+O workflow `Timeline validation` associado ao HEAD do TL-005 foi concluído com `success`.
+
+### Tentativa de checkout limpo
+
+Foi tentado um clone limpo em ambiente isolado antes da revalidação. A tentativa falhou antes de baixar o repositório porque o ambiente não conseguiu resolver `github.com` por DNS.
+
+Esse erro:
+
+- não demonstra conflito de merge;
+- não demonstra falha do repositório;
+- impede somente a confirmação local por `git merge --no-commit` nesta sessão.
+
+## Conclusão atual
+
+O bloqueio `mergeable: false` **não permanece reproduzido na API do GitHub**. O PR #2 agora é reportado como `mergeable: true`.
+
+A causa exata do valor anterior continua não comprovada; a explicação mais compatível com as evidências é estado transitório ou cálculo desatualizado. Isso é uma inferência, não uma prova causal.
+
+A verificação por checkout limpo continua desejável para a RC independente, mas não existe atualmente evidência de conflito técnico entre a branch do PR #2 e a `main`.
+
+## Restrições preservadas
+
+- não fechar ou recriar o PR para manipular o indicador;
+- não forçar referências;
 - não realizar merge;
-- não declarar o conflito resolvido sem evidência reproduzível.
+- não tratar `mergeable: true` como aprovação normativa;
+- manter PR em Draft até testes, reconciliação e RC independente.
