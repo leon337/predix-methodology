@@ -10,7 +10,7 @@ Revisão da estrutura composta por:
 - `timeline/GLOBAL-INGESTION-PLAN.md`;
 - vínculo com `governance/DECISION-REGISTER.md`.
 
-## Resultado
+## Resultado original
 
 **CHANGES REQUIRED — estrutura funcional, porém ainda não pronta para validação global.**
 
@@ -24,7 +24,7 @@ Revisão da estrutura composta por:
 - distinção entre cobertura ativa e backfill parcial;
 - vínculo conceitual com decisões, evidências e próximos passos.
 
-## Achados
+## Achados originais
 
 ### TL-R01 — Entradas antigas não seguem o esquema completo
 
@@ -92,34 +92,28 @@ Não há um fechamento diário que compare timeline, decisões e ações reais.
 
 **Remediação:** gerar resumo de encerramento com concluídos, pendentes, bloqueados, divergências e primeira retomada do próximo dia.
 
-## Esquema mínimo recomendado
+## Estado após remediação estrutural
 
-```yaml
-id: TL-20260726-143430-001
-timestamp: 2026-07-26T14:34:30-03:00
-precisao_temporal: exata
-periodo: tarde
-origem: projeto
-projeto: Fábrica de softwares
-conversa: Governança e Fluxo Assistido
-intencao: executar plano confirmado
-estado_operacional: EXECUTADO
-decisoes_relacionadas:
-  - DEC-20260726-002
-evidencias:
-  - commit: 46ae64602d4715b656617ed64c79073598ee3c3d
-pendencias:
-  - validar em testes
-proxima_etapa: revisar e executar plano de testes
-```
+| Achado | Estado | Evidência |
+|---|---|---|
+| TL-R01 | REMEDIADO | `timeline/2026/07/2026-07-26-NORMALIZATION.md` |
+| TL-R02 | REMEDIADO | `timeline/SCHEMA.md` |
+| TL-R03 | REMEDIADO E NÃO TESTADO | `timeline/SCHEMA.md` |
+| TL-R04 | REMEDIADO | esquema e normalização |
+| TL-R05 | REMEDIADO | taxonomia do esquema |
+| TL-R06 | LIMITAÇÃO EXPLÍCITA | índice e esquema |
+| TL-R07 | REMEDIADO | regra de atualização lógica |
+| TL-R08 | REMEDIADO | precisão temporal |
+| TL-R09 | REMEDIADO E NÃO TESTADO | filtro mínimo de privacidade |
+| TL-R10 | REMEDIADO E NÃO EXECUTADO | procedimento de fechamento diário |
 
-## Gate de aprovação
+Relatório detalhado: `governance/reviews/TIMELINE-REMEDIATION-20260726.md`.
 
-A timeline somente poderá ser considerada validada quando:
+## Gate atualizado
 
-1. o esquema estiver definido;
-2. entradas antigas forem reconciliadas sem apagar histórico;
-3. testes de horário, origem, duplicidade, privacidade e falha passarem;
-4. o registro de decisões estiver vinculado;
-5. uma RC independente confirmar consistência;
-6. a limitação de cobertura global continuar explícita até existir integração real.
+A estrutura pode seguir para testes TL-001 a TL-015, mas ainda não está validada globalmente. Permanecem obrigatórios:
+
+1. testes de duplicidade, privacidade, horário, origem e fechamento;
+2. execução real do fechamento diário;
+3. RC independente com separação de contexto;
+4. limitação global explícita até integração real.
