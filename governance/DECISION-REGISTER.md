@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T15:41:51-03:00`.
+- **Última reconciliação:** `2026-07-26T15:56:08-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch:** `mop/timeline-conversas-20260726`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -26,17 +26,18 @@
 | DEC-20260726-008 | Criar instrução geral para todos os chats | BLOQUEADA | decisão explícita de Leo | somente após ajustes, testes, RC e aprovação da arquitetura |
 | DEC-20260726-009 | Captura automática global de todos os chats | BLOQUEADA | `timeline/GLOBAL-INGESTION-PLAN.md` | exige integração central ainda não implementada |
 | DEC-20260726-010 | Atualizar timeline após cada mensagem | ATIVA | contrato da timeline | enquanto contexto e GitHub estiverem disponíveis |
-| DEC-20260726-011 | Formalizar Cultura/Constituição em documento próprio | PENDENTE | descoberta e pacote de decisão candidato | Leo decidir propósito, missão, visão, valores e autoridade |
+| DEC-20260726-011 | Formalizar Cultura/Constituição em documento próprio | EM_TRATAMENTO | descoberta, pacote candidato e rodada de decisão iniciada | Leo decidir propósito, público inicial e horizonte da visão |
 | DEC-20260726-012 | Criar POPs específicos | PENDENTE | arquitetura definida | criar somente conforme repetição, risco e ganho operacional |
 | DEC-20260726-018 | Remediar revisão da timeline TL-R01 a TL-R10 | CONCLUIDA | `timeline/SCHEMA.md`, normalização e relatório de remediação | validar por testes e RC |
-| DEC-20260726-019 | Executar plano de testes | EM_TRATAMENTO | FA-005 e FA-010 concluídos manualmente; simulações críticas executadas | implementar validadores e executar grupos restantes |
+| DEC-20260726-019 | Executar plano de testes | EM_TRATAMENTO | FA-005/FA-010 PASS manual; TL-005 implementado e CI PASS | executar grupos restantes e repetir em outro cliente quando possível |
 | DEC-20260726-020 | Definir recuperação técnica dos guardrails | CONCLUIDA | `governance/RECOVERY.md` e guardrails v0.4 | implementar e automatizar RC-001 a RC-006 |
-| DEC-20260726-021 | Realizar RC independente da branch de governança | PENDENTE | handoff independente preparado | executar em outra sessão/agente sobre HEAD estável |
+| DEC-20260726-021 | Realizar RC independente da branch de governança | EM_TRATAMENTO | issue #3 e handoff independente preparados | executar em outra sessão/agente sobre HEAD reconfirmado |
 | DEC-20260726-022 | Repetir manualmente FA-005 e FA-010 | CONCLUIDA | `governance/tests/results/FA-005-FA-010-MANUAL-RETEST-20260726.md` | repetir em outro cliente ou dispositivo quando possível |
-| DEC-20260726-023 | Executar TL-005, TL-010, AU-001 a AU-008 e RC-001 a RC-006 | EM_TRATAMENTO | relatório de simulação crítica | implementar validador de idempotência e repetir em mecanismo executável |
-| DEC-20260726-024 | Investigar PR #2 não mesclável | CONCLUIDA_COM_BLOQUEIO | investigação documental | causa definitiva exige checkout Git ou nova branch reconciliada |
-| DEC-20260726-025 | Reconciliar fontes normativas PR #1 e PR #2 | CONCLUIDA_COM_PENDENCIA_TECNICA | plano canônico criado | criar branch de integração e consolidar fisicamente os documentos |
-| DEC-20260726-026 | Preparar RC independente em contexto separado | CONCLUIDA | `governance/reviews/RC2-INDEPENDENT-HANDOFF-20260726.md` | iniciar revisão em sessão/agente separado após estabilizar HEAD |
+| DEC-20260726-023 | Executar TL-005, TL-010, AU-001 a AU-008 e RC-001 a RC-006 | EM_TRATAMENTO | TL-005 executável e CI PASS; demais grupos simulados | automatizar TL-010, autorização e recuperação |
+| DEC-20260726-024 | Investigar PR #2 não mesclável | CONCLUIDA | API atual `mergeable: true`; relatório revalidado | checkout limpo adicional pode ser repetido na RC independente |
+| DEC-20260726-025 | Reconciliar fontes normativas PR #1 e PR #2 | EM_TRATAMENTO | branch `integration/mop-governance-v0.1` criada e `MOP.md` incorporado | reconciliar conteúdo, versões e referências; depois testar e revisar |
+| DEC-20260726-026 | Preparar RC independente em contexto separado | CONCLUIDA | handoff, issue #3 e comentário no PR #2 | revisor separado deve reconfirmar o HEAD e emitir resultado |
+| DEC-20260726-027 | Rodada 1 de decisões da Cultura | EM_TRATAMENTO | `governance/CULTURE-DECISION-PACK.md` | Leo responder propósito, público prioritário e horizonte da visão |
 
 ## Aprovações provisórias
 
@@ -45,7 +46,7 @@
 | DEC-20260726-013 | Aplicação proporcional de 5W1H e 5 Porquês | APROVADA_PROVISORIAMENTE | testes em casos simples, críticos e incidentes |
 | DEC-20260726-014 | Catálogo GR-001 a GR-049 com detecção, severidade e recuperação | APROVADA_PROVISORIAMENTE | implementação executável, falsos positivos, falsos negativos e RC |
 | DEC-20260726-015 | Sintaxe multilinha N2/N3 | APROVADA_PROVISORIAMENTE | validador formal e simulação independente |
-| DEC-20260726-016 | Timeline diária com horário, período, origem e projeto | APROVADA_PROVISORIAMENTE | TL-005 executável, TL-010 automatizado e fechamento diário |
+| DEC-20260726-016 | Timeline diária com horário, período, origem e projeto | APROVADA_PROVISORIAMENTE | TL-010 automatizado, fechamento diário e RC |
 | DEC-20260726-017 | Painel com seleção única, múltipla e plano sequencial | APROVADA_PROVISORIAMENTE | repetir em outro cliente/dispositivo, testar conflitos e automatizar interface |
 
 ## Pendências recuperadas do PR #1 e da RC independente
@@ -55,12 +56,12 @@
 | RC-01 | distinguir proposto, planejado, tentado, executado e verificado | EM_TRATAMENTO | taxonomia incorporada; falta execução ampla dos testes |
 | RC-02 | dependência circular na aprovação da MOP | PENDENTE | separar gate de fundação e gate de versão estável |
 | RC-03 | autonomia e ações irreversíveis insuficientes | EM_TRATAMENTO | níveis N0–N4 simulados; falta validador formal |
-| RC-04 | ausência de separação de funções | PENDENTE | executar RC independente com contexto separado |
+| RC-04 | ausência de separação de funções | EM_TRATAMENTO | issue #3 criada; revisão separada ainda não executada |
 | RC-05 | segurança, segredos e ambientes | EM_TRATAMENTO | TL-010 e AU simulados; faltam scanner e integração executável |
 | RC-06 | risco de Leo virar gargalo | PENDENTE | definir níveis de validação humana e automática |
-| RC-07 | desalinhamento entre fontes oficiais | EM_TRATAMENTO | plano PR1–PR2 criado; integração física pendente |
+| RC-07 | desalinhamento entre fontes oficiais | EM_TRATAMENTO | branch de integração criada; reconciliação textual e RC pendentes |
 | RC-08 | risco de respostas longas | PENDENTE | formalizar resposta mínima suficiente |
-| RC-09 | ausência de verificação automatizada | PENDENTE | criar lint, verificador de IDs, links, estados e segredos |
+| RC-09 | ausência de verificação automatizada | EM_TRATAMENTO | TL-005 e CI implementados; faltam links, estados, segredos e demais lint |
 
 ## Planejamento relacionado
 
@@ -87,18 +88,19 @@
 - retestes manuais FA-005 e FA-010;
 - investigação de mergeability;
 - reconciliação normativa PR #1–PR #2;
-- handoff para RC independente.
+- handoff e issue para RC independente;
+- rodada de decisões da Cultura.
 
 ### Não comprovados como artefatos implementados
 
-- não existe `CULTURA.md` aprovado; há somente descoberta e candidatos;
+- não existe `CULTURA.md` aprovado; há somente descoberta, candidatos e decisões pendentes;
 - não existe POP formal aprovado;
 - não existe instrução global implementada;
 - não existe captura automática global de todos os chats;
-- não existe validador executável de idempotência, autorização ou recuperação;
+- não existem validadores executáveis de autorização e recuperação;
 - não existe scanner automático de segredos;
 - não existe RC independente aprovada com separação real de contexto;
-- não existe branch de integração PR #1–PR #2.
+- a branch de integração existe, mas a reconciliação textual completa ainda não foi concluída.
 
 ## Regra de encerramento
 
