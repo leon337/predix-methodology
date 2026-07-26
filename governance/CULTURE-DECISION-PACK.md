@@ -2,10 +2,10 @@
 
 ## Estado
 
-- **Versão:** `0.3-rodadas-1-2`.
+- **Versão:** `0.4-rodadas-1-3`.
 - **Autoridade final:** Leo.
-- **Status:** rodadas 1 e 2 concluídas; propósito, duas frentes, horizonte, missão, visão e alocação dinâmica foram decididos.
-- **Documento de trabalho:** `CULTURA.md` em minuta; não aprovado como Constituição definitiva.
+- **Status:** rodadas 1, 2 e 3 concluídas.
+- **Documento de trabalho:** `CULTURA.md` v0.4-draft; não aprovado como Constituição definitiva.
 
 ## Decisões da rodada 1
 
@@ -17,14 +17,12 @@
 
 ### Estratégia — duas frentes equivalentes
 
-A PREDIX adotará duas frentes com igual prioridade estratégica:
-
 1. produtos internos e escaláveis da própria PREDIX;
-2. soluções para pequenos negócios, empresas locais, equipes e profissionais com problemas operacionais concretos e pouca estrutura técnica própria.
+2. soluções para pequenos negócios, empresas locais, equipes e profissionais com problemas operacionais concretos.
 
 **Decisão:** `ADOTAR_DUAS_FRENTES_EQUIVALENTES`.
 
-### Horizonte da visão — aprovado
+### Horizonte da visão
 
 A visão institucional terá horizonte de **10 anos**.
 
@@ -50,92 +48,107 @@ A visão institucional terá horizonte de **10 anos**.
 
 **Decisão:** `ALOCACAO_DINAMICA_POR_CICLO`.
 
-A equivalência é estratégica e não representa divisão fixa de 50%. Cada ciclo deve registrar a concentração de recursos, a justificativa, os compromissos preservados e a condição da próxima revisão.
+## Decisões da rodada 3
+
+### Valores — núcleo de sete e três revisáveis
+
+**Inegociáveis:**
+
+1. verdade operacional;
+2. clareza;
+3. autonomia responsável;
+4. continuidade;
+5. segurança por padrão;
+6. utilidade;
+7. evolução rastreável.
+
+**Revisáveis:**
+
+1. aprendizado aplicado;
+2. revisão independente;
+3. simplicidade proporcional.
+
+**Rejeitados:** nenhum.
+
+**Decisão:** `NUCLEO_7_E_3_REVISAVEIS`.
+
+### Limites éticos — base constitucional estrita
+
+São proibidos projetos cujo objetivo principal envolva fraude, invasão ou vigilância indevida, abuso ou exploração, dano físico, armas, discriminação, coleta oculta de dados, decisões de alto impacto sem supervisão, alegações profissionais enganosas ou ações destrutivas sem controle.
+
+Saúde, jurídico, finanças, biometria, educação infantil, setor público, infraestrutura crítica e dados altamente sensíveis são setores restritos e exigem avaliação de risco, supervisão humana, segurança reforçada, revisão independente e autorização explícita de Leo.
+
+**Decisão:** `BASE_CONSTITUCIONAL_ESTRITA`.
+
+### Autoridade exclusiva personalizada de Leo
+
+Permanecem sob decisão final e explícita de Leo:
+
+1. propósito, missão, visão e valores;
+2. Constituição, MOP e guardrails críticos;
+3. contratos, finanças e decisões societárias;
+4. comunicação pública oficial;
+5. parcerias, investidores e clientes estratégicos;
+6. exceções envolvendo dados sensíveis;
+7. risco jurídico, financeiro ou reputacional relevante;
+8. merge, produção e ações N3/N4 quando exigirem autorização humana;
+9. projetos em setores restritos;
+10. encerramento definitivo de uma das duas frentes estratégicas.
+
+**Decisão:** `PERSONALIZADA` com lista explícita.
+
+### Ciclo operacional
+
+- duração padrão: **28 dias**;
+- alocação: dinâmica;
+- continuidade: definida explicitamente a cada ciclo;
+- nenhuma frente pode permanecer sem estado declarado;
+- abertura e fechamento registram objetivo, alocação, compromissos, riscos, evidências, pendências e estado das duas frentes.
+
+**Decisões:** `28_DIAS` e `DEFINICAO_POR_CICLO`.
+
+### Marcos e indicadores
+
+A PREDIX adotará um painel equilibrado com dimensões de:
+
+- produtos;
+- clientes;
+- operação;
+- reutilização;
+- qualidade;
+- governança;
+- sustentabilidade;
+- impacto;
+- aprendizado.
+
+Os resultados institucionais para 3, 5 e 10 anos foram definidos em `CULTURA.md`. Metas numéricas dependerão de linha de base verificável.
+
+**Decisão:** `PAINEL_EQUILIBRADO`.
 
 ## Comportamentos observáveis da missão
 
-- recomendar a melhor opção sem retirar a decisão de Leo;
+- recomendar sem retirar a decisão de Leo;
 - distinguir proposta, tentativa, execução e verificação;
 - proteger dados e autorizações;
 - manter decisões pendentes rastreadas;
-- entregar software utilizável, não apenas documentação convincente;
-- assumir responsabilidade sobre o estado real das entregas.
+- entregar software utilizável;
+- assumir responsabilidade sobre o estado real das entregas;
+- respeitar a autoridade exclusiva personalizada;
+- registrar abertura, mudanças e fechamento dos ciclos.
 
-## Valores candidatos e comportamento verificável
-
-| Valor candidato | Comportamento observável | Antipadrão proibido |
-|---|---|---|
-| Verdade operacional | toda conclusão apresenta evidência adequada | declarar execução sem prova |
-| Clareza | decisões técnicas são explicadas em linguagem compreensível | transferir complexidade para Leo sem orientação |
-| Autonomia responsável | agentes operam dentro de escopo e risco definidos | agir fora da autorização |
-| Continuidade | pendências possuem estado e gatilho de retomada | abandonar assunto ao mudar de contexto |
-| Segurança por padrão | menor privilégio, isolamento, backup e reversão | usar produção como ambiente de teste |
-| Utilidade | entregas resolvem necessidades reais | produzir ativos sem valor operacional |
-| Aprendizado aplicado | Leo compreende decisões importantes durante a execução | exigir conhecimento técnico prévio para decidir |
-| Revisão independente | alto risco não é autoaprovado pelo executor | implementar e aprovar no mesmo contexto |
-| Simplicidade proporcional | usar o processo mínimo suficiente ao risco | criar burocracia sem ganho |
-| Evolução rastreável | mudanças mantêm histórico e motivo | reescrever decisões silenciosamente |
-
-**Estado:** candidatos; ainda precisam ser classificados como aprovados, rejeitados ou em revisão.
-
-## Modelo operacional das duas frentes
-
-### Frente A — produtos próprios da PREDIX
-
-Inclui:
-
-- sistemas, aplicativos e agentes próprios;
-- ativos reutilizáveis;
-- infraestrutura e metodologia da Fábrica de Softwares;
-- produtos com potencial de escala.
-
-### Frente B — soluções para clientes e operações reais
-
-Inclui:
-
-- pequenos negócios e empresas locais;
-- equipes e profissionais sem estrutura técnica própria;
-- automações, sistemas e agentes orientados a problemas concretos;
-- projetos maiores quando houver capacidade e governança compatíveis.
-
-### Política aprovada de alocação
-
-No início de cada ciclo, a distribuição deve considerar:
-
-1. capacidade disponível;
-2. retorno esperado;
-3. urgência e impacto;
-4. dependências;
-5. riscos e bloqueios;
-6. compromissos existentes;
-7. continuidade mínima das duas frentes.
-
-A decisão do ciclo deve ser registrada e revista no fechamento.
-
-## Regra candidata para velocidade versus qualidade
-
-> Entregar rápido em ambientes reversíveis e controlados; aumentar rigor conforme impacto, irreversibilidade, exposição externa e sensibilidade dos dados.
-
-Aplicação:
-
-- baixo risco: protótipo rápido, teste e aprendizado;
-- risco moderado: evidências e confirmação;
-- alto risco: isolamento, revisão independente e autorização explícita;
-- risco inaceitável: bloquear.
-
-## Autoridade e autonomia — proposta
+## Autoridade e autonomia
 
 ### Leo
 
-- autoridade final sobre propósito, prioridades, compromissos externos e ações críticas;
-- não precisa executar tarefas técnicas manuais para manter controle;
-- recebe recomendação, impacto e opções compreensíveis.
+- decide os dez grupos exclusivos registrados na rodada 3;
+- recebe recomendação, impacto, opções e evidências;
+- não precisa executar tarefas técnicas manuais para manter controle.
 
 ### IA coordenadora
 
 - organiza objetivos, recomenda caminhos, coordena agentes e preserva estado;
-- pode executar ações reversíveis dentro do escopo autorizado;
-- não pode substituir decisões estratégicas ou autorizações críticas.
+- executa ações reversíveis dentro do escopo autorizado;
+- não substitui decisões exclusivas de Leo.
 
 ### Agentes especializados
 
@@ -149,53 +162,13 @@ Aplicação:
 - pode reprovar, bloquear ou solicitar remediação;
 - não realiza merge sem autorização explícita.
 
-## Compromissos candidatos com clientes e usuários
+## Pendências restantes
 
-- transparência sobre capacidade, limitações e estado real;
-- proteção de dados e segredos;
-- não prometer prazo ou resultado sem base;
-- explicar riscos relevantes;
-- permitir correção e reversão quando aplicável;
-- registrar mudanças de escopo e decisões;
-- tratar acessibilidade e compreensão como critérios de qualidade.
-
-## Impacto social — recomendação
-
-A PREDIX deve assumir como candidatos:
-
-- ampliar acesso de pequenos negócios à tecnologia;
-- preservar decisão e trabalho humano em pontos estratégicos;
-- evitar automação que esconda riscos ou retire responsabilidade;
-- valorizar desenvolvimento local e soluções adequadas à realidade brasileira;
-- buscar acessibilidade digital sempre que proporcional ao produto.
-
-## Decisões que não podem ser delegadas integralmente
-
-- missão, visão e valores;
-- compromissos contratuais ou financeiros;
-- tratamento excepcional de dados sensíveis;
-- merge ou produção em risco alto sem autorização;
-- comunicação pública que represente oficialmente a empresa;
-- mudança da Constituição, MOP ou guardrails críticos;
-- aceitação de risco jurídico ou reputacional relevante.
-
-## Perguntas obrigatórias restantes para Leo
-
-1. Quais dos dez valores candidatos são inegociáveis?
-2. Existe algum princípio que você rejeita ou deseja reescrever?
-3. A PREDIX deve assumir compromisso explícito com desenvolvimento local e acessibilidade?
-4. Que tipo de projeto a empresa não deve aceitar, mesmo sendo lucrativo?
-5. Quais decisões devem permanecer sempre sob autoridade pessoal de Leo?
-6. Qual deve ser a duração padrão dos ciclos?
-7. Qual é o nível mínimo de continuidade de cada frente durante um ciclo?
-8. Quais marcos e indicadores devem existir para 3, 5 e 10 anos?
-
-## Próximo gate
-
-1. classificar os valores candidatos;
-2. definir limites éticos e autoridade;
-3. definir duração, planejamento e fechamento dos ciclos;
-4. definir marcos e indicadores;
-5. mapear conflitos com MOP e guardrails;
-6. submeter a minuta a RC independente;
-7. somente depois aprovar a Constituição e derivar a instrução global.
+1. decidir compromisso constitucional explícito com desenvolvimento local e acessibilidade;
+2. criar linha de base numérica;
+3. definir metas quantitativas de 3, 5 e 10 anos;
+4. reconciliar `CULTURA.md`, MOP e guardrails;
+5. sincronizar a branch de integração;
+6. executar RC independente;
+7. remediar achados críticos;
+8. somente depois aprovar a Constituição e derivar a instrução global.
