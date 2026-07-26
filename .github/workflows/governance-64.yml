@@ -14,6 +14,7 @@ on:
       - ".github/workflows/governance-64.yml"
   pull_request:
     branches:
+      - "main"
       - "integration/mop-governance-v0.1"
     paths:
       - "CULTURA.md"
@@ -33,9 +34,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Resolve exact tested SHA
+        run: echo "TESTED_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Executable regression tests
         run: python -m unittest discover -s tests -v
       - name: TL-010 secret scan
@@ -45,11 +50,11 @@ jobs:
           python tools/run_governance_64_v4.py \
             --repo-root . \
             --output-dir governance-test-results \
-            --frozen-head "$GITHUB_SHA"
+            --frozen-head "$TESTED_SHA"
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: governance-64-results-${{ github.sha }}
+          name: governance-64-results-${{ env.TESTED_SHA }}
           path: governance-test-results/
           if-no-files-found: error
