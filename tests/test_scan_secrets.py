@@ -19,11 +19,19 @@ class SecretScannerTests(unittest.TestCase):
         self.assertEqual(findings[0].rule, "github-token")
         self.assertNotIn(value, findings[0].preview)
 
-    def test_detects_high_entropy_generic_assignment(self) -> None:
-        value = "qA7!zP9@mK2_vN8$xR4%tY6&"
+    def test_detects_high_entropy_generic_assignment_with_hash(self) -> None:
+        value = "qA7!zP9#mK2@vN8$xR4%tY6&"
         findings = scan_text("api_key=" + value, "settings.env")
         self.assertEqual(len(findings), 1)
         self.assertEqual(findings[0].rule, "generic-secret-assignment")
+        self.assertNotIn(value, findings[0].preview)
+
+    def test_detects_quoted_generic_secret_with_hash(self) -> None:
+        value = "Z8x#Q2m!R7v@N4p$L9c%T6w&"
+        findings = scan_text(f'client_secret="{value}"', "quoted.env")
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0].rule, "generic-secret-assignment")
+        self.assertNotIn(value, findings[0].preview)
 
     def test_allow_marker_suppresses_intentional_fixture(self) -> None:
         value = "sk-" + "Z9y8X7w6V5u4T3s2R1q0"
