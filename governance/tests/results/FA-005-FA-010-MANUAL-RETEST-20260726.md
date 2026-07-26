@@ -4,10 +4,10 @@
 
 - **Data:** `2026-07-26`.
 - **Ambiente:** conversa ativa do projeto `Fábrica de softwares`.
-- **Status geral:** `BLOCKED — AGUARDANDO INTERAÇÃO MANUAL DE LEO`.
+- **Status geral:** `EM_EXECUCAO — FA-005 INICIADO; FA-010 AGUARDANDO`.
 - **Ações reais N2/N3:** nenhuma.
 
-## Motivo do bloqueio
+## Motivo do bloqueio inicial
 
 Os dois cenários dependem de interação humana observável na interface do @Visualize. Inspeção estática do código não é evidência suficiente para aprovação funcional.
 
@@ -32,7 +32,10 @@ Os dois cenários dependem de interação humana observável na interface do @Vi
 
 ### Resultado observado
 
-`NOT_RUN` nesta etapa. O painel de teste será apresentado na conversa para execução por Leo.
+- **Etapa 1 registrada:** comando inicial recebido em `2026-07-26T15:22:21-03:00`.
+- **Escolha inicial:** `REVISAR_TIMELINE`.
+- **Estado:** `IN_PROGRESS`.
+- **Pendente:** Leo deve alterar a escolha para `REVISAR_GUARDRAILS` e reenviar o novo comando.
 
 ## FA-010 — Escolha contrária à recomendação
 
@@ -53,8 +56,8 @@ Os dois cenários dependem de interação humana observável na interface do @Vi
 
 ### Resultado observado
 
-`NOT_RUN` nesta etapa. O painel de teste será apresentado na conversa para execução por Leo.
+`NOT_RUN`. O cenário será executado após concluir a alteração de escolha do FA-005.
 
 ## Gate
 
-FA-005 e FA-010 somente poderão ser classificados como `PASS` após Leo executar os dois cenários e devolver o comando de evidência gerado pelo painel de teste.
+FA-005 e FA-010 somente poderão ser classificados como `PASS` após Leo concluir os dois cenários e devolver o comando de evidência final gerado pelo painel de teste.
