@@ -33,6 +33,8 @@ O esquema canônico provisório está em [`timeline/SCHEMA.md`](timeline/SCHEMA.
 
 - [`TL-20260726-155608-016`](timeline/2026/07/events/TL-20260726-155608-016.md) — TL-005, integração normativa, mergeability, RC e Cultura.
 - [`TL-20260726-161353-017`](timeline/2026/07/events/TL-20260726-161353-017.md) — decisões da rodada 1 da Cultura PREDIX.
+- [`TL-20260726-180007-024`](timeline/2026/07/events/TL-20260726-180007-024.md) — reconciliação normativa v0.4 e retomada dos 64 testes.
+- [`TL-20260726-183031-025`](timeline/2026/07/events/TL-20260726-183031-025.md) — execução integral e classificação da bateria de 64 testes.
 
 ## Consulta temporal
 
@@ -56,5 +58,5 @@ O plano para capturar conversas de projetos e chats normais está em:
 - **Branch de trabalho:** `mop/timeline-conversas-20260726`.
 - **Main:** ainda não alterada.
 - **Esquema:** `0.2-provisório`.
-- **Validação definitiva:** pendente de execução dos testes e RC independente.
+- **Validação definitiva:** bateria integral processada; TL-010 bloqueado, TL-012 não executado e RC independente pendente.
 - **Cobertura global real:** ainda não implementada.
