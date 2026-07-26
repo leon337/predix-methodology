@@ -12,6 +12,17 @@ on:
       - "tools/**"
       - "tests/**"
       - ".github/workflows/governance-64.yml"
+  pull_request:
+    branches:
+      - "integration/mop-governance-v0.1"
+    paths:
+      - "CULTURA.md"
+      - "MOP.md"
+      - "governance/**"
+      - "timeline/**"
+      - "tools/**"
+      - "tests/**"
+      - ".github/workflows/governance-64.yml"
   workflow_dispatch:
 
 permissions:
