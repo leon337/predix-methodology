@@ -30,7 +30,7 @@ A MOP transforma ideias em produtos digitais por meio de um fluxo padronizado, r
 - preparam candidatos isolados para validação;
 - explicam decisões com analogias ligadas a operações, redes, indústria e gestão.
 
-## Fonte de verdade
+## Fontes de verdade
 
 - **GitHub:** metodologia oficial, histórico, versões e mudanças aprovadas;
 - **Linear:** planejamento, tarefas, dependências e estado operacional;
@@ -60,9 +60,15 @@ predix-methodology/
 ├── TIMELINE.md
 ├── governance/
 │   ├── ARCHITECTURE.md
+│   ├── CULTURE-DISCOVERY.md
+│   ├── CULTURE-DECISION-PACK.md
 │   ├── DECISION-REGISTER.md
-│   └── GUARDRAILS.md
+│   ├── GUARDRAILS.md
+│   ├── RECOVERY.md
+│   ├── reviews/
+│   └── tests/
 └── timeline/
+    ├── SCHEMA.md
     ├── GLOBAL-INGESTION-PLAN.md
     └── 2026/
         └── 07/
@@ -78,7 +84,11 @@ Nenhuma decisão pendente pode desaparecer por mudança de assunto. Toda decisã
 ## Estado
 
 - Repositório iniciado em 25 de julho de 2026.
-- MOP v0.1 em preparação.
-- Arquitetura Cultura–MOP–POPs em validação na branch `mop/timeline-conversas-20260726`.
-- Guardrails v0.2 provisórios; detecção, severidade, recuperação e testes ainda pendentes.
+- MOP v0.1 em preparação no PR #1.
+- Arquitetura Cultura–MOP–POPs em validação no PR #2.
+- Guardrails v0.4 provisórios, com detecção, severidade e recuperação documentadas.
+- FA-001 a FA-010 executados com limitações de evidência; demais grupos continuam pendentes.
+- Timeline com esquema v0.2 provisório e remediação estrutural TL-R01 a TL-R10; testes completos ainda pendentes.
+- Cultura definitiva não aprovada; existe apenas descoberta e pacote de decisão candidato.
+- Instrução global e captura automática de todos os chats continuam bloqueadas.
 - Nenhum merge desta branch foi realizado.
