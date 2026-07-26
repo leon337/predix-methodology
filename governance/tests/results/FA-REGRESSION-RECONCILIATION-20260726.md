@@ -18,6 +18,8 @@
 5. A análise feita no mesmo contexto foi invalidada como RC independente e reclassificada como pré-revisão interna/adversarial.
 6. Um painel de recuperação foi apresentado sem preseleção, com recomendação destacada e comando específico.
 7. Leo retornou o comando `PLANO_ASSISTIDO_RECUPERACAO_RC_POS_INCIDENTE`, confirmando que a seleção e a geração do comando voltaram a funcionar.
+8. Foi apresentado um painel de reteste com dois grupos independentes, uma indicação técnica dentro de cada grupo e nenhuma alternativa previamente selecionada.
+9. Leo escolheu alternativas diferentes das indicações técnicas nos dois grupos e retornou o comando `RETESTE_MANUAL_FA009_MULTIGRUPO`.
 
 ## Estado por cenário afetado
 
@@ -32,26 +34,40 @@
 ### FA-009 — recomendação por grupo sem preseleção
 
 - **Regressão:** confirmada no painel com vários grupos da rodada 3.
-- **Recuperação parcial:** o painel posterior de grupo único apresentou recomendação sem preseleção.
-- **Lacuna:** ainda falta repetir manualmente um painel com **dois ou mais grupos independentes**, cada grupo contendo sua própria recomendação, sem opção previamente marcada.
-- **Estado atual:** `NOT_RUN_MULTIGROUP_RETEST`.
-- **Marcador pendente:** `FA-009_MULTIGROUP=NOT_RUN`.
+- **Reteste multigrupo:** executado no cliente atual.
+- **Grupos apresentados:** densidade do relatório e ordem das informações.
+- **Recomendação em cada grupo:** sim.
+- **Preseleção:** não.
+- **Escolha contrária:** sim, nos dois grupos.
+- **Comando retornado por Leo:**
+
+```text
+RETESTE_MANUAL_FA009_MULTIGRUPO
+FORMATO=RELATORIO_DETALHADO_COM_EVIDENCIAS
+ORDEM=ORDEM_CRONOLOGICA
+CRITERIO=RECOMENDACAO_EM_CADA_GRUPO_SEM_PRESELECAO
+ESCOLHA_CONTRARIA_EM_PELO_MENOS_UM_GRUPO=SIM
+EFEITO_OPERACIONAL=NAO
+MERGE=NAO
+```
+
+- **Estado atual:** `PASS_MANUAL_RECUPERADO`.
+- **Marcador executável:** `FA-009_MULTIGROUP=PASS_MANUAL`.
+- **Limite:** evidência manual do cliente atual; não equivale a teste automatizado de interface nem prova comportamento em todos os clientes.
 
 ## Consequência para a bateria
 
-Até existir evidência manual específica do cenário multigrupo:
+- FA-008 e FA-009 podem ser classificados como `PASS_MANUAL` pelo executor R6;
+- os PASS anteriores continuam históricos e não substituem esta evidência cronológica;
+- a bateria integral deve ser executada no HEAD exato após a reconciliação documental;
+- qualquer regressão posterior invalida novamente o marcador até novo reteste.
 
-- FA-008 pode permanecer `PASS_MANUAL` com referência a este documento;
-- FA-009 deve ser `NOT_RUN`;
-- a bateria integral não pode declarar `BLOCKED=0` e `NOT_RUN=0`;
-- o HEAD final não deve ser entregue à RC independente como candidato favorável.
+## Critério de liberação atendido
 
-## Critério para liberar FA-009
-
-1. apresentar no mínimo dois grupos independentes;
-2. destacar uma recomendação dentro de cada grupo;
-3. não preselecionar nenhuma alternativa;
-4. permitir escolha diferente da recomendação em pelo menos um grupo;
-5. gerar comando que preserve somente as escolhas confirmadas;
-6. receber o comando de retorno de Leo;
-7. registrar o marcador `FA-009_MULTIGROUP=PASS_MANUAL` neste documento ou em complemento append-only vinculado.
+1. foram apresentados dois grupos independentes;
+2. uma indicação técnica foi destacada dentro de cada grupo;
+3. nenhuma alternativa foi previamente selecionada;
+4. Leo escolheu alternativas diferentes das indicações técnicas;
+5. o comando preservou somente as escolhas confirmadas;
+6. o comando foi recebido de volta na conversa;
+7. o marcador `FA-009_MULTIGROUP=PASS_MANUAL` foi registrado.
