@@ -40,7 +40,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Execute 64 governance scenarios
         run: |
-          python tools/run_governance_64.py \
+          python tools/run_governance_64_v2.py \
             --repo-root . \
             --output-dir governance-test-results \
             --frozen-head "$GITHUB_SHA"
