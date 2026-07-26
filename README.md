@@ -1,6 +1,6 @@
 # Metodologia Operacional PREDIX — MOP
 
-Fonte oficial da metodologia de trabalho da PREDIX AI BR.
+Fonte oficial candidata da metodologia de trabalho da PREDIX AI BR enquanto a versão integrada permanece em validação.
 
 ## Finalidade
 
@@ -32,7 +32,11 @@ A MOP transforma ideias em produtos digitais por meio de um fluxo padronizado, r
 
 ## Fontes de verdade
 
-- **GitHub:** metodologia oficial, histórico, versões e mudanças aprovadas;
+- **CULTURA.md:** camada constitucional candidata;
+- **MOP.md:** método operacional subordinado à Cultura;
+- **governance/GUARDRAILS.md:** limites comportamentais e reações;
+- **governance/RECOVERY.md:** restauração de estado;
+- **GitHub:** histórico, versões, evidências e candidatos;
 - **Linear:** planejamento, tarefas, dependências e estado operacional;
 - **Chats:** discussão e execução corrente; não substituem a documentação oficial;
 - **Timeline:** contexto temporal, decisões, execuções, evidências e retomadas;
@@ -41,9 +45,11 @@ A MOP transforma ideias em produtos digitais por meio de um fluxo padronizado, r
 ## Arquitetura documental em validação
 
 ```text
-Cultura e Constituição da PREDIX
+Cultura e Constituição candidata da PREDIX
                 ↓
 Metodologia Operacional PREDIX — MOP
+                ↓
+Guardrails e Recuperação
                 ↓
 Procedimentos Operacionais Padrão — POPs
                 ↓
@@ -52,27 +58,25 @@ Registro de decisões e pendências
 Timeline, evidências e execução dos projetos
 ```
 
-## Estrutura da branch de trabalho
+## Estrutura principal da branch integrada
 
 ```text
 predix-methodology/
+├── CULTURA.md
+├── MOP.md
 ├── README.md
 ├── TIMELINE.md
 ├── governance/
 │   ├── ARCHITECTURE.md
-│   ├── CULTURE-DISCOVERY.md
-│   ├── CULTURE-DECISION-PACK.md
 │   ├── DECISION-REGISTER.md
 │   ├── GUARDRAILS.md
 │   ├── RECOVERY.md
+│   ├── INTEGRATION-STATUS.md
 │   ├── reviews/
 │   └── tests/
+├── tools/
+├── tests/
 └── timeline/
-    ├── SCHEMA.md
-    ├── GLOBAL-INGESTION-PLAN.md
-    └── 2026/
-        └── 07/
-            └── AAAA-MM-DD.md
 ```
 
 Novos documentos somente serão criados quando houver ganho operacional comprovado, responsabilidade definida e fonte canônica clara.
@@ -81,14 +85,18 @@ Novos documentos somente serão criados quando houver ganho operacional comprova
 
 Nenhuma decisão pendente pode desaparecer por mudança de assunto. Toda decisão relevante deve ser concluída, rejeitada, substituída, bloqueada com condição de retomada ou preservada na fila de pendências.
 
-## Estado
+## Estado atual
 
 - Repositório iniciado em 25 de julho de 2026.
-- MOP v0.1 em preparação no PR #1.
-- Arquitetura Cultura–MOP–POPs em validação no PR #2.
-- Guardrails v0.4 provisórios, com detecção, severidade e recuperação documentadas.
-- FA-001 a FA-010 executados com limitações de evidência; demais grupos continuam pendentes.
-- Timeline com esquema v0.2 provisório e remediação estrutural TL-R01 a TL-R10; testes completos ainda pendentes.
-- Cultura definitiva não aprovada; existe apenas descoberta e pacote de decisão candidato.
-- Instrução global e captura automática de todos os chats continuam bloqueadas.
-- Nenhum merge desta branch foi realizado.
+- Branch candidata integrada: `integration/mop-governance-v0.1`.
+- `CULTURA.md` está em `0.4-draft`; não é Constituição final aprovada.
+- `MOP.md`, arquitetura, guardrails e recuperação foram reunidos na branch integrada.
+- Guardrails v0.4 continuam provisórios.
+- Scanner TL-010 foi corrigido para cobrir segredos genéricos com `#` e recebeu regressões específicas.
+- FA-008 e FA-009 foram reconciliados cronologicamente; FA-009 recebeu reteste manual multigrupo no cliente atual.
+- O runner R6 invalida evidência manual antiga quando uma regressão posterior não foi retestada.
+- A bateria integral deve ser reexecutada sobre um HEAD congelado exato após esta reconciliação.
+- A análise feita no mesmo contexto é apenas pré-revisão interna/adversarial, não RC independente.
+- A RC independente exige outra sessão, agente ou revisor e permanece pendente.
+- Instrução global, promoção e merge continuam bloqueados.
+- Nenhum merge desta branch na `main` foi realizado.
