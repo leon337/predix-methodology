@@ -3,7 +3,7 @@
 ## Estado
 
 - **Data da auditoria:** `2026-07-26`.
-- **Última reconciliação:** `2026-07-26T16:42:10-03:00`.
+- **Última reconciliação:** `2026-07-26T17:01:57-03:00`.
 - **Origem:** projeto `Fábrica de softwares`.
 - **Branch:** `mop/timeline-conversas-20260726`.
 - **Objetivo:** impedir abandono silencioso e fornecer fila rastreável de retomada.
@@ -45,6 +45,12 @@
 | DEC-20260726-032 | Aprovar missão da PREDIX | APROVADA | `MISSAO=APROVAR_MISSAO_CANDIDATA` | preservar na minuta e validar coerência na RC |
 | DEC-20260726-033 | Aprovar visão institucional de 10 anos | APROVADA | `VISAO_10_ANOS=APROVAR_VISAO_CANDIDATA_10_ANOS` | definir marcos e indicadores intermediários |
 | DEC-20260726-034 | Concluir rodada 2 da Cultura | CONCLUIDA | comando explícito de Leo e pacote v0.3 | iniciar classificação dos valores e limites constitucionais |
+| DEC-20260726-035 | Abrir rodada 3 da Cultura | EM_TRATAMENTO | comando `PLANO_ASSISTIDO_CULTURA_PREDIX_RODADA_3` e matriz de decisão | Leo selecionar as opções específicas da rodada |
+| DEC-20260726-036 | Classificar valores da PREDIX | PENDENTE | `governance/CULTURE-ROUND-3-DECISION-MATRIX.md` | escolher modelo V1, V2 ou classificação personalizada |
+| DEC-20260726-037 | Definir limites éticos e projetos proibidos | PENDENTE | matriz da rodada 3 | escolher base E1, E2 ou E3 |
+| DEC-20260726-038 | Definir decisões sob autoridade exclusiva de Leo | PENDENTE | matriz da rodada 3 | escolher modelo A1, A2 ou personalizado |
+| DEC-20260726-039 | Definir duração, planejamento, continuidade e fechamento dos ciclos | PENDENTE | matriz da rodada 3 | escolher duração e modelo de continuidade |
+| DEC-20260726-040 | Definir marcos e indicadores de 3, 5 e 10 anos | PENDENTE | matriz da rodada 3 | escolher modelo de indicadores e depois criar linha de base numérica |
 
 ## Aprovações provisórias
 
@@ -98,7 +104,8 @@
 - handoff e issue para RC independente;
 - rodadas de decisões da Cultura;
 - política dinâmica de alocação entre as duas frentes;
-- missão e visão institucional aprovadas.
+- missão e visão institucional aprovadas;
+- cinco decisões estruturais da rodada 3 abertas e rastreadas.
 
 ### Não comprovados como artefatos implementados
 
@@ -109,7 +116,8 @@
 - não existem validadores executáveis de autorização e recuperação;
 - não existe scanner automático de segredos;
 - não existe RC independente aprovada com separação real de contexto;
-- a branch de integração existe, mas a reconciliação textual completa ainda não foi concluída.
+- a branch de integração existe, mas a reconciliação textual completa ainda não foi concluída;
+- nenhuma decisão específica da rodada 3 foi aprovada ainda.
 
 ## Regra de encerramento
 
