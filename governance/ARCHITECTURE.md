@@ -2,182 +2,171 @@
 
 ## Estado
 
-- **Status:** proposta operacional autorizada no Fluxo Assistido.
-- **Branch:** `mop/timeline-conversas-20260726`.
+- **Versão:** `0.2-integration-draft`.
+- **Branch:** `integration/mop-governance-v0.1`.
+- **Cultura:** `CULTURA.md` v0.4-draft existente e sincronizada.
 - **Main:** não alterada.
-- **Validação:** pendente de testes, RC independente e aprovação explícita de Leo.
+- **Validação:** bateria de 64 testes, RC independente e aprovação explícita ainda exigidas.
 
 ## Objetivo
 
-Separar princípios permanentes, metodologia geral, procedimentos repetíveis, decisões e evidências temporais, evitando duplicidade, contradição e abandono silencioso de assuntos.
+Separar regras constitucionais, metodologia, procedimentos, decisões e evidências temporais para evitar duplicidade, contradição, autoridade implícita e abandono silencioso.
 
 ## Hierarquia
 
 ```text
-Cultura e Constituição da PREDIX
+leis, políticas aplicáveis e segurança
                 ↓
-Metodologia Operacional PREDIX — MOP
+CULTURA.md — Cultura e Constituição candidata
                 ↓
-Procedimentos Operacionais Padrão — POPs
+MOP.md — Metodologia Operacional
+                ↓
+POPs vigentes
                 ↓
 Registro de decisões e pendências
                 ↓
-Timeline, evidências e execução dos projetos
+Timeline, evidências, planos e execução
 ```
 
-## 1. Cultura e Constituição da PREDIX
+A Cultura ainda é minuta. A hierarquia serve para testar o candidato e não equivale à aprovação final.
+
+## 1. Cultura e Constituição
+
+### Fonte
+
+[`../CULTURA.md`](../CULTURA.md), atualmente `0.4-draft`.
 
 ### Finalidade
 
-Define a identidade organizacional e as regras superiores que não devem mudar a cada projeto.
+Define propósito, missão, visão, frentes estratégicas, valores, limites éticos, autoridade de Leo, ciclo de 28 dias, continuidade e indicadores institucionais.
 
-### Conteúdo permitido
+Não deve conter comandos específicos, procedimentos temporários ou evidências de uma execução isolada.
 
-- missão, visão e princípios;
-- valores e comportamento esperado;
-- autoridade de Leo e limites de autonomia da IA;
-- hierarquia de fontes de verdade;
-- regras inegociáveis de segurança, honestidade, evidência e responsabilidade;
-- critérios para alterar a própria governança.
+## 2. Metodologia Operacional PREDIX
 
-### Conteúdo proibido
+### Fonte
 
-- passos detalhados de deploy;
-- comandos específicos de ferramentas;
-- procedimentos temporários de um projeto;
-- decisões pontuais que pertencem ao registro de decisões.
-
-### Fonte canônica futura
-
-Um documento separado, provisoriamente chamado `CULTURA.md`, somente deverá ser criado após definição e aprovação explícita de seu conteúdo.
-
-## 2. Metodologia Operacional PREDIX — MOP
+[`../MOP.md`](../MOP.md), atualmente `0.2.0-integration-draft`.
 
 ### Finalidade
 
-Define como a fábrica transforma ideias em produtos, coordena agentes, trata riscos, valida resultados e preserva conhecimento.
+Define como a fábrica coordena pessoas, agentes e ferramentas; aplica N0–N4; conduz o Fluxo Assistido; opera ciclos; produz evidências; preserva decisões; testa e reconcilia resultados.
 
-### Conteúdo permitido
+A MOP é subordinada à Cultura e não pode criar autorização implícita nem reduzir os dez grupos exclusivos de Leo.
 
-- ciclo de produto e engenharia;
-- papéis e responsabilidades;
-- modos autônomo, assistido e assistido recomendado;
-- níveis de risco e autorização;
-- critérios de entrada, saída, aceite e evidência;
-- relação entre GitHub, Linear, Vercel, Supabase, chats e demais ferramentas;
-- regras de continuidade, reconciliação e revisão independente.
+## 3. Guardrails e recuperação
 
-### Regra de autoridade
+### Fontes
 
-A MOP deve respeitar a Cultura/Constituição. Nenhum POP pode contrariar a MOP.
+- [`GUARDRAILS.md`](GUARDRAILS.md);
+- [`RECOVERY.md`](RECOVERY.md).
 
-## 3. Procedimentos Operacionais Padrão — POPs
+Os guardrails definem comportamentos proibidos, detecção, severidade e reação. A recuperação restaura o último estado válido. Nenhum dos dois cria autorização ou substitui decisão de Leo.
 
-### Finalidade
+## 4. Procedimentos Operacionais Padrão
 
-Descrever como executar uma atividade específica, repetível e suficientemente estável.
+Um POP descreve atividade específica, repetível e estável.
 
-### Exemplos
-
-- atualizar a timeline;
-- revisar um pull request;
-- realizar deploy em staging;
-- preparar release;
-- tratar incidente;
-- executar migration;
-- reconciliar GitHub, Linear, Vercel e Supabase.
-
-### Estrutura mínima de um POP
+Estrutura mínima:
 
 1. objetivo;
-2. gatilho de início;
+2. gatilho;
 3. pré-condições;
 4. responsáveis;
 5. ferramentas;
 6. passos;
 7. guardrails;
-8. evidências obrigatórias;
-9. critérios de conclusão;
+8. evidências;
+9. conclusão;
 10. rollback ou recuperação;
-11. versão e histórico de alterações.
+11. versão e histórico.
 
-### Critério de criação
+Criar somente quando houver repetição, necessidade de consistência, risco relevante ou ganho operacional superior ao custo de manutenção.
 
-Um POP somente deve ser criado quando o procedimento:
+## 5. Registro de decisões
 
-- ocorrer mais de uma vez ou tiver alta probabilidade de repetição;
-- exigir consistência entre agentes ou projetos;
-- possuir risco, dependências ou evidências relevantes;
-- produzir ganho operacional maior que seu custo de manutenção.
+### Fonte
 
-## 4. Registro de decisões e pendências
+[`DECISION-REGISTER.md`](DECISION-REGISTER.md).
 
-### Finalidade
+Preserva decisões aprovadas, provisórias, pendentes, bloqueadas, rejeitadas, substituídas e concluídas.
 
-Preservar o estado de cada decisão, inclusive quando o assunto mudar.
+Campos mínimos: ID, data, origem, assunto, estado, responsável, evidência, condição de retomada e relações.
 
-### Estados válidos
+## 6. Timeline e evidências
 
-- `ATIVA`;
-- `PENDENTE`;
-- `BLOQUEADA`;
-- `APROVADA_PROVISORIAMENTE`;
-- `APROVADA`;
-- `REJEITADA`;
-- `SUBSTITUIDA`;
-- `CONCLUIDA`.
+### Fontes
 
-### Campos mínimos
+- [`../timeline/SCHEMA.md`](../timeline/SCHEMA.md);
+- arquivos em `timeline/`;
+- validadores em `tools/`;
+- testes em `tests/`.
 
-- identificador;
-- data e horário;
-- origem e projeto;
-- decisão ou pergunta;
-- estado;
-- responsável;
-- evidência;
-- condição de retomada;
-- relação com outras decisões.
+A timeline registra quando conversa, decisão, ação, correção, teste ou bloqueio ocorreu. É append-only, distingue precisão temporal, usa IDs e chaves de idempotência e não pode persistir segredos.
 
-## 5. Timeline e evidências
+A timeline não substitui documentos normativos nem o registro de decisões.
 
-### Finalidade
+## 7. Estado operacional e evidência
 
-Registrar quando uma conversa, decisão, execução, correção ou bloqueio ocorreu.
+Estados mínimos:
 
-A timeline não substitui documentos normativos nem o registro de decisões. Ela preserva contexto temporal e aponta para as fontes canônicas.
+- `PROPOSTO`;
+- `PLANEJADO`;
+- `TENTADO`;
+- `EXECUTADO`;
+- `VERIFICADO`;
+- `BLOQUEADO`.
 
-## Regras de precedência
+Simulação, inspeção estática e observação manual devem ser identificadas. Ação externa exige evidência proporcional.
+
+## 8. Testes
+
+### Fonte
+
+[`tests/TEST-PLAN-TIMELINE-GUARDRAILS.md`](tests/TEST-PLAN-TIMELINE-GUARDRAILS.md).
+
+A bateria possui 64 cenários classificados como:
+
+- automatizado;
+- inspeção estática;
+- manual/observado;
+- simulado seguro;
+- bloqueado;
+- não executado.
+
+Executar os 64 significa atribuir estado e evidência a cada cenário. Não significa aprovação global quando existir `FAIL`, `BLOCKED` ou `NOT_RUN`.
+
+## 9. Precedência
 
 Quando houver conflito:
 
-1. segurança, leis e políticas aplicáveis;
-2. Cultura/Constituição aprovada;
-3. MOP aprovada;
-4. POP vigente;
-5. decisão específica válida;
-6. plano ou tarefa atual;
-7. conversa corrente.
+1. leis, políticas aplicáveis e segurança;
+2. Cultura aprovada ou candidata identificada para teste;
+3. MOP vigente;
+4. guardrails e recuperação;
+5. POP vigente;
+6. decisão específica válida;
+7. plano ou tarefa;
+8. timeline e conversa.
 
-O conflito deve ser exposto; nenhuma camada inferior pode substituir silenciosamente uma superior.
+A camada inferior não substitui silenciosamente a superior.
 
-## Regra de continuidade
+## 10. Continuidade
 
-Nenhuma decisão pendente pode desaparecer por mudança de assunto. Ela deve ser:
+Uma pendência deve ser concluída, rejeitada, substituída com vínculo, bloqueada com retomada ou mantida na fila. Mudança de assunto, ciclo, chat, branch ou ferramenta não encerra automaticamente a pendência.
 
-- concluída;
-- explicitamente rejeitada;
-- substituída por outra decisão vinculada;
-- bloqueada com condição de retomada;
-- ou mantida na fila de pendências.
-
-## Evolução documental
+## 11. Evolução documental
 
 Toda mudança normativa relevante deve:
 
-1. identificar a camada afetada;
-2. apresentar motivo e impacto;
+1. identificar a camada;
+2. informar motivo e impacto;
 3. verificar conflitos;
 4. atualizar decisões e timeline;
-5. passar por revisão proporcional ao risco;
-6. permanecer fora da `main` até aprovação explícita quando classificada como crítica.
+5. executar testes afetados;
+6. passar por revisão proporcional;
+7. permanecer fora da `main` até autorização aplicável.
+
+## 12. Gate
+
+Esta arquitetura é candidata integrada. Permanecem bloqueados a aprovação constitucional, merge na `main`, produção, instrução global e promoção normativa sem testes e RC independente.
