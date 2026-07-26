@@ -2,11 +2,12 @@
 
 ## Estado
 
-- **Versão:** `0.2-provisória`.
+- **Versão:** `0.3-provisória`.
 - **GR-001 a GR-043:** aprovados provisoriamente na conversa.
 - **GR-044 a GR-049:** adicionados pelo plano assistido de continuidade de decisões.
+- **Detecção e severidade:** definidas provisoriamente em 26 de julho de 2026.
 - **Implementação automática:** pendente.
-- **Validação:** pendente de detecção, severidade, recuperação e testes.
+- **Validação:** pendente de recuperação, testes e RC independente.
 
 ## 1. Objetivo e estado
 
@@ -81,6 +82,105 @@
 - **GR-048 — Gatilho de retomada:** toda pendência deve possuir condição, dependência, prazo ou evento que permita retomá-la.
 - **GR-049 — Auditoria de órfãos:** antes de encerrar fase, criar instrução global ou aprovar versão, verificar timeline, decisões, PRs, tarefas e documentos para localizar assuntos sem destino.
 
+## 9. Pontos de detecção
+
+Os guardrails devem ser verificados em quatro momentos complementares.
+
+### D1 — Antes da resposta
+
+Verificar:
+
+- objetivo ativo e modo vigente;
+- última decisão confirmada;
+- pendências que não podem ser abandonadas;
+- necessidade de recomendação técnica;
+- exigência do painel interativo;
+- presença de dados sensíveis no conteúdo de saída.
+
+### D2 — Antes de qualquer ação em ferramenta
+
+Verificar:
+
+- nível N0 a N4 da ação;
+- autorização correspondente;
+- projeto, repositório, branch, ambiente e referência;
+- escopo exato autorizado;
+- estado atual e validade da autorização;
+- backup, reversão e separação de ambientes quando aplicável.
+
+### D3 — Depois da ação
+
+Verificar:
+
+- evidência observável do resultado;
+- diferença entre proposto, tentado, executado e verificado;
+- efeitos inesperados;
+- necessidade de recuperação;
+- atualização do registro de decisões e da timeline.
+
+### D4 — Na reconciliação de fase
+
+Verificar:
+
+- decisões ativas, pendentes e bloqueadas;
+- assuntos sem responsável ou condição de retomada;
+- divergências entre GitHub, Linear, Vercel, Supabase, Asana e chats;
+- documentos desatualizados;
+- itens órfãos antes de RC, aprovação, merge ou instrução global.
+
+## 10. Escala de severidade das violações
+
+A severidade do guardrail é independente do nível N0 a N4 da ação. O nível N classifica a ação; o nível S classifica a violação detectada.
+
+| Nível | Nome | Efeito | Reação mínima |
+|---|---|---|---|
+| **S0** | Observação | não há violação confirmada, apenas risco ou melhoria | registrar quando útil e continuar |
+| **S1** | Aviso | falha de apresentação ou documentação sem perda de estado | corrigir na mesma resposta e registrar se recorrente |
+| **S2** | Correção obrigatória | erro reversível que afeta clareza, fluxo ou rastreabilidade | interromper a etapa atual, corrigir e revalidar |
+| **S3** | Recuperação obrigatória | perda de estado, decisão, evidência ou coerência operacional | bloquear continuidade, restaurar último estado válido e registrar incidente |
+| **S4** | Bloqueio absoluto | risco de segurança, ação crítica sem autorização, fabricação de evidência ou efeito externo indevido | não executar; preservar evidência; exigir decisão ou procedimento especial |
+
+## 11. Severidade padrão por grupo
+
+| Grupo | Guardrails | Severidade padrão | Elevação automática |
+|---|---|---|---|
+| Objetivo e estado | GR-001 a GR-005 | S3 | GR-005 sobe a S4 quando envolve alegação de ação crítica concluída |
+| Modo assistido | GR-006 a GR-011 | S2 | GR-006 e GR-010 sobem a S4 se houver execução sem autorização |
+| @Visualize | GR-012 a GR-019 | S1–S2 | GR-014, GR-015 e GR-017 sobem a S3 quando causarem perda de decisão |
+| Autorizações críticas | GR-020 a GR-027 | S4 | sempre bloqueio absoluto |
+| Verdade e evidência | GR-028 a GR-033 | S3 | GR-028 e GR-030 sobem a S4 quando fabricarem execução ou evidência crítica |
+| 5W1H e 5 Porquês | GR-034 a GR-039 | S1–S2 | sobe a S3 quando a omissão produzir decisão crítica incorreta |
+| Segurança e dados | GR-040 a GR-043 | S4 | sempre bloqueio absoluto |
+| Continuidade | GR-044 a GR-049 | S2–S3 | GR-044, GR-047 e GR-049 sobem a S3 quando decisões forem perdidas |
+
+## 12. Sinais mínimos de detecção
+
+| Sinal | Guardrails relacionados | Detecção esperada |
+|---|---|---|
+| resposta muda de objetivo sem fechamento | GR-001, GR-044, GR-045 | comparar objetivo anterior, comando recebido e próximo menu |
+| opção recomendada aparece marcada | GR-009, GR-013 | inspecionar estado inicial dos controles |
+| comando não representa a seleção | GR-014, GR-015 | comparar opção, título e comando gerado |
+| resposta termina sem próxima decisão | GR-017, GR-047 | verificar conclusão, bloqueio ou presença de menu seguinte |
+| ação crítica recebe comando genérico | GR-020 a GR-022 | validar sintaxe e campos obrigatórios N2/N3 |
+| referência ou ambiente mudou | GR-023, GR-024 | recalcular estado antes da execução |
+| conclusão sem commit, teste, consulta ou evidência equivalente | GR-005, GR-030 | exigir evidência apropriada ao tipo de ação |
+| ferramenta declarada indisponível sem consulta | GR-029 | verificar ferramentas e contexto realmente acessíveis |
+| segredo ou dado sensível aparece no conteúdo | GR-040, GR-041, GR-043 | inspeção preventiva antes de resposta, log ou commit |
+| decisão sem estado, responsável ou retomada | GR-046, GR-048 | validar campos do registro de decisões |
+| fase encerrada com pendências órfãs | GR-049 | executar auditoria de reconciliação |
+
+## 13. Matriz de reação
+
+```text
+S0 → observar → continuar
+S1 → corrigir apresentação → continuar
+S2 → interromper etapa → corrigir → revalidar → continuar
+S3 → bloquear → restaurar estado → registrar incidente → novas opções assistidas
+S4 → bloquear absolutamente → não executar → preservar evidência → exigir autorização ou procedimento especial
+```
+
+Nenhuma correção automática pode ampliar escopo, criar autorização ou substituir decisão de Leo.
+
 ## Reação mínima a violações
 
 ```text
@@ -96,9 +196,8 @@ detectar
 
 ## Pendências de implementação
 
-1. definir sinais de detecção para cada grupo;
-2. classificar severidade;
-3. definir correção automática, recuperação e bloqueio;
-4. criar testes positivos e negativos;
-5. realizar RC independente;
-6. somente depois propor universalização na instrução global.
+1. definir mecanismo técnico de recuperação de estado;
+2. criar testes positivos e negativos;
+3. validar falsos positivos e falsos negativos;
+4. realizar RC independente;
+5. somente depois propor universalização na instrução global.
