@@ -16,7 +16,7 @@ from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Sequence
 
-from tools.run_governance_64 import (
+from run_governance_64 import (
     FAIL,
     PASS_STATIC,
     Repo,
