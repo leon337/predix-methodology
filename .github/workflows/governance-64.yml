@@ -40,9 +40,9 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: TL-010 secret scan
         run: python tools/scan_secrets.py . --format json
-      - name: Execute 64 governance scenarios R5
+      - name: Execute 64 governance scenarios R6
         run: |
-          python tools/run_governance_64_v3.py \
+          python tools/run_governance_64_v4.py \
             --repo-root . \
             --output-dir governance-test-results \
             --frozen-head "$GITHUB_SHA"
