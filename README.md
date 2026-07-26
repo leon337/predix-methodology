@@ -1,6 +1,6 @@
 # Metodologia Operacional PREDIX — MOP
 
-Fonte oficial da metodologia de trabalho da PREDIX AI BR.
+Fonte oficial candidata da metodologia de trabalho da PREDIX AI BR enquanto a versão integrada permanece em validação.
 
 ## Finalidade
 
@@ -30,23 +30,73 @@ A MOP transforma ideias em produtos digitais por meio de um fluxo padronizado, r
 - preparam candidatos isolados para validação;
 - explicam decisões com analogias ligadas a operações, redes, indústria e gestão.
 
-## Fonte de verdade
+## Fontes de verdade
 
-- **GitHub:** metodologia oficial, histórico, versões e mudanças aprovadas;
+- **CULTURA.md:** camada constitucional candidata;
+- **MOP.md:** método operacional subordinado à Cultura;
+- **governance/GUARDRAILS.md:** limites comportamentais e reações;
+- **governance/RECOVERY.md:** restauração de estado;
+- **GitHub:** histórico, versões, evidências e candidatos;
 - **Linear:** planejamento, tarefas, dependências e estado operacional;
-- **Chats:** discussão e execução corrente; não substituem a documentação oficial.
+- **Chats:** discussão e execução corrente; não substituem a documentação oficial;
+- **Timeline:** contexto temporal, decisões, execuções, evidências e retomadas;
+- **Registro de decisões:** estado canônico das decisões e pendências.
 
-## Estrutura inicial
+## Arquitetura documental em validação
+
+```text
+Cultura e Constituição candidata da PREDIX
+                ↓
+Metodologia Operacional PREDIX — MOP
+                ↓
+Guardrails e Recuperação
+                ↓
+Procedimentos Operacionais Padrão — POPs
+                ↓
+Registro de decisões e pendências
+                ↓
+Timeline, evidências e execução dos projetos
+```
+
+## Estrutura principal da branch integrada
 
 ```text
 predix-methodology/
-├── README.md   # visão, autoridade e entrada da metodologia
-└── MOP.md      # metodologia operacional principal
+├── CULTURA.md
+├── MOP.md
+├── README.md
+├── TIMELINE.md
+├── governance/
+│   ├── ARCHITECTURE.md
+│   ├── DECISION-REGISTER.md
+│   ├── GUARDRAILS.md
+│   ├── RECOVERY.md
+│   ├── INTEGRATION-STATUS.md
+│   ├── reviews/
+│   └── tests/
+├── tools/
+├── tests/
+└── timeline/
 ```
 
-Novos documentos somente serão criados quando houver ganho operacional comprovado.
+Novos documentos somente serão criados quando houver ganho operacional comprovado, responsabilidade definida e fonte canônica clara.
 
-## Estado
+## Continuidade obrigatória
+
+Nenhuma decisão pendente pode desaparecer por mudança de assunto. Toda decisão relevante deve ser concluída, rejeitada, substituída, bloqueada com condição de retomada ou preservada na fila de pendências.
+
+## Estado atual
 
 - Repositório iniciado em 25 de julho de 2026.
-- MOP v0.1 em preparação.
+- Branch candidata integrada: `integration/mop-governance-v0.1`.
+- `CULTURA.md` está em `0.4-draft`; não é Constituição final aprovada.
+- `MOP.md`, arquitetura, guardrails e recuperação foram reunidos na branch integrada.
+- Guardrails v0.4 continuam provisórios.
+- Scanner TL-010 foi corrigido para cobrir segredos genéricos com `#` e recebeu regressões específicas.
+- FA-008 e FA-009 foram reconciliados cronologicamente; FA-009 recebeu reteste manual multigrupo no cliente atual.
+- O runner R6 invalida evidência manual antiga quando uma regressão posterior não foi retestada.
+- A bateria integral deve ser reexecutada sobre um HEAD congelado exato após esta reconciliação.
+- A análise feita no mesmo contexto é apenas pré-revisão interna/adversarial, não RC independente.
+- A RC independente exige outra sessão, agente ou revisor e permanece pendente.
+- Instrução global, promoção e merge continuam bloqueados.
+- Nenhum merge desta branch na `main` foi realizado.
