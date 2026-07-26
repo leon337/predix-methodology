@@ -2,26 +2,37 @@
 
 ## Estado
 
-- **Versão:** `0.1-candidata`.
+- **Versão:** `0.2-decisões-parciais`.
 - **Autoridade final:** Leo.
-- **Status:** recomendações para decisão; nada neste documento está aprovado como Cultura definitiva.
-- **Documento final:** `CULTURA.md`, bloqueado até decisões explícitas e RC independente.
+- **Status:** rodada 1 concluída; propósito, estratégia de público e horizonte da visão foram decididos. Missão, redação final da visão, valores, limites éticos e autoridade detalhada continuam em revisão.
+- **Documento de trabalho:** `CULTURA.md` em minuta; não aprovado como Constituição definitiva.
 
-## Recomendação da IA
+## Decisões da rodada 1
 
-Adotar uma Cultura curta, observável e ligada ao funcionamento real da Fábrica de Softwares. Evitar valores genéricos que não possam ser verificados no comportamento dos agentes, documentos e produtos.
-
-## Propósito candidato
+### Propósito — aprovado
 
 > Democratizar o acesso a software e inteligência artificial úteis, transformando ideias e problemas reais em soluções compreensíveis, seguras e operacionalmente sustentáveis.
 
-### Motivo
+**Decisão:** `APROVAR_PROPOSITO_CANDIDATO`.
 
-A PREDIX não existe apenas para produzir código. O valor está em permitir que pessoas e organizações, inclusive sem formação técnica profunda, consigam transformar necessidades em sistemas reais.
+### Público inicial — duas frentes equivalentes
 
-### Risco
+A PREDIX adotará duas frentes com igual prioridade estratégica:
 
-O propósito pode ficar amplo demais. A futura versão deverá decidir público prioritário e alcance geográfico.
+1. produtos internos e escaláveis da própria PREDIX;
+2. soluções para pequenos negócios, empresas locais, equipes e profissionais com problemas operacionais concretos e pouca estrutura técnica própria.
+
+**Decisão:** `ADOTAR_DUAS_FRENTES_EQUIVALENTES`.
+
+A equivalência é estratégica. A distribuição de capacidade, orçamento, pessoas e sequência entre as frentes ainda deve ser definida por ciclo operacional, sem transformar uma delas em prioridade permanente por interpretação automática.
+
+### Horizonte da visão — aprovado
+
+A visão institucional terá horizonte de **10 anos**.
+
+**Decisão:** `10_ANOS`.
+
+O horizonte foi aprovado; a redação final da visão e seus marcos intermediários ainda precisam de decisão.
 
 ## Missão candidata
 
@@ -35,13 +46,13 @@ O propósito pode ficar amplo demais. A futura versão deverá decidir público 
 - manter decisões pendentes rastreadas;
 - entregar software utilizável, não apenas documentação convincente.
 
-## Visão candidata
+**Estado:** candidata; não aprovada na rodada 1.
 
-> Tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capazes de atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
+## Visão candidata para 10 anos
 
-### Horizonte ainda aberto
+> Em dez anos, tornar a PREDIX uma referência brasileira em fábricas de software assistidas por IA, capaz de desenvolver produtos próprios e atender pequenos negócios, operações locais e projetos complexos com qualidade, velocidade e rastreabilidade.
 
-A visão precisa de prazo e foco de mercado antes da aprovação definitiva.
+**Estado:** horizonte aprovado; redação candidata e sujeita a ajustes.
 
 ## Valores candidatos e comportamento verificável
 
@@ -58,16 +69,31 @@ A visão precisa de prazo e foco de mercado antes da aprovação definitiva.
 | Simplicidade proporcional | usar o processo mínimo suficiente ao risco | criar burocracia sem ganho |
 | Evolução rastreável | mudanças mantêm histórico e motivo | reescrever decisões silenciosamente |
 
-## Público prioritário — recomendação provisória
+**Estado:** candidatos; ainda precisam ser classificados como aprovados, rejeitados ou em revisão.
 
-Priorizar, nesta ordem:
+## Modelo operacional das duas frentes
 
-1. pequenos negócios e empresas locais com problemas operacionais concretos;
-2. equipes e profissionais que precisam de automação sem possuir equipe técnica própria;
-3. projetos internos e produtos escaláveis da própria PREDIX;
-4. clientes maiores quando houver capacidade operacional e governança compatíveis.
+### Frente A — produtos próprios da PREDIX
 
-Esta ordem é candidata e precisa de decisão de Leo.
+Inclui:
+
+- sistemas, aplicativos e agentes próprios;
+- ativos reutilizáveis;
+- infraestrutura e metodologia da Fábrica de Softwares;
+- produtos com potencial de escala.
+
+### Frente B — soluções para clientes e operações reais
+
+Inclui:
+
+- pequenos negócios e empresas locais;
+- equipes e profissionais sem estrutura técnica própria;
+- automações, sistemas e agentes orientados a problemas concretos;
+- projetos maiores quando houver capacidade e governança compatíveis.
+
+### Regra ainda pendente
+
+A equivalência estratégica não define automaticamente divisão de 50% do tempo, receita ou equipe. A política de alocação por ciclo ainda deverá ser criada e testada.
 
 ## Regra candidata para velocidade versus qualidade
 
@@ -136,22 +162,24 @@ A PREDIX deve assumir como candidatos:
 - mudança da Constituição, MOP ou guardrails críticos;
 - aceitação de risco jurídico ou reputacional relevante.
 
-## Perguntas obrigatórias para Leo
+## Perguntas obrigatórias restantes para Leo
 
-1. O propósito candidato representa a transformação que você deseja produzir?
-2. Pequenos negócios e operações locais devem ser o público inicial prioritário?
-3. A visão deve ter horizonte de três, cinco ou dez anos?
-4. Quais dos dez valores candidatos são inegociáveis?
-5. Existe algum princípio que você rejeita ou deseja reescrever?
-6. A PREDIX deve assumir compromisso explícito com desenvolvimento local e acessibilidade?
-7. Que tipo de projeto a empresa não deve aceitar, mesmo sendo lucrativo?
-8. Quais decisões você quer manter sempre sob sua autoridade pessoal?
+1. A missão candidata deve ser aprovada, ajustada ou reescrita?
+2. A visão candidata de 10 anos deve ser aprovada, ajustada ou reescrita?
+3. Quais dos dez valores candidatos são inegociáveis?
+4. Existe algum princípio que você rejeita ou deseja reescrever?
+5. A PREDIX deve assumir compromisso explícito com desenvolvimento local e acessibilidade?
+6. Que tipo de projeto a empresa não deve aceitar, mesmo sendo lucrativo?
+7. Quais decisões você quer manter sempre sob sua autoridade pessoal?
+8. Como a capacidade deve ser distribuída entre as duas frentes em cada ciclo?
 
 ## Próximo gate
 
-1. Leo responde ou ajusta as perguntas obrigatórias;
-2. os valores candidatos são classificados como aprovados, rejeitados ou em revisão;
-3. conflitos com MOP e guardrails são mapeados;
-4. cria-se uma primeira minuta de `CULTURA.md` em branch isolada;
-5. RC independente revisa a minuta;
-6. somente depois ocorre aprovação e derivação da instrução global.
+1. classificar missão e visão;
+2. classificar os valores candidatos;
+3. definir limites éticos e autoridade;
+4. definir a política operacional das duas frentes;
+5. mapear conflitos com MOP e guardrails;
+6. atualizar a minuta `CULTURA.md`;
+7. submeter a minuta a RC independente;
+8. somente depois aprovar a Constituição e derivar a instrução global.
