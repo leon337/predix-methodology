@@ -2,9 +2,10 @@
 
 ## Estado
 
-- **Status:** descoberta iniciada; conteúdo ainda não aprovado.
+- **Status:** descoberta avançada; conteúdo ainda não aprovado.
 - **Documento final futuro:** `CULTURA.md`, somente após validação explícita de Leo.
 - **Autoridade:** esta descoberta não substitui a MOP, não cria valores definitivos e não autoriza mudanças na `main`.
+- **Pacote de decisão:** `governance/CULTURE-DECISION-PACK.md`.
 
 ## Objetivo
 
@@ -99,45 +100,62 @@ Criar documentação, POPs e ativos apenas quando o ganho operacional superar o 
 
 Mudanças críticas, releases, reconciliações e alterações na própria governança não devem ser autoaprovadas pelo mesmo contexto que implementou.
 
+## Avanço realizado
+
+O pacote `CULTURE-DECISION-PACK.md` agora apresenta candidatos para:
+
+- propósito;
+- missão;
+- visão;
+- público prioritário;
+- valores e comportamentos observáveis;
+- velocidade versus qualidade;
+- autoridade e autonomia;
+- compromissos com clientes;
+- impacto social;
+- decisões não delegáveis.
+
+Nenhum desses itens foi promovido a regra definitiva.
+
 ## Questões ainda abertas
 
 ### Propósito
 
-Qual transformação humana ou empresarial a PREDIX existe para produzir além de “criar software”?
+O propósito candidato representa a transformação que Leo deseja produzir?
 
 ### Público prioritário
 
-A PREDIX atende principalmente pequenos negócios, empresas locais, equipes operacionais, criadores, investidores ou uma combinação definida?
+Pequenos negócios, operações locais e profissionais sem equipe técnica devem ser o foco inicial?
 
-### Velocidade versus qualidade
+### Visão
 
-Quando houver conflito, qual regra deve determinar o equilíbrio entre entrega rápida, custo e robustez?
+Qual horizonte deve orientar a visão: três, cinco ou dez anos?
 
-### Relação com clientes
+### Valores
 
-Quais compromissos são inegociáveis em transparência, suporte, prazos, privacidade e responsabilidade?
+Quais princípios candidatos são inegociáveis, quais precisam ser reescritos e quais devem ser rejeitados?
 
-### Uso de IA
+### Limites comerciais
 
-Quais decisões jamais podem ser delegadas integralmente a agentes, mesmo quando tecnicamente possível?
+Que tipos de projeto a PREDIX não deve aceitar, mesmo quando lucrativos?
 
 ### Impacto social
 
-A empresa assumirá princípios explícitos sobre acessibilidade, inclusão, trabalho humano, sustentabilidade ou desenvolvimento local?
+A empresa assumirá compromissos explícitos com desenvolvimento local, acessibilidade e preservação da decisão humana?
 
 ## Processo de aprovação recomendado
 
-1. revisar os dez princípios candidatos;
-2. aprovar, rejeitar, combinar ou reescrever cada um;
+1. revisar o pacote de decisão;
+2. aprovar, rejeitar, combinar ou reescrever cada candidato;
 3. definir propósito, missão e visão;
 4. decidir valores e comportamentos observáveis;
 5. mapear conflitos com a MOP e guardrails;
 6. criar `CULTURA.md` em branch isolada;
-7. realizar RC independente;
+7. realizar RC independente com contexto separado;
 8. testar em situações reais;
 9. aprovar versão inicial;
 10. somente depois derivar instrução global.
 
 ## Gate
 
-A descoberta não pode ser declarada concluída enquanto propósito, missão, visão, valores, autoridade e critérios de alteração permanecerem sem decisão explícita.
+A descoberta não pode ser declarada concluída enquanto propósito, missão, visão, valores, autoridade e critérios de alteração permanecerem sem decisão explícita de Leo.
