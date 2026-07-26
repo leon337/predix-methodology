@@ -1,406 +1,221 @@
 # Metodologia Operacional PREDIX — MOP
 
-**Versão:** 0.1.0-draft  
-**Estado:** fundação em revisão  
-**Autoridade:** PREDIX AI BR  
-**Fonte oficial:** `leon337/predix-methodology`
+**Versão:** `0.2.0-integration-draft`  
+**Estado:** candidata integrada; não aprovada  
+**Autoridade final:** Leo  
+**Branch:** `integration/mop-governance-v0.1`
 
-## 1. Objetivo
-
-A MOP define como Leo, IAs, agentes e ferramentas transformam ideias em produtos digitais com:
-
-- mínima intervenção manual desnecessária;
-- máxima rastreabilidade;
-- aprendizagem durante a execução;
-- conhecimento operacional reutilizável;
-- proteção das versões estáveis;
-- evolução por testes e evidências.
-
-A metodologia deve reduzir sobrecarga mental, retrabalho, repetição de contexto e consumo sem retorno de tempo, atenção e tokens.
-
-## 2. Princípio de valor operacional
-
-Cada resposta, decisão ou entrega deve ser avaliada por cinco perguntas:
-
-1. Resolve o problema atual?
-2. Produz conhecimento reutilizável?
-3. Reduz trabalho futuro?
-4. Preserva rastreabilidade e segurança?
-5. Justifica o tempo, a atenção e os tokens consumidos?
-
-Texto sem efeito operacional deve ser removido.
-
-## 3. Papéis
-
-### 3.1 Leo — fundador e validador
-
-Responsável por:
-
-- apresentar problemas, oportunidades e ideias;
-- definir público, prioridade e resultado desejado;
-- aprovar decisões de produto;
-- testar candidatos no ambiente real;
-- relatar resultados observáveis;
-- decidir continuidade, correção ou encerramento.
-
-Leo não precisa programar manualmente para operar a fábrica.
-
-### 3.2 IA e agentes — equipe técnica de execução
-
-Responsáveis por:
-
-- interpretar o objetivo real;
-- identificar requisitos, riscos e dúvidas críticas;
-- separar MVP, futuras versões e itens fora do escopo;
-- propor arquitetura e fluxo;
-- planejar tarefas;
-- implementar, testar, revisar e documentar;
-- preparar candidatos isolados;
-- explicar decisões durante a execução.
-
-## 4. Método de ensino aplicado
-
-Não presumir conhecimento profundo de programação, Git, GitHub, arquitetura ou engenharia de software.
-
-Ao surgir um conceito relevante, explicar nesta sequência:
+## 1. Hierarquia normativa
 
 ```text
-O que aconteceu
-→ O que significa
-→ Analogia com redes, provedor, indústria, produção ou gestão
-→ Risco evitado
-→ Próxima ação
-→ Regra reutilizável
+leis, políticas aplicáveis e segurança
+→ CULTURA.md
+→ MOP.md
+→ POPs vigentes
+→ decisões específicas
+→ timeline, planos e conversa
 ```
 
-A explicação deve aumentar a autonomia de decisão de Leo sem transferir para ele trabalho técnico desnecessário.
+A MOP é subordinada à Cultura. Nenhuma camada inferior pode substituir silenciosamente uma superior.
 
-## 5. Contrato mínimo de contexto
+Referências obrigatórias:
 
-Quando iniciar ou retomar uma frente, usar o menor endereço capaz de localizar o raciocínio correto:
+- [`CULTURA.md`](CULTURA.md): identidade, valores, ética, autoridade e ciclos;
+- [`governance/ARCHITECTURE.md`](governance/ARCHITECTURE.md): camadas e precedência;
+- [`governance/GUARDRAILS.md`](governance/GUARDRAILS.md): limites, detecção e severidade;
+- [`governance/RECOVERY.md`](governance/RECOVERY.md): restauração de estado;
+- [`governance/DECISION-REGISTER.md`](governance/DECISION-REGISTER.md): decisões e pendências;
+- [`timeline/SCHEMA.md`](timeline/SCHEMA.md): eventos e evidências;
+- [`governance/tests/TEST-PLAN-TIMELINE-GUARDRAILS.md`](governance/tests/TEST-PLAN-TIMELINE-GUARDRAILS.md): 64 cenários de validação.
+
+## 2. Objetivo
+
+Transformar ideias e problemas reais em software e agentes úteis com autonomia controlada, rastreabilidade, testes, evidências, recuperação e mínima intervenção manual desnecessária.
+
+Toda resposta ou entrega deve:
+
+1. resolver o problema atual;
+2. gerar conhecimento reutilizável;
+3. reduzir trabalho futuro;
+4. preservar segurança, evidência e recuperação;
+5. justificar tempo, atenção e tokens.
+
+## 3. Valores operacionais
+
+### Inegociáveis
+
+Verdade operacional, clareza, autonomia responsável, continuidade, segurança por padrão, utilidade e evolução rastreável.
+
+### Revisáveis
+
+Aprendizado aplicado, revisão independente e simplicidade proporcional. O mecanismo pode evoluir, mas o princípio continua obrigatório quando o contexto exigir.
+
+## 4. Papéis
+
+### Leo
+
+Define objetivo, prioridade e resultado; valida candidatos; decide continuidade, correção e promoção; mantém autoridade final nos dez grupos exclusivos de `CULTURA.md`.
+
+### IA coordenadora
+
+Interpreta o objetivo, recomenda caminhos, organiza agentes, preserva decisões e executa somente dentro do escopo, risco e autorização válidos.
+
+### Agentes especializados
+
+Executam funções delimitadas, produzem evidências e não ampliam escopo nem alteram governança.
+
+### Revisor independente
+
+Revisa em contexto separado quando exigido, emite `PASS`, `FAIL` ou `BLOCKED`, não remedia nem realiza merge sem autorização específica.
+
+## 5. Autoridade exclusiva de Leo
+
+Exige decisão final e explícita de Leo:
+
+1. propósito, missão, visão e valores;
+2. Constituição, MOP e guardrails críticos;
+3. contratos, finanças e decisões societárias;
+4. comunicação pública oficial;
+5. parcerias, investidores e clientes estratégicos;
+6. exceções envolvendo dados sensíveis;
+7. riscos jurídicos, financeiros ou reputacionais relevantes;
+8. merge, produção e ações N3/N4 quando aplicável;
+9. projetos em setores restritos;
+10. encerramento de uma frente estratégica.
+
+Silêncio, recomendação e comando genérico não constituem autorização.
+
+## 6. Fluxo Assistido
 
 ```text
-Projeto:
-Fase ou momento:
-Objetivo atual:
-Referência opcional:
+analisar estado
+→ apresentar opções válidas
+→ marcar recomendação sem selecionar
+→ explicar benefício, consequência e risco
+→ Leo escolhe
+→ confirmar
+→ gerar comando específico
+→ copiar ou alterar
+→ executar após o comando ser enviado
 ```
 
-Exemplo:
+Quando houver grupos independentes, cada grupo mostra sua recomendação. Opção personalizada abre a subdecisão antes do comando. Campo ou dependência ausente deve ser informado claramente.
+
+## 7. Níveis de ação
+
+- **N0:** leitura e análise segura;
+- **N1:** alteração reversível controlada;
+- **N2:** impacto moderado e autorização específica;
+- **N3:** plano confirmado, estado revalidado e autorização final;
+- **N4:** ação restrita fora do fluxo automático normal.
+
+O maior nível aplicável prevalece. Autorizações não podem ser reutilizadas em outro projeto, ambiente, referência ou estado.
+
+## 8. Fontes de verdade
+
+- **GitHub:** código, documentação, branches, commits, PRs, versões e infraestrutura reproduzível;
+- **Linear:** tarefas, dependências, prioridade, estado e critérios;
+- **Vercel:** previews e deployments web quando adotada;
+- **Supabase:** dados, autenticação e backend gerenciado quando adotado;
+- **Chats:** descoberta, coordenação, ensino e execução corrente;
+- **Registro de decisões:** estado e condição de retomada;
+- **Timeline:** sequência temporal e evidências.
+
+Chats e timeline não substituem documentos normativos.
+
+## 9. Duas frentes e ciclos
+
+A PREDIX mantém igual prioridade estratégica para:
+
+1. produtos próprios e ativos reutilizáveis;
+2. soluções para clientes e operações reais.
+
+O ciclo padrão é de **28 dias**. A alocação é dinâmica e não significa divisão fixa de 50%.
+
+### Abertura do ciclo
+
+Registrar objetivo, frente concentrada, justificativa, capacidade, compromissos, dependências, riscos, critérios de aceite e continuidade de cada frente.
+
+### Continuidade
+
+Cada frente deve ter resultado ativo, manutenção/suporte ou pausa formal com motivo e data de revisão. Nenhuma frente fica sem estado explícito.
+
+### Fechamento
+
+Registrar resultados, evidências, itens não concluídos, causas, decisões, pendências transportadas, incidentes, capacidade consumida, estado das frentes e recomendação para o próximo ciclo.
+
+## 10. Fluxo de produto e desenvolvimento
 
 ```text
-Projeto: TriView
-Fase: V1 — testes sequenciais
-Objetivo atual: testar a LEA-197
-Referência: depois da reconciliação do trem LEA-197–205
+ideia → problema → público → resultado → requisitos → MVP → arquitetura → riscos
+→ plano → branch → implementação → PR → CI → candidato isolado
+→ teste real → correção ou aprovação → versão estável → reutilização
 ```
 
-Não exigir esse formato quando o contexto da conversa já for suficiente.
-
-## 6. Tratamento de ambiguidades
-
-Pontuação, acentuação ou digitação imperfeita não devem interromper o fluxo.
-
-Antes de executar uma ação irreversível, distinguir:
-
-- pergunta;
-- proposta;
-- hipótese;
-- ordem de execução;
-- aprovação explícita.
-
-Quando a intenção estiver clara pelo contexto, prosseguir. Quando houver risco material, confirmar com uma pergunta objetiva.
-
-## 7. Arquitetura das fontes de verdade
-
-Cada ferramenta possui uma responsabilidade. Nenhuma delas deve ser tratada como fonte universal de tudo.
-
-### GitHub
-
-Fonte oficial de:
-
-- metodologia aprovada;
-- código e documentação técnica;
-- histórico de mudanças;
-- branches, commits, PRs e versões;
-- esquemas, migrations e configurações que precisam ser reproduzíveis.
-
-### Linear
-
-Fonte oficial de:
-
-- planejamento operacional;
-- tarefas e dependências;
-- prioridade e estado;
-- critérios de aceitação;
-- evidências e próximos passos.
-
-### Vercel — quando adotada pelo projeto
-
-Fonte operacional de:
-
-- previews isolados de branches e PRs;
-- publicação de aplicações web;
-- estado dos deployments;
-- domínio e ambiente de produção;
-- logs e falhas relacionadas à implantação.
-
-A Vercel não substitui o GitHub como fonte do código. Ela mostra **o que foi implantado e como está funcionando no ambiente publicado**.
-
-Usar Vercel quando o produto precisar de frontend web, site, painel, API compatível ou preview acessível por link. Não exigir Vercel para aplicativos exclusivamente locais ou desktop, salvo decisão arquitetural específica.
-
-### Supabase — quando adotado pelo projeto
-
-Fonte operacional de:
-
-- banco de dados gerenciado;
-- autenticação e usuários;
-- armazenamento de arquivos;
-- políticas de acesso;
-- funções de backend e recursos em tempo real, quando utilizados;
-- estado operacional dos serviços de dados.
-
-O Supabase não substitui o GitHub: migrations, esquemas, políticas e funções reproduzíveis devem permanecer versionados no repositório.
-
-Usar Supabase quando o produto precisar de dados em nuvem, autenticação, armazenamento compartilhado, sincronização entre usuários ou backend gerenciado. Não adotar apenas por padrão quando armazenamento local ou uma arquitetura mais simples resolverem o problema.
-
-### Chats
-
-Espaço para:
-
-- descoberta;
-- debate;
-- execução corrente;
-- ensino aplicado;
-- decisões ainda não formalizadas.
-
-Chats não substituem as fontes oficiais. Conhecimento durável deve ser consolidado no local correto.
-
-### Memória da plataforma
-
-Reservada para preferências e princípios pessoais duráveis que mudem a forma de trabalhar em qualquer projeto.
-
-Não usar memória para commits, branches, bugs, versões ou estados temporários.
-
-## 8. Regra de documentação mínima
-
-Começar com o menor número de documentos capaz de sustentar o trabalho.
-
-Regra:
-
-> Um novo documento somente nasce quando separar o conteúdo reduz claramente busca, conflito, manutenção ou risco.
-
-Estrutura inicial da MOP:
-
-```text
-README.md
-MOP.md
-```
-
-## 9. Fluxo padrão de produto
-
-```text
-IDEIA
-→ PROBLEMA
-→ PÚBLICO
-→ RESULTADO ESPERADO
-→ REQUISITOS
-→ MVP
-→ ARQUITETURA
-→ RISCOS
-→ PLANO NO LINEAR
-→ IMPLEMENTAÇÃO NO GITHUB
-→ PREVIEW OU BACKEND GERENCIADO, QUANDO APLICÁVEL
-→ TESTES E CI
-→ CANDIDATO ISOLADO
-→ TESTE REAL POR LEO
-→ CORREÇÃO OU APROVAÇÃO
-→ VERSÃO ESTÁVEL
-→ REUTILIZAÇÃO EM NOVOS PRODUTOS
-```
-
-A arquitetura decide se Vercel, Supabase, ambas ou nenhuma serão usadas. A ferramenta deve ser consequência do requisito, não ponto de partida obrigatório.
-
-## 10. Fluxo de desenvolvimento
-
-Para cada unidade de implementação:
-
-```text
-Tarefa no Linear
-→ branch própria
-→ commits rastreáveis
-→ PR
-→ CI
-→ correção até PASS
-→ preview ou validação de infraestrutura, quando aplicável
-→ integração no trem ou branch de destino
-→ candidato isolado
-→ teste de aceite
-→ atualização das fontes de verdade
-```
-
-### Regras
+Regras:
 
 - não desenvolver diretamente na `main` sem exceção formal;
-- não declarar conclusão apenas porque o código foi escrito;
-- não ignorar falha de CI;
-- não promover candidato sem identificação e isolamento;
-- não misturar tarefas independentes na mesma branch sem justificativa;
-- preservar possibilidade de retorno para versão estável;
-- não publicar em produção sem identificar commit, branch ou versão correspondente;
-- não alterar banco ou políticas críticas sem migration, evidência e estratégia de retorno quando aplicável.
+- não declarar conclusão porque código foi escrito;
+- não ignorar CI;
+- preservar reversão;
+- não publicar sem identificar commit, branch ou versão;
+- não alterar dados, autenticação ou políticas críticas sem avaliação e recuperação.
 
-## 11. Trem de desenvolvimento
+## 11. Verdade e evidência
 
-O trem é uma linha intermediária que organiza múltiplas entregas antes da promoção para a versão estável.
+Estados mínimos: `PROPOSTO`, `PLANEJADO`, `TENTADO`, `EXECUTADO`, `VERIFICADO` e `BLOQUEADO`.
 
-Analogia:
+Teste, commit, deploy, merge, publicação ou alteração exigem evidência proporcional. Hipótese deve ser identificada como hipótese.
 
-- LEA/tarefa = vagão;
-- branch = via de preparação;
-- CI = inspeção;
-- PR = pedido de acoplamento;
-- merge = acoplamento;
-- preview Vercel = área de demonstração do vagão antes da operação;
-- ambiente Supabase = infraestrutura compartilhada de dados, quando necessária;
-- trem = composição em validação;
-- `main` = linha oficial em operação.
+## 12. Guardrails e recuperação
 
-Se a ordem, o estado ou as fontes divergirem, executar reconciliação antes de continuar.
-
-## 12. Reconciliação
-
-Reconciliação é alinhar, quando aplicável:
-
-- Linear;
-- GitHub;
-- branches;
-- commits;
-- PRs;
-- CI;
-- documentação;
-- deployments e previews da Vercel;
-- migrations, políticas e estado técnico do Supabase;
-- candidatos instalados.
-
-Procedimento:
-
-1. identificar o estado real;
-2. localizar a evidência técnica;
-3. comparar código, planejamento, implantação e dados aplicáveis;
-4. corrigir inconsistências;
-5. repetir validações necessárias;
-6. preservar entregas válidas;
-7. atualizar todas as fontes de verdade;
-8. somente então retomar a sequência.
-
-## 13. Organização de chats e projetos
-
-### Nova pasta de projeto
-
-Criar quando existir produto, objetivo estratégico ou ciclo de vida próprio.
-
-### Novo chat
-
-Criar quando houver objetivo operacional claramente diferente, sem necessidade de carregar toda a conversa anterior.
-
-### Chat fora de projeto
-
-Pode ser usado para descoberta, aprendizado geral ou ideias ainda sem produto definido.
-
-Quando a ideia ganhar continuidade, consolidar o contexto durável no projeto correto.
-
-### Arquivamento e limpeza
-
-Antes de excluir conversas relevantes:
-
-1. identificar decisões, ativos e pendências;
-2. consolidar somente o conteúdo durável;
-3. registrar o estado no GitHub ou Linear;
-4. arquivar ou excluir o ruído restante.
-
-Excluir chats não substitui a consolidação.
-
-## 14. Uso de imagens e prints
-
-Usar print quando a informação depende de:
-
-- interface;
-- estado visual;
-- erro exibido;
-- configuração selecionada;
-- disposição de elementos;
-- sequência observada na tela.
-
-Preferir texto quando nomes, logs ou valores puderem ser copiados com precisão.
-
-## 15. Seleção de ferramentas
-
-Usar a ferramenta pelo tipo de trabalho, não por hábito.
-
-- **Chat:** descoberta, estratégia, ensino, decisões e coordenação.
-- **GitHub:** código, documentação oficial, histórico, revisão e versionamento de infraestrutura reproduzível.
-- **Linear:** planejamento, dependências, estado e critérios.
-- **Vercel:** preview por branch/PR, deploy de aplicações web e observação do ambiente publicado.
-- **Supabase:** banco, autenticação, armazenamento e backend gerenciado quando os requisitos justificarem.
-- **Codex:** implementação ou revisão de código em repositórios quando disponível e apropriado.
-- **Work ou execução prolongada:** tarefas extensas, auditorias e processamento de grande volume, conforme disponibilidade da plataforma.
-
-### Regra de adoção
+Aplicar `governance/GUARDRAILS.md` antes da resposta, antes da ferramenta, depois da ação e na reconciliação de fase.
 
 ```text
-Necessidade do produto
-→ decisão de arquitetura
-→ escolha da ferramenta
-→ implementação versionada
-→ validação
+detectar → interromper → classificar → preservar evidência
+→ restaurar último estado válido → registrar → corrigir em fluxo assistido
 ```
 
-Nenhuma ferramenta é obrigatória apenas porque pertence ao conjunto padrão da fábrica.
+Recuperação não amplia escopo, cria autorização ou substitui decisão de Leo.
 
-Os nomes e capacidades das ferramentas podem mudar; a decisão deve seguir a função necessária.
+## 13. Decisões e timeline
 
-## 16. Universalização da metodologia
+Decisão relevante possui ID, estado, responsável, evidência, condição de retomada e vínculos. Nenhuma pendência desaparece por mudança de assunto.
 
-A instrução geral da plataforma deve conter apenas os princípios universais e indicar que a MOP é a fonte operacional oficial quando estiver acessível.
+A timeline é append-only, distingue precisão temporal, referencia projeto e decisão, usa chave de idempotência e não pode persistir segredos.
 
-Limite técnico:
+## 14. Testes
 
-> Um chat somente consegue consultar o repositório quando houver acesso ao GitHub ou quando o conteúdo relevante for fornecido no contexto.
+A governança usa 64 cenários e distingue:
 
-Portanto, a universalização depende de três elementos:
+- automatizado;
+- inspeção estática;
+- manual/observado;
+- simulado seguro;
+- bloqueado;
+- não executado.
 
-1. princípios curtos na instrução geral;
-2. MOP versionada no GitHub;
-3. acesso ou referência suficiente para consultar a versão aplicável.
+Simulação não equivale a implementação. `FAIL`, `BLOCKED` ou `NOT_RUN` mantém o gate correspondente bloqueado.
 
-Nenhuma instrução deve fingir acesso automático inexistente.
+## 15. Reconciliação
 
-## 17. Evolução da MOP
+Alinhar Cultura, MOP, guardrails, decisões, timeline, ferramentas, código, PRs, CI e ambiente real.
 
-Mudanças na metodologia seguem o próprio processo:
+Procedimento: identificar estado, localizar evidência, comparar fontes, expor conflitos, corrigir sem apagar histórico, repetir testes afetados e atualizar fontes de verdade.
+
+## 16. Documentação e POPs
+
+Novo documento nasce apenas quando reduz busca, conflito, manutenção ou risco. POP é criado para procedimento repetível, consistente e de valor operacional comprovável.
+
+## 17. Universalização
+
+A instrução global permanece bloqueada até existir versão identificada, reconciliação suficiente, testes críticos, proteção de segredos, recuperação verificada, RC independente e aprovação explícita de Leo.
+
+## 18. Evolução e gate
 
 ```text
-necessidade observada
-→ proposta
-→ branch
-→ alteração da MOP
-→ PR
-→ revisão operacional
-→ aprovação de Leo
-→ merge
-→ nova versão
+necessidade → proposta → branch → alteração → testes → PR
+→ revisão → aprovação de Leo → integração autorizada → versão
 ```
 
-A MOP não deve crescer por sugestão abstrata. Cada nova regra precisa responder a um problema real ou risco comprovado.
-
-## 18. Critério de aprovação da versão 0.1
-
-A versão 0.1 será considerada aprovada quando:
-
-- Leo confirmar que representa sua forma de trabalhar;
-- a ligação entre ChatGPT, GitHub, Linear, Vercel, Supabase e chats estiver operacionalmente clara;
-- estiver claro que Vercel e Supabase são condicionais aos requisitos do projeto;
-- a instrução geral mínima for derivada sem duplicar toda a MOP;
-- o fluxo for aplicado em pelo menos uma retomada real de projeto;
-- ajustes observados na prática forem incorporados.
+Esta versão não altera a `main`, não aprova a Constituição, não autoriza merge ou produção e não libera a instrução global.
