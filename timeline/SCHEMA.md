@@ -33,12 +33,14 @@ Essa classificação é baseada no caminho do arquivo, não na data do commit. U
 
 ## Formato canônico dos campos obrigatórios
 
-```markdown
-- **ID:** `TL-AAAAMMDD-HHMMSS-NNN`.
-- **Chave de idempotência:** `IDEMP-AAAAMMDD-ORIGEM-CONVERSA-ORDEM-RESUMO`.
+A notação conceitual dos dois campos é:
+
+```text
+Campo ID = TL-AAAAMMDD-HHMMSS-NNN
+Campo Chave de idempotência = IDEMP-AAAAMMDD-ORIGEM-CONVERSA-ORDEM-RESUMO
 ```
 
-Variações YAML, chaves sem rótulo Markdown ou campos parcialmente preenchidos não são aceitos como evento persistido válido em `events`.
+No arquivo de evento real, os campos devem usar os rótulos Markdown demonstrados no exemplo canônico abaixo. Variações YAML, chaves sem rótulo Markdown ou campos parcialmente preenchidos não são aceitos como evento persistido válido em `events`.
 
 ## Identificador estável
 
