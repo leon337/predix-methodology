@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 """Validate PREDIX timeline identifiers and idempotency keys.
 
-The validator is intentionally dependency-free so it can run in local checkouts
-and GitHub Actions with the Python standard library only.
+Policy:
+- canonical structured events live under ``timeline/**/events/*.md``;
+- each canonical event file must contain exactly one Markdown ``ID`` field and
+  exactly one Markdown ``Chave de idempotência`` field;
+- overview, index and historical files outside ``events`` are legacy/support
+  documents and may omit those fields;
+- YAML is not an accepted persisted event format in v0.3.
+
+The validator is dependency-free so it can run locally and in GitHub Actions.
 """
 from __future__ import annotations
 
@@ -44,6 +51,8 @@ class Finding:
 @dataclass(frozen=True)
 class ValidationReport:
     files_scanned: int
+    structured_event_files: int
+    legacy_or_support_files: int
     ids_found: int
     idempotency_keys_found: int
     findings: tuple[Finding, ...]
@@ -88,6 +97,65 @@ def _collect(pattern: re.Pattern[str], text: str, path: Path) -> list[Occurrence
             )
         )
     return result
+
+
+def _is_structured_event_file(path: Path) -> bool:
+    """Return True only for canonical event records under an events directory."""
+    return path.suffix.lower() == ".md" and "events" in path.parts
+
+
+def _file_occurrence(path: Path) -> Occurrence:
+    return Occurrence(value="", path=path.as_posix(), line=1, entry_heading=None)
+
+
+def _required_field_findings(
+    path: Path,
+    file_ids: list[Occurrence],
+    file_keys: list[Occurrence],
+) -> list[Finding]:
+    findings: list[Finding] = []
+    if not file_ids:
+        findings.append(
+            Finding(
+                code="TL005-MISSING-ID",
+                severity="error",
+                message="Entrada estruturada nova sem campo Markdown obrigatório de ID.",
+                value=None,
+                occurrences=(_file_occurrence(path),),
+            )
+        )
+    elif len(file_ids) > 1:
+        findings.append(
+            Finding(
+                code="TL005-MULTIPLE-ID",
+                severity="error",
+                message="Arquivo de evento deve conter exatamente um campo de ID.",
+                value=None,
+                occurrences=tuple(file_ids),
+            )
+        )
+
+    if not file_keys:
+        findings.append(
+            Finding(
+                code="TL005-MISSING-KEY",
+                severity="error",
+                message="Entrada estruturada nova sem chave de idempotência Markdown obrigatória.",
+                value=None,
+                occurrences=(_file_occurrence(path),),
+            )
+        )
+    elif len(file_keys) > 1:
+        findings.append(
+            Finding(
+                code="TL005-MULTIPLE-KEY",
+                severity="error",
+                message="Arquivo de evento deve conter exatamente uma chave de idempotência.",
+                value=None,
+                occurrences=tuple(file_keys),
+            )
+        )
+    return findings
 
 
 def _duplicates(items: Iterable[Occurrence], code: str, label: str) -> list[Finding]:
@@ -142,6 +210,7 @@ def validate(paths: Sequence[Path]) -> ValidationReport:
     ids: list[Occurrence] = []
     keys: list[Occurrence] = []
     findings: list[Finding] = []
+    structured_count = 0
 
     for path in files:
         try:
@@ -157,8 +226,15 @@ def validate(paths: Sequence[Path]) -> ValidationReport:
                 )
             )
             continue
-        ids.extend(_collect(FIELD_ID_RE, text, path))
-        keys.extend(_collect(FIELD_KEY_RE, text, path))
+
+        file_ids = _collect(FIELD_ID_RE, text, path)
+        file_keys = _collect(FIELD_KEY_RE, text, path)
+        ids.extend(file_ids)
+        keys.extend(file_keys)
+
+        if _is_structured_event_file(path):
+            structured_count += 1
+            findings.extend(_required_field_findings(path, file_ids, file_keys))
 
     findings.extend(_duplicates(ids, "TL005-DUPLICATE-ID", "ID de timeline"))
     findings.extend(_duplicates(keys, "TL005-DUPLICATE-KEY", "Chave de idempotência"))
@@ -167,6 +243,8 @@ def validate(paths: Sequence[Path]) -> ValidationReport:
 
     return ValidationReport(
         files_scanned=len(files),
+        structured_event_files=structured_count,
+        legacy_or_support_files=len(files) - structured_count,
         ids_found=len(ids),
         idempotency_keys_found=len(keys),
         findings=tuple(findings),
@@ -178,6 +256,8 @@ def _to_json(report: ValidationReport) -> str:
         {
             "ok": report.ok,
             "files_scanned": report.files_scanned,
+            "structured_event_files": report.structured_event_files,
+            "legacy_or_support_files": report.legacy_or_support_files,
             "ids_found": report.ids_found,
             "idempotency_keys_found": report.idempotency_keys_found,
             "error_count": report.error_count,
@@ -193,6 +273,8 @@ def _to_text(report: ValidationReport) -> str:
     lines = [
         "TL-005 — Validação de idempotência da timeline",
         f"Arquivos: {report.files_scanned}",
+        f"Eventos estruturados: {report.structured_event_files}",
+        f"Legados/suporte: {report.legacy_or_support_files}",
         f"IDs: {report.ids_found}",
         f"Chaves: {report.idempotency_keys_found}",
         f"Erros: {report.error_count}",
