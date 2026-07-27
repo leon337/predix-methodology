@@ -2,14 +2,43 @@
 
 ## Estado
 
-- **Versão:** `0.2-provisória`.
+- **Versão:** `0.3-provisória`.
 - **Fuso oficial:** `America/Recife` (`UTC-03:00`).
 - **Cobertura global:** não implementada; somente fontes acessíveis e explicitamente registradas.
 - **Histórico:** append-only; correções geram nova entrada ou complemento vinculado.
+- **Formato persistido aceito:** Markdown canônico.
+- **Formato YAML persistido:** proibido nesta versão; blocos YAML são somente exemplos de estrutura conceitual e não constituem eventos válidos.
 
 ## Objetivo
 
 Padronizar registros temporais, evitar duplicidade lógica, preservar vínculos com decisões e evidências e permitir consultas por data, período, projeto, conversa e estado operacional.
+
+## Limite entre evento novo e arquivo legado
+
+### Evento estruturado novo
+
+Todo arquivo Markdown localizado em:
+
+```text
+timeline/**/events/*.md
+```
+
+é tratado como evento estruturado novo e deve conter **exatamente um** campo Markdown de ID e **exatamente uma** chave de idempotência.
+
+### Arquivo legado ou de suporte
+
+Arquivos Markdown fora de diretórios `events`, incluindo índices, visões diárias, planos, esquemas e registros históricos, são tratados como legado ou suporte e podem omitir ID e chave.
+
+Essa classificação é baseada no caminho do arquivo, não na data do commit. Um arquivo novo não pode ser colocado fora de `events` para escapar dos campos obrigatórios quando sua finalidade for registrar um evento operacional.
+
+## Formato canônico dos campos obrigatórios
+
+```markdown
+- **ID:** `TL-AAAAMMDD-HHMMSS-NNN`.
+- **Chave de idempotência:** `IDEMP-AAAAMMDD-ORIGEM-CONVERSA-ORDEM-RESUMO`.
+```
+
+Variações YAML, chaves sem rótulo Markdown ou campos parcialmente preenchidos não são aceitos como evento persistido válido em `events`.
 
 ## Identificador estável
 
@@ -41,28 +70,49 @@ A chave é formada por:
 4. ordem local da mensagem ou evento;
 5. resumo normalizado sem conteúdo sensível.
 
-Antes de gravar, o agente deve verificar se a chave já existe no arquivo do dia. Uma repetição técnica não cria nova entrada; uma correção real cria nova entrada com `corrige:` apontando para a anterior.
+Antes de gravar, o agente deve verificar se a chave já existe. Uma repetição técnica não cria nova entrada; uma correção real cria nova entrada com `corrige:` apontando para a anterior.
 
-## Campos mínimos
+## Campos mínimos conceituais
 
-```yaml
-id: TL-20260726-145032-001
-idempotency_key: IDEMP-20260726-PROJETO-FABRICA-SOFTWARES-001-PLANO-VALIDACAO
-timestamp: 2026-07-26T14:50:32-03:00
-precisao_temporal: exata
-periodo: tarde
-origem: projeto
-projeto: Fábrica de softwares
-conversa: Governança e Fluxo Assistido
-intencao: executar plano confirmado
-estado_operacional: EXECUTADO
-decisoes_relacionadas:
-  - DEC-20260726-002
-evidencias:
-  - commit: abc123
-pendencias:
-  - validar em RC
-proxima_etapa: executar revisão independente
+Além dos dois campos Markdown obrigatórios, cada evento deve representar os seguintes dados:
+
+```text
+id
+timestamp
+precisao_temporal
+periodo
+origem
+projeto
+conversa
+intencao
+estado_operacional
+decisoes_relacionadas
+evidencias
+pendencias
+proxima_etapa
+```
+
+O bloco acima descreve o modelo conceitual. Ele não autoriza o uso de YAML como formato persistido.
+
+## Exemplo canônico resumido
+
+```markdown
+# TL-20260726-145032-001 — Execução do plano
+
+- **ID:** `TL-20260726-145032-001`.
+- **Chave de idempotência:** `IDEMP-20260726-PROJETO-FABRICA-SOFTWARES-001-PLANO-VALIDACAO`.
+- **Timestamp:** `2026-07-26T14:50:32-03:00`.
+- **Precisão temporal:** exata.
+- **Período:** tarde.
+- **Origem:** projeto.
+- **Projeto:** Fábrica de softwares.
+- **Conversa:** Governança e Fluxo Assistido.
+- **Intenção:** executar plano confirmado.
+- **Estado operacional:** `EXECUTADO`.
+- **Decisões relacionadas:** `DEC-20260726-002`.
+- **Evidências:** commit `abc123`.
+- **Pendências:** validar em RC.
+- **Próxima etapa:** executar revisão independente.
 ```
 
 ## Precisão temporal
@@ -166,7 +216,9 @@ Quando a gravação falhar:
 A timeline somente poderá ser universalizada quando:
 
 - o esquema estiver aplicado;
-- entradas legadas tiverem complemento de normalização;
+- entradas estruturadas novas em `events` falharem se omitirem ID ou chave;
+- a fronteira de legado estiver explícita e testada;
+- a política de formato persistido estiver explícita;
 - testes de idempotência, privacidade, horário, origem e fechamento passarem;
 - decisões e evidências estiverem vinculadas;
 - a cobertura global real estiver implementada ou sua limitação continuar explícita;
