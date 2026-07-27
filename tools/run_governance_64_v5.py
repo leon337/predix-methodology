@@ -4,6 +4,7 @@
 A evidência manual do Fluxo Assistido é resolvida por eventos estruturados e
 ordenados temporalmente. O evento mais recente do mesmo cenário prevalece:
 PASS_MANUAL libera o cenário; REGRESSION força NOT_RUN até novo reteste.
+O runner também valida o TL-005 atual e o esquema Markdown v0.3 diretamente.
 Nenhum efeito externo N2/N3 é executado.
 """
 from __future__ import annotations
@@ -19,12 +20,15 @@ from run_governance_64 import (
     BLOCKED,
     FAIL,
     NOT_RUN,
+    PASS_AUTOMATED,
     PASS_MANUAL,
+    PASS_STATIC,
     Repo,
     counts,
     to_markdown,
 )
 from run_governance_64_v3 import r5_results
+from validate_timeline import validate as validate_timeline
 
 EVIDENCE_LOG = "governance/evidence/assisted-flow-events.jsonl"
 SUPPORTED_OUTCOMES = {"PASS_MANUAL", "REGRESSION"}
@@ -105,11 +109,38 @@ def r7_results(repo: Repo):
     results = r5_results(repo)
     evidence_path = repo.root / EVIDENCE_LOG
     events = load_evidence_events(evidence_path) if evidence_path.exists() else []
+    schema_path = "timeline/SCHEMA.md"
+    schema = repo.text(schema_path) if repo.exists(schema_path) else ""
+    timeline_report = validate_timeline([repo.root / "timeline"])
     updated = []
 
     for item in results:
         if item.test_id in {"FA-008", "FA-009"}:
             item = apply_chronological_evidence(item, events, EVIDENCE_LOG)
+        elif item.test_id == "TL-001":
+            ok = "- **Projeto:**" in schema and "timeline/**/events/*.md" in schema
+            item = replace(
+                item,
+                status=PASS_STATIC if ok else FAIL,
+                evidence_class="inspeção estática",
+                observed=(
+                    "Esquema Markdown contém campo Projeto e limite canônico de eventos."
+                    if ok
+                    else "Esquema Markdown não contém campo Projeto ou limite canônico."
+                ),
+                evidence=(schema_path,),
+            )
+        elif item.test_id == "TL-005":
+            item = replace(
+                item,
+                status=PASS_AUTOMATED if timeline_report.ok else FAIL,
+                evidence_class="automatizado",
+                observed=(
+                    f"TL-005 executado: {timeline_report.structured_event_files} eventos estruturados, "
+                    f"{timeline_report.error_count} erros."
+                ),
+                evidence=("tools/validate_timeline.py", "tests/test_validate_timeline.py"),
+            )
         updated.append(item)
 
     if len(updated) != 64:
