@@ -7,6 +7,7 @@ on:
     paths:
       - "CULTURA.md"
       - "MOP.md"
+      - "README.md"
       - "governance/**"
       - "timeline/**"
       - "tools/**"
@@ -19,6 +20,7 @@ on:
     paths:
       - "CULTURA.md"
       - "MOP.md"
+      - "README.md"
       - "governance/**"
       - "timeline/**"
       - "tools/**"
@@ -36,22 +38,116 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Prepare raw evidence directory
+        run: mkdir -p governance-test-results
+
       - name: Resolve exact tested SHA
-        run: echo "TESTED_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
-      - name: Executable regression tests
-        run: python -m unittest discover -s tests -v
-      - name: TL-010 secret scan
-        run: python tools/scan_secrets.py . --format json
-      - name: Execute 64 governance scenarios R6
         run: |
-          python tools/run_governance_64_v4.py \
+          TESTED_SHA="$(git rev-parse HEAD)"
+          echo "TESTED_SHA=$TESTED_SHA" >> "$GITHUB_ENV"
+          printf '%s\n' "$TESTED_SHA" > governance-test-results/tested-sha.txt
+
+      - name: Hash evaluated files
+        run: |
+          find CULTURA.md MOP.md README.md governance timeline tools tests .github/workflows \
+            -type f ! -path 'governance-test-results/*' -print0 \
+            | sort -z \
+            | xargs -0 sha256sum \
+            > governance-test-results/evaluated-files.sha256
+
+      - name: Executable regression tests
+        run: |
+          set -o pipefail
+          python -m unittest discover -s tests -v 2>&1 \
+            | tee governance-test-results/unit-tests.log
+
+      - name: TL-005 timeline validation
+        run: |
+          set -o pipefail
+          python tools/validate_timeline.py timeline --format json \
+            | tee governance-test-results/timeline-validation.json
+
+      - name: TL-010 secret scan
+        run: |
+          set -o pipefail
+          python tools/scan_secrets.py . --format json \
+            | tee governance-test-results/secret-scan.json
+
+      - name: Execute 64 governance scenarios R7
+        run: |
+          set -o pipefail
+          python tools/run_governance_64_v5.py \
             --repo-root . \
             --output-dir governance-test-results \
-            --frozen-head "$TESTED_SHA"
-      - name: Upload evidence
+            --frozen-head "$TESTED_SHA" 2>&1 \
+            | tee governance-test-results/governance-runner.log
+
+      - name: Create evidence manifest and workflow summary
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          HEAD_REF: ${{ github.head_ref }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          output = Path("governance-test-results")
+          results = json.loads((output / "results.json").read_text(encoding="utf-8"))
+          timeline = json.loads((output / "timeline-validation.json").read_text(encoding="utf-8"))
+          scanner = json.loads((output / "secret-scan.json").read_text(encoding="utf-8"))
+          manifest = {
+              "tested_sha": os.environ["TESTED_SHA"],
+              "event_name": os.environ.get("EVENT_NAME", ""),
+              "ref_name": os.environ.get("REF_NAME", ""),
+              "head_ref": os.environ.get("HEAD_REF", ""),
+              "workflow": os.environ.get("WORKFLOW_NAME", ""),
+              "run_id": os.environ.get("RUN_ID", ""),
+              "run_attempt": os.environ.get("RUN_ATTEMPT", ""),
+              "python": "3.12",
+              "runner": results.get("runner"),
+              "result_summary": results.get("summary"),
+              "timeline_summary": {
+                  "ok": timeline.get("ok"),
+                  "files_scanned": timeline.get("files_scanned"),
+                  "structured_event_files": timeline.get("structured_event_files"),
+                  "error_count": timeline.get("error_count"),
+              },
+              "scanner_summary": {
+                  "count": scanner.get("count"),
+              },
+              "raw_files": sorted(path.name for path in output.iterdir() if path.is_file()),
+          }
+          (output / "evidence-manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          (output / "workflow-summary.json").write_text(
+              json.dumps(
+                  {
+                      "tested_sha": manifest["tested_sha"],
+                      "unit_tests_log": "unit-tests.log",
+                      "timeline_validation": manifest["timeline_summary"],
+                      "secret_scan": manifest["scanner_summary"],
+                      "governance_64": manifest["result_summary"],
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload complete raw evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
