@@ -72,6 +72,7 @@ predix-methodology/
 │   ├── GUARDRAILS.md
 │   ├── RECOVERY.md
 │   ├── INTEGRATION-STATUS.md
+│   ├── evidence/
 │   ├── reviews/
 │   └── tests/
 ├── tools/
@@ -85,18 +86,21 @@ Novos documentos somente serão criados quando houver ganho operacional comprova
 
 Nenhuma decisão pendente pode desaparecer por mudança de assunto. Toda decisão relevante deve ser concluída, rejeitada, substituída, bloqueada com condição de retomada ou preservada na fila de pendências.
 
-## Estado atual
+## Estado atual pós-R6
 
 - Repositório iniciado em 25 de julho de 2026.
 - Branch candidata integrada: `integration/mop-governance-v0.1`.
 - `CULTURA.md` está em `0.4-draft`; não é Constituição final aprovada.
-- `MOP.md`, arquitetura, guardrails e recuperação foram reunidos na branch integrada.
+- `MOP.md`, arquitetura, guardrails e recuperação estão reunidos na branch integrada.
 - Guardrails v0.4 continuam provisórios.
-- Scanner TL-010 foi corrigido para cobrir segredos genéricos com `#` e recebeu regressões específicas.
-- FA-008 e FA-009 foram reconciliados cronologicamente; FA-009 recebeu reteste manual multigrupo no cliente atual.
-- O runner R6 invalida evidência manual antiga quando uma regressão posterior não foi retestada.
-- A bateria integral deve ser reexecutada sobre um HEAD congelado exato após esta reconciliação.
-- A análise feita no mesmo contexto é apenas pré-revisão interna/adversarial, não RC independente.
-- A RC independente exige outra sessão, agente ou revisor e permanece pendente.
+- O candidato histórico R6 foi congelado na branch `test/governance-64-20260726-r6`, SHA `9cb5414412a562e17ee41759c5965343b5192220`, PR Draft `#9`.
+- Os workflows R6 `30224913937` e `30224914038` concluíram com sucesso sobre o SHA exato.
+- O artifact R6 `8638274889` registrou 64 cenários: 25 automatizados, 14 estáticos, 10 manuais e 15 simulados, sem `FAIL`, `BLOCKED` ou `NOT_RUN` naquele snapshot.
+- A RC independente R6 foi concluída com `CHANGES_REQUIRED`, independência atendida, sem edição, remediação ou merge durante a revisão.
+- Achados ativos da RC: reconciliação de estado canônico, obrigatoriedade do TL-005, invalidação cronológica genérica e artifact bruto completo.
+- A remediação R7 está em andamento na branch integrada; o R6 permanece imutável como evidência histórica.
+- O TL-005 R7 delimita eventos novos em `timeline/**/events/*.md`, exige ID e chave e proíbe YAML persistido nesta versão.
+- A evidência FA-008/FA-009 passa a ser resolvida por eventos estruturados e ordem temporal; regressão posterior força `NOT_RUN` até novo reteste.
+- O próximo artifact deve incluir logs brutos, scanner, TL-005, manifesto, hashes e resultados consolidados.
 - Instrução global, promoção e merge continuam bloqueados.
-- Nenhum merge desta branch na `main` foi realizado.
+- Nenhum merge da branch integrada ou do PR #9 na `main` foi realizado.
