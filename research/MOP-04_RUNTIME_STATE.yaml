@@ -1,0 +1,68 @@
+schema_version: "0.1.0"
+state_revision: 3
+objective_id: "MOP-04"
+linear_objective: "LEA-217"
+project: "Metodologia Operacional PREDIX — MOP"
+repository: "leon337/predix-methodology"
+base_branch: "feat/mop-v0.1-fundacao"
+working_branch: "research/mop-04-objective-loop-hardening"
+active_pull_request: 16
+observed_working_head_at_transition_start: "c4cada69c072663e91d910efa2d30a91086a4c52"
+review_head_authority: "GITHUB_PR_16_AND_LINEAR_LEA_223"
+review_head_policy: "READ_EXTERNALLY; SELF_REFERENTIAL_HEAD_EMBEDDING_PROHIBITED"
+
+transition_id: "MOP-04-T03"
+previous_transition_id: "MOP-04-T02"
+from_state: "MODELING"
+to_state: "INDEPENDENT_REVIEW"
+transition_status: "ARCHITECTURE_V0_2_READY_FOR_INDEPENDENT_REVIEW"
+transition_complete: false
+
+active_stage: "INDEPENDENT_REVIEW_PREPARED"
+active_issue: "LEA-223"
+completed_issues:
+  - "LEA-218"
+  - "LEA-219"
+  - "LEA-220"
+  - "LEA-221"
+  - "LEA-224"
+architecture_issue: "LEA-222"
+pending_issues:
+  - "LEA-223"
+
+constraints:
+  codex_allowed: false
+  main_direct_write_allowed: false
+  merge_allowed: false
+  destructive_action_allowed: false
+  runtime_implementation_started: false
+  human_decision_interface: "VISUALIZE_REQUIRED"
+  automatic_continue_prompt_required: false
+
+source_authority:
+  methodology_and_architecture: "GitHub PR 16"
+  operational_work_graph: "Linear LEA-217 and sub-issues"
+  independent_review_head: "GitHub PR 16 plus external pin in Linear LEA-223"
+  temporary_discussion: "ChatGPT project chat"
+  human_decision_interface: "Visualize"
+
+research_status:
+  internal_sources: "PASS_INITIAL"
+  openai_official_docs: "PASS_INITIAL"
+  github_official_docs: "PASS_INITIAL"
+  linear_official_docs: "PASS_INITIAL"
+  exact_old_chat_project_folder_name: "NOT_CONFIRMED"
+  old_study_content_recovered: "PASS_PARTIAL"
+
+architecture_status:
+  v0_1: "CHANGES_REQUIRED"
+  rc01_findings: 10
+  rc01_findings_remediated: 10
+  v0_2: "READY_FOR_INDEPENDENT_REVIEW"
+  internal_retest: "PASS_SPEC"
+  runtime_tests: "NOT_EXECUTED"
+  independent_review: "PENDING"
+
+next_action: "PIN_CURRENT_PR_HEAD_IN_LEA_223_AND_EXECUTE_REVIEW_FROM_CLEAN_CHAT"
+blockers:
+  - "INDEPENDENT_REVIEW_REQUIRES_SEPARATE_CLEAN_CHAT"
