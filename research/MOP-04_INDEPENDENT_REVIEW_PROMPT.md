@@ -12,7 +12,9 @@ ALVO
 Repositório: leon337/predix-methodology
 Base: feat/mop-v0.1-fundacao
 Branch: research/mop-04-objective-loop-hardening
-HEAD esperado: 622a4b91e1b07cff75e0702de265d613e2b9baf7
+PR: #16
+Autoridade do HEAD: PR #16 + Linear LEA-223
+HEAD esperado: READ_EXTERNALLY_FROM_PR_16_AND_LEA_223
 Linear principal: LEA-217
 Linear revisão: LEA-223
 Codex: PROIBIDO
@@ -49,7 +51,9 @@ RESTRIÇÕES
 - Não aprovar com base na intenção do autor.
 - Não tratar a RC interna como evidência de aprovação.
 - Não declarar runtime validado: ainda não há implementação real.
-- Fixar a revisão no HEAD esperado. Se o HEAD divergir, retornar BLOCKED.
+- Antes da revisão, ler o HEAD atual do PR #16 e comparar com o HEAD fixado externamente na LEA-223.
+- Se os dois HEADs divergirem, retornar BLOCKED.
+- Não tentar gravar o SHA atual dentro de um commit que altere o próprio HEAD.
 
 REVISAR OBRIGATORIAMENTE
 1. Autoridade por domínio e fontes de verdade.
