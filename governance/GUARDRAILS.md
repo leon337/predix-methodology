@@ -8,7 +8,8 @@
 - **Detecção e severidade:** definidas provisoriamente em 26 de julho de 2026.
 - **Recuperação técnica:** definida provisoriamente em `governance/RECOVERY.md`.
 - **Implementação automática:** parcial; TL-005, TL-010 e partes da bateria possuem execução em software, enquanto autorização e recuperação crítica permanecem simuladas ou documentais.
-- **Validação:** bateria R5B histórica concluída; runner R6 preparado para considerar regressões posteriores; nova execução integral sobre HEAD congelado ainda pendente; RC independente em contexto separado pendente.
+- **Validação R6 histórica:** workflows `30224913937` e `30224914038` concluídos sobre `9cb5414412a562e17ee41759c5965343b5192220`; RC independente resultou em `CHANGES_REQUIRED`.
+- **Remediação atual:** R7 em preparação para corrigir estado canônico, obrigatoriedade TL-005, cronologia estruturada e artifact bruto completo.
 
 ## 1. Objetivo e estado
 
@@ -58,7 +59,7 @@
 - **GR-031:** não apresentar hipótese como fato.
 - **GR-032:** não ocultar falha, limitação, dúvida ou resultado parcial.
 - **GR-033:** não usar dado antigo como estado atual sem verificação.
-- **Regra cronológica:** a existência de um arquivo de PASS não pode mascarar regressão posterior; a evidência mais recente prevalece até reteste válido.
+- **Regra cronológica:** a existência de um arquivo de PASS não pode mascarar regressão posterior; a evidência mais recente do mesmo cenário prevalece até reteste válido. A implementação R7 utiliza eventos estruturados com timestamp para FA-008 e FA-009.
 
 ## 6. 5W1H e 5 Porquês
 
@@ -168,7 +169,7 @@ A severidade do guardrail é independente do nível N0 a N4 da ação. O nível 
 | ação crítica recebe comando genérico | GR-020 a GR-022 | validar sintaxe e campos obrigatórios N2/N3 |
 | referência ou ambiente mudou | GR-023, GR-024 | recalcular estado antes da execução |
 | conclusão sem commit, teste, consulta ou evidência equivalente | GR-005, GR-030 | exigir evidência apropriada ao tipo de ação |
-| PASS antigo existe após regressão posterior | GR-030, GR-033 | comparar cronologia e invalidar até reteste |
+| PASS antigo existe após regressão posterior | GR-030, GR-033 | comparar eventos estruturados por cenário e invalidar até reteste |
 | ferramenta declarada indisponível sem consulta | GR-029 | verificar ferramentas e contexto realmente acessíveis |
 | segredo ou dado sensível aparece no conteúdo | GR-040, GR-041, GR-043 | inspeção preventiva antes de resposta, log ou commit |
 | decisão sem estado, responsável ou retomada | GR-046, GR-048 | validar campos do registro de decisões |
@@ -215,10 +216,12 @@ detectar
 
 ## Pendências de implementação e validação
 
-1. reexecutar scanner, TL-005 e os 64 cenários no mesmo HEAD congelado com o runner R6;
-2. publicar evidências do ciclo R6 e confirmar que não existem `FAIL`, `BLOCKED` ou `NOT_RUN`;
-3. validar falsos positivos adicionais do scanner;
-4. implementar autorização N2/N3 e recuperação crítica em software antes de uso automático;
-5. repetir testes manuais de interface em outro cliente quando possível;
-6. realizar RC independente com separação real de contexto;
-7. somente depois propor universalização na instrução global.
+1. concluir a remediação R7 dos achados `RC-R6-01` a `RC-R6-04`;
+2. congelar um novo HEAD R7 sem alterar o candidato histórico R6;
+3. executar testes unitários, scanner, TL-005 e os 64 cenários no mesmo SHA R7;
+4. publicar artifact com logs brutos, manifesto, hashes e resultados consolidados;
+5. validar falsos positivos adicionais do scanner;
+6. implementar autorização N2/N3 e recuperação crítica em software antes de uso automático;
+7. repetir testes manuais de interface em outro cliente quando possível;
+8. realizar nova RC independente com separação real de contexto;
+9. somente após resultado favorável e decisão explícita propor universalização na instrução global.
