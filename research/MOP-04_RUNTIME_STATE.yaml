@@ -1,0 +1,52 @@
+schema_version: "0.1.0"
+state_revision: 2
+objective_id: "MOP-04"
+linear_objective: "LEA-217"
+project: "Metodologia Operacional PREDIX — MOP"
+repository: "leon337/predix-methodology"
+base_branch: "feat/mop-v0.1-fundacao"
+working_branch: "research/mop-04-objective-loop-hardening"
+observed_working_head: "a2112a1a662469fcd95a95da6b14e0686afbbb7e"
+
+transition_id: "MOP-04-T02"
+previous_transition_id: "MOP-04-T01"
+from_state: "RESEARCHING"
+to_state: "MODELING"
+transition_status: "RESEARCH_ROUND_01_PUBLISHED"
+transition_complete: false
+
+active_stage: "ARCHITECTURE_MODELING"
+active_issue: "LEA-222"
+completed_research_issues:
+  - "LEA-218"
+  - "LEA-219"
+  - "LEA-220"
+  - "LEA-221"
+pending_issues:
+  - "LEA-222"
+  - "LEA-223"
+
+constraints:
+  codex_allowed: false
+  main_direct_write_allowed: false
+  merge_allowed: false
+  destructive_action_allowed: false
+  human_decision_interface: "VISUALIZE_REQUIRED"
+  automatic_continue_prompt_required: false
+
+source_authority:
+  methodology_and_architecture: "GitHub branch research/mop-04-objective-loop-hardening"
+  operational_work_graph: "Linear LEA-217 and sub-issues"
+  temporary_discussion: "ChatGPT project chat"
+  human_decision_interface: "Visualize"
+
+research_status:
+  internal_sources: "PASS_INITIAL"
+  openai_official_docs: "PASS_INITIAL"
+  github_official_docs: "PASS_INITIAL"
+  linear_official_docs: "PASS_INITIAL"
+  exact_old_chat_project_folder_name: "NOT_CONFIRMED"
+  old_study_content_recovered: "PASS_PARTIAL"
+
+next_action: "CREATE_ARCHITECTURE_CANDIDATE_AND_RUN_ADVERSARIAL_RC"
+blockers: []
