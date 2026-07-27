@@ -3,12 +3,11 @@
 ## Estado
 
 - **Data:** `2026-07-26`.
-- **Última reconciliação:** pós-RC independente R6, durante remediação R7.
+- **Última reconciliação:** pós-falha do R7 inicial, durante preparação do R7B.
 - **Branch canônica de trabalho:** `integration/mop-governance-v0.1`.
-- **Candidato histórico preservado:** `test/governance-64-20260726-r6`.
-- **SHA histórico R6:** `9cb5414412a562e17ee41759c5965343b5192220`.
-- **PR histórico R6:** `#9`, aberto como Draft e sem merge.
-- **Fonte incorporada do PR #1:** `MOP.md` copiado e posteriormente reconciliado na branch integrada.
+- **Candidato histórico R6:** `test/governance-64-20260726-r6`, SHA `9cb5414412a562e17ee41759c5965343b5192220`, PR #9.
+- **Candidato histórico R7 inicial:** `test/governance-64-20260726-r7`, SHA `c38946abf8526a9ad47075efbb04f75ba4a0fe00`, PR #14 fechado após falha.
+- **Sucessor:** R7B a congelar a partir da branch integrada corrigida.
 - **Cultura sincronizada:** `CULTURA.md` v0.4-draft.
 - **Guardrails:** v0.4-provisória.
 - **Merge na `main`:** não autorizado e não realizado.
@@ -28,9 +27,21 @@
 
 O R6 permanece como evidência histórica imutável. Seus PASS não autorizam promoção porque a RC identificou quatro achados obrigatórios.
 
+## Resultado histórico R7 inicial
+
+- workflow governança: `30228522319`, failure;
+- workflow timeline: `30228522369`, failure;
+- artifact parcial: `8639293479`;
+- testes unitários: 18 PASS;
+- TL-005: FAIL por notação conceitual do esquema que imitava campos persistidos com placeholders;
+- PR #14: fechado sem merge;
+- branch e SHA: preservados sem alteração.
+
+A correção foi aplicada somente na branch integrada. O R7 inicial não foi reescrito e não será apresentado como candidato válido.
+
 ## Achados RC-R6 ativos
 
-1. `RC-R6-01` — fontes canônicas ainda refletiam estados anteriores ao R6;
+1. `RC-R6-01` — fontes canônicas mantinham estados anteriores ao R6;
 2. `RC-R6-02` — TL-005 não exigia campos em entradas novas e não formalizava YAML;
 3. `RC-R6-03` — runner não realizava invalidação cronológica genérica;
 4. `RC-R6-04` — artifact não continha toda a cadeia bruta de evidências.
@@ -64,26 +75,27 @@ A branch contém simultaneamente:
 
 A precedência nesta branch serve para testar o candidato. Ela não converte a minuta em Constituição final.
 
-## Remediação R7 executada na branch de trabalho
+## Remediação R7/R7B executada na branch de trabalho
 
-- estado pós-R6 registrado no README e neste documento;
+- estado pós-R6 registrado nas fontes canônicas;
 - política TL-005 alterada para exigir exatamente um ID e uma chave em `timeline/**/events/*.md`;
 - fronteira de legado definida por caminho;
 - YAML persistido formalmente proibido na versão 0.3 do esquema;
 - testes adicionados para entrada incompleta, YAML, formato parcial e arquivo legado;
 - eventos FA-008/FA-009 estruturados em JSONL com timestamp e resultado;
-- runner R7 criado para fazer a evidência mais recente do mesmo cenário prevalecer;
+- runner criado para fazer a evidência mais recente do mesmo cenário prevalecer;
 - teste criado para provar que regressão posterior força `NOT_RUN`;
-- workflow ampliado para produzir logs de testes, scanner, TL-005, manifesto, hashes e resumo bruto.
+- workflow ampliado para produzir logs de testes, scanner, TL-005, manifesto, hashes e resumo bruto;
+- falha do R7 inicial preservada;
+- notação conceitual do esquema corrigida para não ser confundida com evento persistido.
 
 ## Pendências atuais
 
-- concluir reconciliação do registro de decisões e dos guardrails;
-- congelar novo HEAD R7 sem alterar o R6;
-- abrir PR Draft específico do R7;
+- congelar o HEAD R7B sem alterar R6 ou R7 inicial;
+- abrir PR Draft específico do R7B;
 - executar testes unitários, scanner, TL-005 e 64 cenários no mesmo SHA;
 - verificar o artifact bruto completo;
-- registrar resultado R7 fora do HEAD congelado;
+- registrar resultado R7B fora do HEAD congelado;
 - submeter o novo candidato a outra RC independente;
 - criar linha de base e metas quantitativas;
 - decidir desenvolvimento local e acessibilidade;
